@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | FisherCapital</title>
+  <meta name="description" content="How FisherCapital collects, uses, and handles the information you share through this website." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #0C0E12;
+      --surface:   #13161C;
+      --border:    rgba(255,255,255,0.07);
+      --muted:     rgba(255,255,255,0.38);
+      --body:      rgba(255,255,255,0.78);
+      --heading:   #FFFFFF;
+      --accent:    #C8A96E;
+      --accent-dk: #A68748;
+      --radius:    6px;
+      --font-sans: 'Outfit', sans-serif;
+      --font-serif: 'DM Serif Display', serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(12,14,18,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .logo {
+      font-family: var(--font-sans); font-weight: 700; font-size: 18px;
+      letter-spacing: -0.02em; color: var(--heading);
+    }
+    .logo span { color: var(--accent); }
+    .nav-back { font-size: 14px; color: var(--muted); }
+    .nav-back:hover { color: var(--heading); text-decoration: none; }
+
+    /* DOC */
+    .doc { padding: 64px 0 80px; }
+    .doc-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    }
+    .doc h1 {
+      font-family: var(--font-serif); font-size: clamp(30px, 5vw, 46px);
+      color: var(--heading); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 16px;
+    }
+    .doc-meta { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+    .doc-intro {
+      font-size: 16px; color: var(--body); margin: 28px 0 12px;
+      padding-bottom: 32px; border-bottom: 1px solid var(--border);
+    }
+    .doc h2 {
+      font-family: var(--font-sans); font-weight: 600; font-size: 19px;
+      color: var(--heading); margin: 44px 0 14px;
+    }
+    .doc h2 .num { color: var(--accent); margin-right: 10px; font-family: var(--font-serif); }
+    .doc p { font-size: 15px; color: var(--body); margin-bottom: 14px; }
+    .doc ul { margin: 0 0 16px 0; padding-left: 22px; }
+    .doc li { font-size: 15px; color: var(--body); margin-bottom: 8px; }
+    .doc strong { color: var(--heading); font-weight: 600; }
+
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 20px 22px; margin: 24px 0;
+    }
+    .callout p { margin-bottom: 0; font-size: 14px; }
+
+    .contact-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 24px 24px; margin-top: 20px;
+    }
+    .contact-block p { margin-bottom: 6px; font-size: 15px; }
+    .contact-block .name { color: var(--heading); font-weight: 600; }
+
+    /* FOOTER */
+    footer { padding: 40px 0; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .footer-legal { font-size: 12px; color: var(--muted); line-height: 1.65; max-width: 700px; }
+    .footer-top {
+      display: flex; flex-direction: column; gap: 12px;
+      align-items: flex-start; margin-bottom: 24px;
+    }
+    @media (min-width: 640px) {
+      .footer-top { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+    .footer-email { font-size: 14px; color: var(--muted); }
+    .footer-email:hover { color: var(--accent); }
+    .footer-divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 22px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="/" class="logo">Fisher<span>Capital</span></a>
+    <a href="/" class="nav-back">← Back to home</a>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="container">
+
+    <div class="doc-eyebrow">FisherCapital.ca</div>
+    <h1>Privacy Policy</h1>
+    <p class="doc-meta">Last updated: June 7, 2026</p>
+
+    <p class="doc-intro">
+      This Privacy Policy explains what information FisherCapital.ca collects when you use this website, why it is collected, how it is used, and the choices you have. FisherCapital is a personal lead-capture brand operated by Raymond. F, a Licensed Mortgage Agent (Level 1) with Mortgage Commitment, FSRA Lic. #M26000144. This website serves Ontario residents and is intended for general information and initial inquiry only.
+    </p>
+
+    <h2><span class="num">1.</span>What information is collected</h2>
+    <p>
+      When you fill out the intake form on this website, you may provide the following:
+    </p>
+    <ul>
+      <li>Your name</li>
+      <li>Your email address</li>
+      <li>Your phone number</li>
+      <li>A general description of your mortgage situation (for example, renewal, refinance, self-employed income, a prior decline, or debt you want to consolidate)</li>
+      <li>Your general location or province</li>
+      <li>Any other details you choose to type into the optional notes field</li>
+    </ul>
+    <p>
+      If you book a call, the booking tool may also collect the information needed to schedule and confirm your appointment, such as your name, email, phone number, and chosen time.
+    </p>
+    <p>
+      This website may also automatically receive limited technical information that is standard for most websites, such as your browser type and general usage data, through the website host. No separate website-analytics tool is currently in use. If one is added later, this policy will be updated to reflect it.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Please do not submit sensitive information through this website.</strong> The public intake form is not designed to collect your Social Insurance Number (SIN), banking login credentials, document uploads, full financial records, or mortgage application paperwork. Please do not enter any of these into the form or the notes field. If sensitive documents are needed at a later stage, they are collected only through the approved brokerage application process, not through this website.
+      </p>
+    </div>
+
+    <h2><span class="num">2.</span>Why this information is collected</h2>
+    <p>
+      Information is collected so that Raymond. F can understand your situation at a high level, prepare for a useful first conversation, respond to your inquiry, and schedule a call if you choose to book one. The goal at this stage is to learn enough context to have an informed conversation, not to assess or process a formal mortgage application.
+    </p>
+
+    <h2><span class="num">3.</span>How your information is used</h2>
+    <p>Your information is used to:</p>
+    <ul>
+      <li>Respond to your inquiry and follow up with you</li>
+      <li>Prepare for and schedule a phone or video conversation</li>
+      <li>Organize and track your inquiry internally so that nothing is missed</li>
+      <li>Communicate with you about your inquiry through email, phone, or text, using the contact details and preferences you provided</li>
+    </ul>
+    <p>
+      Your information is not sold. It is not rented. It is not used for unrelated marketing by third parties.
+    </p>
+
+    <h2><span class="num">4.</span>Third-party tools that may process your information</h2>
+    <p>
+      To run this website and manage inquiries, a small number of third-party service providers may process the information you submit. Each provider operates under its own privacy and security practices, which are outside the control of FisherCapital. The current tools are:
+    </p>
+    <ul>
+      <li><strong>Tally.</strong> The intake form provider that receives and stores your form submission.</li>
+      <li><strong>Calendly.</strong> The booking tool used to schedule calls.</li>
+      <li><strong>Make.com.</strong> An automation tool that may move your form information from the intake form into the lead-tracking system.</li>
+      <li><strong>Trello.</strong> A lead-tracking tool used to organize and follow up on inquiries internally.</li>
+      <li><strong>Email provider.</strong> Used to send and receive messages with you.</li>
+      <li><strong>Website host.</strong> The service that hosts and serves this website.</li>
+      <li><strong>Analytics (not currently in use).</strong> No website-analytics tool is active at this time. A general website-analytics tool may be added in the future to understand site usage. If one is added, this policy will be updated.</li>
+    </ul>
+    <p>
+      These providers may store data on servers located inside or outside of Canada. When information is stored or processed outside of Canada, it may be subject to the laws of the country where it is held.
+    </p>
+
+    <h2><span class="num">5.</span>When information may be shared with the brokerage</h2>
+    <p>
+      FisherCapital is a personal brand operated through Mortgage Commitment. If, after speaking with Raymond. F, you choose to move forward with a mortgage inquiry or application, your information may be shared with Mortgage Commitment and used within the brokerage's approved application process. This happens only when you decide to proceed. Sharing with lenders, insurers, or other parties involved in a mortgage transaction is handled through that approved brokerage process and is governed by the disclosures and consents you receive at that stage.
+    </p>
+
+    <h2><span class="num">6.</span>This website does not provide mortgage advice or lending decisions</h2>
+    <p>
+      The content on this website is general information only. It does not constitute mortgage advice, a recommendation, an offer to lend, a pre-approval, or a lending decision. Submitting the intake form does not create a client relationship and does not guarantee any outcome. Any mortgage advice or decision happens only through a proper review within the approved brokerage process and is subject to lender approval.
+    </p>
+
+    <h2><span class="num">7.</span>What you should not submit through this website</h2>
+    <p>
+      To protect your privacy, please do not submit any of the following through the public intake form, the notes field, or general email:
+    </p>
+    <ul>
+      <li>Your Social Insurance Number (SIN)</li>
+      <li>Banking login credentials or passwords</li>
+      <li>Uploaded documents or scans</li>
+      <li>Full financial records or statements</li>
+      <li>Completed mortgage application paperwork</li>
+    </ul>
+    <p>
+      If any of this information is needed later, it is requested and collected only through the brokerage's secure and approved application process.
+    </p>
+
+    <h2><span class="num">8.</span>Access, correction, and deletion</h2>
+    <p>
+      You may ask what personal information has been collected about you, ask for corrections if something is inaccurate, or ask for your information to be deleted, where applicable. Some information may need to be retained to meet legal, regulatory, or record-keeping obligations that apply to licensed mortgage professionals in Ontario. To make a request, use the contact details below. A reasonable effort will be made to respond within a reasonable timeframe.
+    </p>
+
+    <h2><span class="num">9.</span>Data security</h2>
+    <p>
+      Reasonable care is taken to limit the information collected through this website and to work with established service providers. However, no website or method of electronic transmission or storage can be guaranteed to be fully secure. You share information through this website at your own discretion, and you are encouraged to avoid sending sensitive information through the public form, as described above.
+    </p>
+
+    <h2><span class="num">10.</span>Changes to this policy</h2>
+    <p>
+      This policy may be updated from time to time, for example if tools change or new tools are added. The "Last updated" date at the top will reflect the most recent version. Continued use of the website after changes are posted means you accept the updated policy.
+    </p>
+
+    <h2><span class="num">11.</span>Contact</h2>
+    <p>If you have questions about this Privacy Policy or about your information, you can reach out here:</p>
+    <div class="contact-block">
+      <p class="name">Raymond. F</p>
+      <p>Licensed Mortgage Agent (Level 1), Mortgage Commitment</p>
+      <p>FSRA Lic. #M26000144</p>
+      <p>Email: <a href="mailto:ray@mccbroker.ca">ray@mccbroker.ca</a></p>
+      <p>Phone: <a href="tel:+14168980181">(416) 898-0181</a></p>
+    </div>
+
+    <div class="callout" style="margin-top: 36px;">
+      <p>
+        <strong>A note on this policy.</strong> This Privacy Policy is provided as general information for a simple website and is not legal advice. It has not been reviewed by a lawyer. Before publishing, you should have it reviewed by a qualified legal professional and confirm it meets your obligations under Ontario and Canadian privacy law (including PIPEDA), as well as any privacy or compliance requirements set by Mortgage Commitment and FSRA. Confirm the list of third-party tools is accurate and current before going live.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="logo">Fisher<span class="accent" style="color:var(--accent);">Capital</span></div>
+      <a href="mailto:ray@mccbroker.ca" class="footer-email">ray@mccbroker.ca</a>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-legal">
+      FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
+      Raymond. F, Licensed Mortgage Agent 1 | Mortgage Commitment, FSRA Lic. #M26000144 | (416) 898-0181
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

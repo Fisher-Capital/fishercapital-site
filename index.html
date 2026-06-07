@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FisherCapital | Ontario Mortgage Agent | Complex Mortgage Situations</title>
+  <meta name="description" content="Self-employed, bank declined, renewal, debt consolidation, bruised credit. Ontario mortgage solutions for situations that don't fit the standard profile." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ────────────────────────────────────────────────── */
+    :root {
+      --bg:        #0C0E12;
+      --surface:   #13161C;
+      --border:    rgba(255,255,255,0.07);
+      --muted:     rgba(255,255,255,0.38);
+      --body:      rgba(255,255,255,0.78);
+      --heading:   #FFFFFF;
+      --accent:    #C8A96E;   /* amber, not corporate, not generic */
+      --accent-dk: #A68748;
+      --radius:    6px;
+      --font-sans: 'Outfit', sans-serif;
+      --font-serif: 'DM Serif Display', serif;
+    }
+
+    /* ─── RESET ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── UTILITY ───────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .accent { color: var(--accent); }
+    .muted  { color: var(--muted); }
+
+    /* ─── BUTTONS ───────────────────────────────────────────────── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #0C0E12;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.12s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: var(--accent-dk); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--body);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 400;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 2px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─── NAV ───────────────────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12,14,18,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      color: var(--heading);
+    }
+    .logo span { color: var(--accent); }
+    nav.desktop {
+      display: none;
+      gap: 32px;
+      align-items: center;
+    }
+    nav.desktop a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    nav.desktop a:hover { color: var(--heading); }
+    .nav-cta { flex-shrink: 0; }
+
+    /* hamburger */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--body);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    /* mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 64px 0 0 0;
+      background: var(--bg);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--body);
+      transition: color 0.15s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    @media (min-width: 768px) {
+      nav.desktop { display: flex; }
+      .hamburger  { display: none; }
+    }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      padding: 80px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      /* subtle grid background */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 5vw, 52px);
+      line-height: 1.15;
+      color: var(--heading);
+      max-width: 780px;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 18px);
+      color: var(--body);
+      max-width: 560px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    @media (min-width: 480px) {
+      .hero-actions { flex-direction: row; align-items: center; }
+    }
+
+    /* ─── SECTION COMMON ────────────────────────────────────────── */
+    section { padding: 80px 0; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .section-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 4vw, 40px);
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 48px;
+      max-width: 520px;
+    }
+    .rule {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      border: none;
+    }
+
+    /* ─── SCENARIO TILES ────────────────────────────────────────── */
+    #who-i-help { border-top: 1px solid var(--border); }
+    .tile-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .tile-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .tile-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .tile {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.18s;
+    }
+    .tile:hover {
+      border-color: rgba(200, 169, 110, 0.3);
+      transform: translateY(-2px);
+    }
+    .tile-icon {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+    .tile-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+    .tile-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .tile-link {
+      display: block;
+      font-size: 13px;
+      color: var(--accent);
+      margin-top: 16px;
+      font-weight: 500;
+    }
+    .tile-link:hover { text-decoration: underline; }
+    .tiles-footer {
+      margin-top: 40px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .tiles-footer a { color: var(--accent); font-weight: 500; }
+    .tiles-footer a:hover { text-decoration: underline; }
+
+    /* ─── HOW IT WORKS ──────────────────────────────────────────── */
+    #how-it-works {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    @media (min-width: 768px) {
+      .steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    .step {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 768px) {
+      .step {
+        padding: 0 40px;
+        border-bottom: none;
+        border-right: 1px solid var(--border);
+      }
+      .step:last-child { border-right: none; }
+      .step:first-child { padding-left: 0; }
+    }
+    .step-num {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+    .step-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--heading);
+      margin-bottom: 10px;
+    }
+    .step-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .step-action {
+      margin-top: 20px;
+    }
+
+    /* ─── WHY BROKER ────────────────────────────────────────────── */
+    #why-broker { border-top: 1px solid var(--border); }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (min-width: 768px) {
+      .two-col { grid-template-columns: 2fr 3fr; gap: 80px; }
+    }
+    .broker-intro {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+    .broker-points {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .broker-point {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .broker-point:last-child { border-bottom: none; }
+    .broker-num {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      color: var(--accent);
+      opacity: 0.5;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 32px;
+      padding-top: 4px;
+    }
+    .broker-text {
+      font-size: 15px;
+      color: var(--body);
+      line-height: 1.65;
+    }
+
+    /* ─── CTA BLOCK ─────────────────────────────────────────────── */
+    .cta-block {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .cta-block .section-headline {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-block .section-sub {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .cta-disclaimer {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      padding: 48px 0 40px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+    @media (min-width: 640px) {
+      .footer-top {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .footer-email {
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    .footer-email:hover { color: var(--accent); }
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 24px;
+    }
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    @media (min-width: 640px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+    .footer-legal {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 640px;
+    }
+    .footer-privacy {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 1px;
+      transition: color 0.15s;
+    }
+    .footer-privacy:hover { color: var(--accent); }
+
+    /* ─── ANIMATIONS ────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up {
+      animation: fadeUp 0.55s ease both;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.22s; }
+    .delay-3 { animation-delay: 0.34s; }
+    .delay-4 { animation-delay: 0.46s; }
+  </style>
+</head>
+<body>
+
+<!-- ─────────────────────────────────────────────
+     NAVIGATION
+───────────────────────────────────────────────── -->
+<header>
+  <div class="container nav-inner">
+    <a href="/" class="logo">Fisher<span>Capital</span></a>
+
+    <nav class="desktop">
+      <a href="#who-i-help">Who I Help</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation">Book a Call</a>
+    </nav>
+
+    <div style="display:flex; align-items:center; gap:12px;">
+      <a href="https://tally.so/r/KYGDrk" class="btn-primary nav-cta">Start Here →</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#who-i-help" class="mobile-link">Who I Help</a>
+  <a href="#how-it-works" class="mobile-link">How It Works</a>
+  <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="mobile-link">Book a Call</a>
+  <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start Here →</a>
+</div>
+
+
+<!-- ─────────────────────────────────────────────
+     HERO
+───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow fade-up">Licensed Ontario Mortgage Agent</div>
+
+    <h1 class="fade-up delay-1">
+      If your bank said no, your income is complicated, or your renewal is coming up and you're not sure where you stand.
+      <em>That's exactly who I work with.</em>
+    </h1>
+
+    <p class="hero-sub fade-up delay-2">
+      I work with Ontario borrowers on complex mortgage situations. Not the simple applications. The situations that take more than a standard process to navigate.
+    </p>
+
+    <div class="hero-actions fade-up delay-3">
+      <a href="https://tally.so/r/KYGDrk" class="btn-primary">Tell me your situation →</a>
+      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn-ghost">Or book a call directly</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────────
+     WHO I HELP
+───────────────────────────────────────────────── -->
+<section id="who-i-help">
+  <div class="container">
+    <div class="section-label">Who I Work With</div>
+    <h2 class="section-headline">If your situation fits one of these, you're in the right place.</h2>
+    <p class="section-sub">Six situations where having the right guidance tends to matter most.</p>
+
+    <div class="tile-grid">
+
+      <!-- Tile 1: Self-Employed -->
+      <div class="tile">
+        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="7" width="20" height="14" rx="2"/>
+          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          <line x1="12" y1="12" x2="12" y2="16"/>
+          <line x1="10" y1="14" x2="14" y2="14"/>
+        </svg>
+        <div class="tile-label">Self-Employed or Irregular Income</div>
+        <p class="tile-desc">Self-employed qualifying works differently than the bank's standard process. There are lending channels built around that reality.</p>
+      </div>
+
+      <!-- Tile 2: Bank Declined -->
+      <div class="tile">
+        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="15" y1="9" x2="9" y2="15"/>
+          <line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+        <div class="tile-label">Bank Declined</div>
+        <p class="tile-desc">A lender decline is a reason to understand what happened, what information is missing, and whether another path should be reviewed.</p>
+      </div>
+
+      <!-- Tile 3: Renewal -->
+      <div class="tile">
+        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="4" width="18" height="18" rx="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <div class="tile-label">Mortgage Renewal</div>
+        <p class="tile-desc">Most borrowers accept their bank's renewal without exploring what else is available. You have time to look.</p>
+      </div>
+
+      <!-- Tile 4: Debt Consolidation -->
+      <div class="tile">
+        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+        <div class="tile-label">Debt Consolidation</div>
+        <p class="tile-desc">If you have home equity and high-interest debt, there may be a way to restructure that reduces what you're paying monthly. It's worth understanding what's possible.</p>
+      </div>
+
+      <!-- Tile 5: Bruised Credit -->
+      <div class="tile">
+        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <div class="tile-label">Bruised or Recovering Credit</div>
+        <p class="tile-desc">A difficult credit history shapes the strategy. It doesn't end the conversation. The right approach depends on where you are and what timeline you're working with.</p>
+      </div>
+
+      <!-- Tile 6: Refinance -->
+      <div class="tile">
+        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="12" y1="1" x2="12" y2="23"/>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <div class="tile-label">Refinance or Equity Access</div>
+        <p class="tile-desc">If you need to restructure your mortgage, fund a renovation, or access equity you've built, the right move depends on your full picture. Let's start there.</p>
+      </div>
+
+    </div>
+
+    <p class="tiles-footer">
+      Not sure which category fits? That's fine. <a href="https://tally.so/r/KYGDrk">Start the intake and we'll figure it out →</a>
+    </p>
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────────
+     HOW IT WORKS
+───────────────────────────────────────────────── -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-label">The Process</div>
+    <h2 class="section-headline">Three steps. No runaround.</h2>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Tell me your situation</div>
+        <p class="step-desc">Fill out a short intake form. Takes about 3 minutes. No SIN. No documents. No sensitive financial records. Just enough context to understand where you're starting from.</p>
+        <div class="step-action">
+          <a href="https://tally.so/r/KYGDrk" class="btn-ghost">Start the intake →</a>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">We talk through your file</div>
+        <p class="step-desc">Book a call that fits your schedule. I'll review what you submitted before we connect, so the conversation is focused and useful, not generic.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">You leave with clarity</div>
+        <p class="step-desc">Whether the next step is an application, more information, or a longer-term plan, you'll know what's realistic and what comes next.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────────
+     WHY NOT YOUR BANK
+───────────────────────────────────────────────── -->
+<section id="why-broker">
+  <div class="container">
+    <div class="two-col">
+
+      <div>
+        <div class="section-label">Why a Broker?</div>
+        <h2 class="section-headline">Why not just go through your bank?</h2>
+        <p class="broker-intro">It's a reasonable question. Here's the straightforward answer.</p>
+      </div>
+
+      <div class="broker-points">
+
+        <div class="broker-point">
+          <div class="broker-num">1</div>
+          <p class="broker-text">Banks offer their own products. A mortgage broker has access to multiple lenders across different lending categories, which matters when your situation doesn't fit a standard profile.</p>
+        </div>
+
+        <div class="broker-point">
+          <div class="broker-num">2</div>
+          <p class="broker-text">Banks underwrite to standard criteria. If your income is complex, your credit has history, or your file has any nuance, the standard process often produces a decline or a weaker offer.</p>
+        </div>
+
+        <div class="broker-point">
+          <div class="broker-num">3</div>
+          <p class="broker-text">Banks don't typically explain what didn't work, or what would. A broker's job is to understand your full picture and find the right fit. Not just run the application and deliver a decision.</p>
+        </div>
+
+        <div class="broker-point">
+          <div class="broker-num">4</div>
+          <p class="broker-text">In most residential mortgage transactions, the broker is compensated by the lender when the mortgage closes, not by you. In some situations involving private or alternative lending, a broker fee may apply. If that's the case for your file, it will be explained and agreed to before anything moves forward.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────────
+     CTA BLOCK
+───────────────────────────────────────────────── -->
+<section class="cta-block">
+  <div class="container" style="text-align:center;">
+    <div class="section-label" style="justify-content:center; display:flex;">Ready?</div>
+    <h2 class="section-headline">Not sure if your situation fits?</h2>
+    <p class="section-sub">Tell me what's going on. The intake takes 3 minutes and I review what you share before we connect, so the conversation is useful from the start.</p>
+    <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start the intake →</a>
+    <p class="cta-disclaimer">No SIN required. No documents. No commitment.</p>
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────────────────
+     FOOTER
+───────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="logo">Fisher<span class="accent">Capital</span></div>
+      <a href="mailto:ray@mccbroker.ca" class="footer-email">ray@mccbroker.ca</a>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+      <p class="footer-legal">
+        FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
+        Raymond. F, Licensed Mortgage Agent 1 | Mortgage Commitment, FSRA Lic. #M26000144 | (416) 898-0181
+      </p>
+      <a href="/privacy-policy" class="footer-privacy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ─────────────────────────────────────────────
+     SCRIPTS
+───────────────────────────────────────────────── -->
+<script>
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Close mobile menu when scrolling resumes
+  window.addEventListener('scroll', () => {
+    mobileMenu.classList.remove('open');
+  }, { passive: true });
+</script>
+
+</body>
+</html>
