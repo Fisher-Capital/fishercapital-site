@@ -1,0 +1,468 @@
+/* chatbot.css */
+/* FisherCapital chat widget -- matches site token system */
+/* Uses same --bg, --surface, --accent, --font-sans variables as main site */
+
+:root {
+  --fc-bg:        #0C0E12;
+  --fc-surface:   #13161C;
+  --fc-surface-2: #1a1d24;
+  --fc-border:    rgba(255,255,255,0.07);
+  --fc-muted:     rgba(255,255,255,0.38);
+  --fc-body:      rgba(255,255,255,0.78);
+  --fc-heading:   #FFFFFF;
+  --fc-accent:    #C8A96E;
+  --fc-accent-dk: #A68748;
+  --fc-radius:    10px;
+  --fc-font:      'Outfit', system-ui, sans-serif;
+  --fc-shadow:    0 24px 64px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* ─── Launcher button ───────────────────────── */
+
+#fc-chat-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9000;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--fc-accent);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(200,169,110,0.35), 0 2px 8px rgba(0,0,0,0.4);
+  transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+  font-family: var(--fc-font);
+  outline: none;
+}
+
+#fc-chat-launcher:hover {
+  background: var(--fc-accent-dk);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(200,169,110,0.4), 0 2px 8px rgba(0,0,0,0.4);
+}
+
+#fc-chat-launcher:focus-visible {
+  outline: 2px solid var(--fc-accent);
+  outline-offset: 3px;
+}
+
+#fc-chat-launcher svg {
+  color: #0C0E12;
+  transition: opacity 0.15s;
+}
+
+/* ─── Unread badge ──────────────────────────── */
+
+#fc-unread-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 18px;
+  height: 18px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 2px solid var(--fc-bg);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  font-family: var(--fc-font);
+}
+
+#fc-unread-badge.visible {
+  display: flex;
+}
+
+/* ─── Chat window ───────────────────────────── */
+
+#fc-chat-window {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  z-index: 8999;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  height: 520px;
+  max-height: calc(100vh - 120px);
+  background: var(--fc-surface);
+  border: 1px solid var(--fc-border);
+  border-radius: var(--fc-radius);
+  box-shadow: var(--fc-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--fc-font);
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+  pointer-events: none;
+}
+
+#fc-chat-window.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+/* ─── Header ────────────────────────────────── */
+
+#fc-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--fc-bg);
+  border-bottom: 1px solid var(--fc-border);
+  flex-shrink: 0;
+}
+
+.fc-header-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fc-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--fc-accent) 0%, var(--fc-accent-dk) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0C0E12;
+  flex-shrink: 0;
+}
+
+.fc-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.fc-header-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fc-heading);
+  line-height: 1.2;
+}
+
+.fc-header-status {
+  font-size: 11px;
+  color: var(--fc-muted);
+}
+
+#fc-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fc-muted);
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+  outline: none;
+}
+
+#fc-close-btn:hover { color: var(--fc-heading); }
+#fc-close-btn:focus-visible { outline: 2px solid var(--fc-accent); }
+
+/* ─── Messages area ─────────────────────────── */
+
+#fc-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+#fc-messages::-webkit-scrollbar { width: 4px; }
+#fc-messages::-webkit-scrollbar-track { background: transparent; }
+#fc-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+/* ─── Message bubbles ───────────────────────── */
+
+.fc-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
+  gap: 4px;
+}
+
+.fc-msg.bot { align-self: flex-start; }
+.fc-msg.visitor { align-self: flex-end; }
+.fc-msg.raymond { align-self: flex-start; }
+
+.fc-bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  word-wrap: break-word;
+}
+
+.fc-msg.bot .fc-bubble {
+  background: var(--fc-surface-2);
+  border: 1px solid var(--fc-border);
+  color: var(--fc-body);
+  border-bottom-left-radius: 4px;
+}
+
+.fc-msg.raymond .fc-bubble {
+  background: rgba(200,169,110,0.08);
+  border: 1px solid rgba(200,169,110,0.2);
+  color: var(--fc-body);
+  border-bottom-left-radius: 4px;
+}
+
+.fc-msg.visitor .fc-bubble {
+  background: var(--fc-accent);
+  color: #0C0E12;
+  border-bottom-right-radius: 4px;
+  font-weight: 500;
+}
+
+.fc-bubble a {
+  color: var(--fc-accent);
+  text-decoration: underline;
+  text-decoration-color: rgba(200,169,110,0.4);
+}
+
+.fc-msg.visitor .fc-bubble a {
+  color: #0C0E12;
+  text-decoration-color: rgba(12,14,18,0.4);
+}
+
+.fc-sender-label {
+  font-size: 10px;
+  color: var(--fc-muted);
+  padding: 0 4px;
+}
+
+.fc-msg.raymond .fc-sender-label {
+  color: var(--fc-accent);
+  font-weight: 500;
+}
+
+/* Typing indicator */
+.fc-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--fc-surface-2);
+  border: 1px solid var(--fc-border);
+  border-radius: 12px;
+  border-bottom-left-radius: 4px;
+  width: fit-content;
+}
+
+.fc-typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--fc-muted);
+  border-radius: 50%;
+  animation: fc-bounce 1.2s infinite;
+}
+
+.fc-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.fc-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fc-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ─── Quick actions ─────────────────────────── */
+
+#fc-quick-actions {
+  padding: 0 16px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.fc-quick-btn {
+  font-family: var(--fc-font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--fc-accent);
+  background: transparent;
+  border: 1px solid rgba(200,169,110,0.3);
+  border-radius: 20px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+  outline: none;
+}
+
+.fc-quick-btn:hover {
+  background: rgba(200,169,110,0.08);
+  border-color: rgba(200,169,110,0.5);
+}
+
+.fc-quick-btn:focus-visible {
+  outline: 2px solid var(--fc-accent);
+  outline-offset: 2px;
+}
+
+/* ─── Input area ────────────────────────────── */
+
+#fc-input-area {
+  padding: 12px 16px;
+  background: var(--fc-bg);
+  border-top: 1px solid var(--fc-border);
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+#fc-input {
+  flex: 1;
+  background: var(--fc-surface-2);
+  border: 1px solid var(--fc-border);
+  border-radius: 8px;
+  color: var(--fc-heading);
+  font-family: var(--fc-font);
+  font-size: 13.5px;
+  line-height: 1.5;
+  padding: 10px 14px;
+  resize: none;
+  outline: none;
+  max-height: 120px;
+  min-height: 40px;
+  transition: border-color 0.15s;
+}
+
+#fc-input::placeholder { color: var(--fc-muted); }
+#fc-input:focus { border-color: rgba(200,169,110,0.4); }
+
+#fc-send-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--fc-accent);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #0C0E12;
+  transition: background 0.15s, transform 0.12s;
+  outline: none;
+}
+
+#fc-send-btn:hover { background: var(--fc-accent-dk); transform: translateY(-1px); }
+#fc-send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+#fc-send-btn:focus-visible { outline: 2px solid var(--fc-accent); }
+
+/* ─── Compliance footer ─────────────────────── */
+
+#fc-compliance-footer {
+  padding: 8px 16px;
+  background: var(--fc-bg);
+  border-top: 1px solid var(--fc-border);
+  font-size: 10px;
+  color: var(--fc-muted);
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+/* ─── Warning banner ────────────────────────── */
+
+#fc-sensitive-warning {
+  display: none;
+  padding: 8px 16px;
+  background: rgba(239,68,68,0.08);
+  border-top: 1px solid rgba(239,68,68,0.2);
+  font-size: 11px;
+  color: rgba(239,68,68,0.9);
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+#fc-sensitive-warning.visible { display: block; }
+
+/* ─── Welcome screen ────────────────────────── */
+
+#fc-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 24px;
+  gap: 12px;
+  flex: 1;
+}
+
+.fc-welcome-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--fc-accent) 0%, var(--fc-accent-dk) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  color: #0C0E12;
+}
+
+.fc-welcome-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fc-heading);
+}
+
+.fc-welcome-sub {
+  font-size: 13px;
+  color: var(--fc-muted);
+  line-height: 1.55;
+  max-width: 260px;
+}
+
+/* ─── Responsive: narrow screens ───────────── */
+
+@media (max-width: 480px) {
+  #fc-chat-window {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    border: none;
+  }
+
+  #fc-chat-launcher {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* ─── Reduced motion ────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  #fc-chat-window, #fc-chat-launcher, .fc-typing-dot {
+    transition: none;
+    animation: none;
+  }
+}
