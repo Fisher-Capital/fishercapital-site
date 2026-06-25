@@ -9,7 +9,7 @@
   // Config
   // ─────────────────────────────────────────────
   const CONFIG = {
-    apiBase:      'https://fishercapital-chatbot.vercel.app', // your Vercel deployment URL
+    apiBase:      'https://fishercapital-chatbot-v2.vercel.app', // your Vercel deployment URL
     intakeUrl:    'https://tally.so/r/KYGDrk',
     calendlyUrl:  'https://calendly.com/raymond-finance-co/mortgage-consultation',
     pollInterval: 8000,  // ms between takeover status polls
