@@ -18,7 +18,7 @@
   };
 
   const COMPLIANCE_FOOTER =
-    'General information only. Not mortgage advice. Raymond Farhadi, Licensed Mortgage Agent 1, FSRA Lic. #M26000144 | Centum Financial Services LP, FSRA Lic. #13054.';
+    'General information only. Not mortgage advice. Raymond F, Licensed Mortgage Agent 1, FSRA Lic. #M26000144 | Centum Financial Services LP, FSRA Lic. #13054.';
 
   const WELCOME_MESSAGE =
     'Hi! I\'m Raymond\'s mortgage assistant. Whether you\'ve been turned down by a bank, you\'re self-employed, or you just want to understand your options — ask me anything. Raymond personally follows up on every conversation.';
