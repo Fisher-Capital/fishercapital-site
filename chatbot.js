@@ -213,7 +213,9 @@
     try {
       const data = await sendMessage(text);
       hideTyping();
-      addMessage('bot', data.reply);
+      if (data.reply) {
+        addMessage('bot', data.reply);
+      }
 
       if (data.takeover) {
         setTakeoverMode(true);

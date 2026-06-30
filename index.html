@@ -102,7 +102,14 @@
       letter-spacing: -0.02em;
       color: var(--heading);
     }
-    .logo span { color: var(--accent); }
+    .logo span {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.76em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-left: 3px;
+    }
     nav.desktop {
       display: none;
       gap: 32px;
@@ -168,18 +175,6 @@
       padding: 80px 0 72px;
       position: relative;
       overflow: hidden;
-    }
-    .hero::before {
-      /* subtle grid background */
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
-      pointer-events: none;
     }
     .hero-eyebrow {
       display: inline-flex;
