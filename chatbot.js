@@ -387,7 +387,7 @@
   // ─────────────────────────────────────────────
   // Takeover polling
   // ─────────────────────────────────────────────
-  let lastMessageTime = null;
+  let lastMessageTime = new Date().toISOString();
 
   function startTakeoverPoll() {
     if (pollTimer) return;
