@@ -441,20 +441,60 @@
 
 @media (max-width: 480px) {
   #fc-chat-window {
+    position: fixed;
+    top: 0;
     bottom: 0;
-    right: 0;
     left: 0;
+    right: 0;
     width: 100%;
     max-width: 100%;
+    height: 100vh;
     height: 100dvh;
+    max-height: 100vh;
     max-height: 100dvh;
     border-radius: 0;
     border: none;
+    z-index: 9999;
   }
 
   #fc-chat-launcher {
     bottom: 16px;
     right: 16px;
+    z-index: 10000;
+  }
+
+  /* Prevent iOS Safari zoom on input focus -- must be 16px+ */
+  #fc-input {
+    font-size: 16px;
+    min-height: 44px;
+    padding: 12px 14px;
+  }
+
+  /* Larger bubbles for easier reading */
+  .fc-bubble {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 12px 16px;
+  }
+
+  /* Larger tap targets */
+  #fc-send-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .fc-quick-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  /* Push content above iPhone home bar */
+  #fc-input-area {
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  #fc-compliance-footer {
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
   }
 }
 
