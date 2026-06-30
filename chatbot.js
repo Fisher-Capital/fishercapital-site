@@ -387,16 +387,33 @@
   // ─────────────────────────────────────────────
   // Takeover polling
   // ─────────────────────────────────────────────
+  let lastMessageTime = null;
+
   function startTakeoverPoll() {
     if (pollTimer) return;
     pollTimer = setInterval(async () => {
       if (!sessionId) return;
       try {
+        // Check takeover status
         const res = await fetch(`${CONFIG.apiBase}/api/sessions?id=${sessionId}`);
         if (!res.ok) return;
         const data = await res.json();
         if (data.takeover !== takeover) {
           setTakeoverMode(data.takeover);
+        }
+
+        // If takeover is active, fetch any new Raymond messages
+        if (data.takeover) {
+          const since = lastMessageTime ? `&since=${encodeURIComponent(lastMessageTime)}` : '';
+          const msgRes = await fetch(`${CONFIG.apiBase}/api/messages?sessionId=${sessionId}${since}`);
+          if (!msgRes.ok) return;
+          const msgData = await msgRes.json();
+          if (msgData.messages && msgData.messages.length > 0) {
+            msgData.messages.forEach(m => {
+              addMessage(m.sender, m.message);
+              lastMessageTime = m.created_at;
+            });
+          }
         }
       } catch {
         // Silent fail -- polling is non-critical
