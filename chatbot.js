@@ -21,7 +21,7 @@
     'General information only. Not mortgage advice. Raymond. F, Lic. Mortgage Agent 1, Mortgage Commitment, FSRA #M26000144.';
 
   const WELCOME_MESSAGE =
-    'Have a mortgage question or not sure where to start? I can help you understand the process and point you in the right direction. What\'s going on?';
+    'Hi! I\'m Raymond\'s mortgage assistant. Whether you\'ve been turned down by a bank, you\'re self-employed, or you just want to understand your options — ask me anything. Raymond personally follows up on every conversation.';
 
   const QUICK_ACTIONS = [
     { label: 'Start the intake', action: 'intake' },
