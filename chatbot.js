@@ -14,6 +14,7 @@
     calendlyUrl:  'https://calendly.com/raymond-finance-co/mortgage-consultation',
     pollInterval: 8000,  // ms between takeover status polls
     welcomeDelay: 2000,  // ms before showing welcome message on first open
+    autoOpenDelay: 5000, // ms after page load before auto-opening chat
   };
 
   const COMPLIANCE_FOOTER =
@@ -438,12 +439,26 @@
   }
 
   // ─────────────────────────────────────────────
+  // Auto-open
+  // ─────────────────────────────────────────────
+  function scheduleAutoOpen() {
+    if (sessionStorage.getItem('fc_greeted')) return;
+    setTimeout(() => {
+      if (!isOpen) {
+        sessionStorage.setItem('fc_greeted', '1');
+        openChat();
+      }
+    }, CONFIG.autoOpenDelay);
+  }
+
+  // ─────────────────────────────────────────────
   // Init
   // ─────────────────────────────────────────────
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', buildWidget);
+    document.addEventListener('DOMContentLoaded', () => { buildWidget(); scheduleAutoOpen(); });
   } else {
     buildWidget();
+    scheduleAutoOpen();
   }
 
 })();
