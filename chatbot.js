@@ -9,26 +9,27 @@
   // Config
   // ─────────────────────────────────────────────
   const CONFIG = {
-    apiBase:      'https://fishercapital-chatbot-v2.vercel.app', // your Vercel deployment URL
+    apiBase:      'https://fishercapital-chatbot-v2.vercel.app',
     intakeUrl:    'https://tally.so/r/KYGDrk',
     calendlyUrl:  'https://calendly.com/raymond-finance-co/mortgage-consultation',
-    pollInterval: 8000,  // ms between takeover status polls
-    welcomeDelay: 2000,  // ms before showing welcome message on first open
-    autoOpenDelay: 5000, // ms after page load before auto-opening chat
+    pollInterval: 8000,   // ms between takeover status polls
+    welcomeDelay: 2000,   // ms before showing welcome message on first open
+    mobilePulseDelay: 20000,  // ms before pulsing chat button on mobile
+    desktopScrollDepth: 0.6,  // page scroll fraction before auto-open on desktop
+    desktopMinTime: 15000,    // ms minimum on page before desktop auto-open fires
   };
 
   const COMPLIANCE_FOOTER =
     'General information only. Not mortgage advice. Raymond F, Licensed Mortgage Agent 1, FSRA Lic. #M26000144 | Centum Financial Services LP, FSRA Lic. #13054.';
 
   const WELCOME_MESSAGE =
-    'Hi, welcome to Fisher Capital.\n\nMany of the people who visit this site are self-employed, have been turned down by a bank, or simply aren\'t sure what options are available.\n\nIf that sounds like you, you\'re in the right place.\n\nWhat would you like help with today?';
+    'Ontario mortgage question? Tell me what your situation is:';
 
   const QUICK_ACTIONS = [
-    { label: "I'm Self-Employed",   action: 'message', message: "I'm self-employed and want to understand my mortgage options." },
-    { label: 'Bank Said No',        action: 'message', message: "I've been turned down by a bank and I'm not sure what to do next." },
-    { label: 'Renewal Questions',   action: 'message', message: "My mortgage is coming up for renewal and I have questions." },
-    { label: 'Debt Consolidation',  action: 'message', message: "I want to understand if I can use my home equity to consolidate debt." },
-    { label: 'Book a Call',         action: 'calendly' },
+    { label: "I'm Self-Employed",     action: 'message', message: "I'm self-employed and want to understand my mortgage options." },
+    { label: 'Bank Said No',          action: 'message', message: "I've been turned down by a bank and I'm not sure what to do next." },
+    { label: 'Renewing My Mortgage',  action: 'message', message: "My mortgage is coming up for renewal and I have questions." },
+    { label: 'Book a Call',           action: 'calendly' },
   ];
 
   // ─────────────────────────────────────────────
@@ -175,8 +176,9 @@
     const badge = document.getElementById('fc-unread-badge');
     if (badge) badge.classList.remove('visible');
 
-    // Update launcher icon to X
+    // Update launcher icon to X (also clears any pulse animation)
     const launcher = document.getElementById('fc-chat-launcher');
+    launcher.classList.remove('fc-pulse');
     launcher.innerHTML = `
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
@@ -469,12 +471,34 @@
   // ─────────────────────────────────────────────
   function scheduleAutoOpen() {
     if (sessionStorage.getItem('fc_greeted')) return;
-    setTimeout(() => {
-      if (!isOpen) {
+
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      // Mobile: never force-open. Pulse the button after a delay to signal the chat exists.
+      setTimeout(() => {
+        const launcher = document.getElementById('fc-chat-launcher');
+        if (launcher && !isOpen) launcher.classList.add('fc-pulse');
+      }, CONFIG.mobilePulseDelay);
+      return;
+    }
+
+    // Desktop: open at scroll depth threshold, but only after minimum time on page.
+    let minTimeElapsed = false;
+    setTimeout(() => { minTimeElapsed = true; }, CONFIG.desktopMinTime);
+
+    let triggered = false;
+    function onScroll() {
+      if (triggered || isOpen) return;
+      const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (depth >= CONFIG.desktopScrollDepth && minTimeElapsed) {
+        triggered = true;
+        window.removeEventListener('scroll', onScroll);
         sessionStorage.setItem('fc_greeted', '1');
         openChat();
       }
-    }, CONFIG.autoOpenDelay);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
 
   // ─────────────────────────────────────────────

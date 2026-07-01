@@ -55,6 +55,16 @@
   transition: opacity 0.15s;
 }
 
+@keyframes fc-pulse-ring {
+  0%   { box-shadow: 0 4px 24px rgba(200,169,110,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(200,169,110,0.5); }
+  60%  { box-shadow: 0 4px 24px rgba(200,169,110,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 14px rgba(200,169,110,0); }
+  100% { box-shadow: 0 4px 24px rgba(200,169,110,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(200,169,110,0); }
+}
+
+#fc-chat-launcher.fc-pulse {
+  animation: fc-pulse-ring 1.2s ease-out 3;
+}
+
 /* ─── Unread badge ──────────────────────────── */
 
 #fc-unread-badge {
