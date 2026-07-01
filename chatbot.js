@@ -21,13 +21,14 @@
     'General information only. Not mortgage advice. Raymond F, Licensed Mortgage Agent 1, FSRA Lic. #M26000144 | Centum Financial Services LP, FSRA Lic. #13054.';
 
   const WELCOME_MESSAGE =
-    'Hi! I\'m Raymond\'s mortgage assistant. Whether you\'ve been turned down by a bank, you\'re self-employed, or you just want to understand your options — ask me anything. Raymond personally follows up on every conversation.';
+    'Hi, welcome to Fisher Capital.\n\nMany of the people who visit this site are self-employed, have been turned down by a bank, or simply aren\'t sure what options are available.\n\nIf that sounds like you, you\'re in the right place.\n\nWhat would you like help with today?';
 
   const QUICK_ACTIONS = [
-    { label: 'Start the intake', action: 'intake' },
-    { label: 'Book a call', action: 'calendly' },
-    { label: 'How does it work?', action: 'message', message: 'How does the intake and first call process work?' },
-    { label: 'Contact Raymond', action: 'message', message: 'How do I reach Raymond directly?' },
+    { label: "I'm Self-Employed",   action: 'message', message: "I'm self-employed and want to understand my mortgage options." },
+    { label: 'Bank Said No',        action: 'message', message: "I've been turned down by a bank and I'm not sure what to do next." },
+    { label: 'Renewal Questions',   action: 'message', message: "My mortgage is coming up for renewal and I have questions." },
+    { label: 'Debt Consolidation',  action: 'message', message: "I want to understand if I can use my home equity to consolidate debt." },
+    { label: 'Book a Call',         action: 'calendly' },
   ];
 
   // ─────────────────────────────────────────────
@@ -311,18 +312,17 @@
   }
 
   function formatMessage(text) {
-    // Convert URLs to links
     const urlRegex = /https?:\/\/[^\s]+/g;
     return text
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
-      .replace(/\n/g, '<br>')
       .replace(urlRegex, url => {
         const safeUrl = url.replace(/&amp;/g, '&');
         const display = safeUrl.length > 40 ? safeUrl.substring(0, 40) + '...' : safeUrl;
         return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${display}</a>`;
-      });
+      })
+      .replace(/\n/g, '<br>');
   }
 
   let typingEl = null;
