@@ -475,7 +475,7 @@
     const isMobile = window.innerWidth < 768;
 
     if (isMobile) {
-      // Mobile: never force-open. Pulse the button after a delay to signal the chat exists.
+      // Mobile: never force-open. Pulse the button after a delay.
       setTimeout(() => {
         const launcher = document.getElementById('fc-chat-launcher');
         if (launcher && !isOpen) launcher.classList.add('fc-pulse');
@@ -483,22 +483,29 @@
       return;
     }
 
-    // Desktop: open at scroll depth threshold, but only after minimum time on page.
-    let minTimeElapsed = false;
-    setTimeout(() => { minTimeElapsed = true; }, CONFIG.desktopMinTime);
-
+    // Desktop: open after delay + at least minimal scroll engagement.
+    // Using a timer + scroll flag so both edge cases are handled:
+    // fast scrollers (timer fires after they've scrolled) and
+    // slow readers (scroll fires after timer has elapsed).
     let triggered = false;
-    function onScroll() {
+    let scrolledAtAll = false;
+
+    function maybeOpen() {
       if (triggered || isOpen) return;
-      const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-      if (depth >= CONFIG.desktopScrollDepth && minTimeElapsed) {
+      if (scrolledAtAll) {
         triggered = true;
         window.removeEventListener('scroll', onScroll);
         sessionStorage.setItem('fc_greeted', '1');
         openChat();
       }
     }
+
+    function onScroll() {
+      scrolledAtAll = true;
+    }
     window.addEventListener('scroll', onScroll, { passive: true });
+
+    setTimeout(maybeOpen, CONFIG.desktopMinTime);
   }
 
   // ─────────────────────────────────────────────
