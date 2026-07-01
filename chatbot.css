@@ -320,6 +320,11 @@
   outline-offset: 2px;
 }
 
+.fc-quick-btn--contextual {
+  background: rgba(200,169,110,0.06);
+  border-color: rgba(200,169,110,0.45);
+}
+
 /* ─── Input area ────────────────────────────── */
 
 #fc-input-area {

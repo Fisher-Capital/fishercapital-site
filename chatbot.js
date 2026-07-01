@@ -139,6 +139,25 @@
     });
   }
 
+  function showContextualActions(labels) {
+    const container = document.getElementById('fc-quick-actions');
+    container.innerHTML = '';
+
+    labels.forEach(label => {
+      const btn = el('button', { class: 'fc-quick-btn fc-quick-btn--contextual' });
+      btn.textContent = label;
+      btn.addEventListener('click', () => {
+        restoreDefaultActions();
+        handleQuickAction('message', label);
+      });
+      container.appendChild(btn);
+    });
+  }
+
+  function restoreDefaultActions() {
+    buildQuickActions();
+  }
+
   // ─────────────────────────────────────────────
   // Chat open/close
   // ─────────────────────────────────────────────
@@ -207,6 +226,7 @@
     input.value = '';
     autoResize(input);
     setSendDisabled(true);
+    restoreDefaultActions();
 
     addMessage('visitor', text);
     showTyping();
@@ -216,6 +236,10 @@
       hideTyping();
       if (data.reply) {
         addMessage('bot', data.reply);
+      }
+
+      if (data.suggestions && data.suggestions.length > 0) {
+        showContextualActions(data.suggestions);
       }
 
       if (data.takeover) {
@@ -228,7 +252,7 @@
 
     } catch (err) {
       hideTyping();
-      addMessage('bot', 'Something went wrong. Please try the intake form directly: ' + CONFIG.intakeUrl);
+      addMessage('bot', 'Something went wrong. Please use the intake or booking button to connect with Raymond.');
     }
 
     setSendDisabled(false);
