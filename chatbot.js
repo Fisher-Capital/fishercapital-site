@@ -140,6 +140,12 @@
     });
   }
 
+  // Labels the backend uses for routing -- rendered as direct links, not chat messages
+  const LINK_ACTION_LABELS = {
+    'Start the Intake': 'intake',
+    'Book a Call': 'calendly',
+  };
+
   function showContextualActions(labels) {
     const container = document.getElementById('fc-quick-actions');
     container.innerHTML = '';
@@ -148,8 +154,14 @@
       const btn = el('button', { class: 'fc-quick-btn fc-quick-btn--contextual' });
       btn.textContent = label;
       btn.addEventListener('click', () => {
-        restoreDefaultActions();
-        handleQuickAction('message', label);
+        const linkAction = LINK_ACTION_LABELS[label];
+        if (linkAction) {
+          // Open the link; keep the buttons visible so the visitor can use the other one too
+          handleQuickAction(linkAction);
+        } else {
+          restoreDefaultActions();
+          handleQuickAction('message', label);
+        }
       });
       container.appendChild(btn);
     });
