@@ -35,25 +35,37 @@
   var DECORATE_HOSTS = ['tally.so', 'calendly.com'];
   var LP_PATH = '/self-employed-lp';
 
-  /* ---------- storage with in-memory fallback (S1) ----------
+  /* ---------- storage, memory first (S1) ----------
      The memory copy is always written, so a page view with blocked or full
      storage still behaves consistently within itself: one token for every
      link, one consent answer, one dedup marker. Setters report whether the
-     value actually persisted beyond this page view. */
+     value actually persisted beyond this page view.
+
+     Reads consult memory BEFORE storage. Storage can fail asymmetrically:
+     setItem throws while getItem keeps returning the old value. Reading
+     storage first would then let a stale "denied" defeat an Accept made on
+     this page, or let an invalid stored token be re-read after a fresh one
+     was minted. Memory is the newer of the two whenever it is set at all. */
   var memSession = {};
   var memLocal = {};
 
   function ssGet(k) {
+    // S1: memory first. A value set during this page life always wins over
+    // storage, so a write that silently failed cannot be overruled by the
+    // stale value that is still readable underneath it.
+    if (Object.prototype.hasOwnProperty.call(memSession, k)) { return memSession[k]; }
     try { var v = window.sessionStorage.getItem(k); if (v !== null) { return v; } } catch (e) { /* fall through */ }
-    return Object.prototype.hasOwnProperty.call(memSession, k) ? memSession[k] : null;
+    return null;
   }
   function ssSet(k, v) {
     memSession[k] = v;
     try { window.sessionStorage.setItem(k, v); return true; } catch (e) { return false; }
   }
   function lsGet(k) {
+    // S1: memory first, same reason as ssGet.
+    if (Object.prototype.hasOwnProperty.call(memLocal, k)) { return memLocal[k]; }
     try { var v = window.localStorage.getItem(k); if (v !== null) { return v; } } catch (e) { /* fall through */ }
-    return Object.prototype.hasOwnProperty.call(memLocal, k) ? memLocal[k] : null;
+    return null;
   }
   function lsSet(k, v) {
     memLocal[k] = v;
