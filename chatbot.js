@@ -13,14 +13,12 @@
     intakeUrl:    'https://tally.so/r/KYGDrk',
     calendlyUrl:  'https://calendly.com/raymond-finance-co/mortgage-consultation',
     pollInterval: 8000,   // ms between takeover status polls
-    welcomeDelay: 2000,   // ms before showing welcome message on first open
     mobilePulseDelay: 20000,  // ms before pulsing chat button on mobile
-    desktopScrollDepth: 0.6,  // page scroll fraction before auto-open on desktop
     desktopMinTime: 15000,    // ms minimum on page before desktop auto-open fires
   };
 
   const COMPLIANCE_FOOTER =
-    'General information only. Not mortgage advice. Raymond F, Licensed Mortgage Agent 1, FSRA Lic. #M26000144 | Centum Financial Services LP, FSRA Lic. #13054.';
+    'General information only. Not mortgage advice. Raymond. F, Mortgage agent (Level 1), FSRA Lic. #M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. #13054.';
 
   const WELCOME_MESSAGE =
     'Ontario mortgage question? Tell me what your situation is:';
@@ -46,8 +44,8 @@
   // Build DOM
   // ─────────────────────────────────────────────
   function buildWidget() {
-    // Inject CSS if not already loaded
-    if (!document.getElementById('fc-chatbot-css')) {
+    // Inject CSS if not already loaded, and never if the page already links it
+    if (!document.getElementById('fc-chatbot-css') && !document.querySelector('link[href$="/chatbot.css"]')) {
       const link = document.createElement('link');
       link.id = 'fc-chatbot-css';
       link.rel = 'stylesheet';
@@ -518,6 +516,38 @@
     window.addEventListener('scroll', onScroll, { passive: true });
 
     setTimeout(maybeOpen, CONFIG.desktopMinTime);
+  }
+
+  // ─────────────────────────────────────────────
+  // Init guard: no chat on paid sessions, and none where the page opts out.
+  // Evaluated from location.search directly, independent of fc-tracking.js.
+  // ─────────────────────────────────────────────
+  function isPaidSession() {
+    const PAID_SOURCES = ['facebook', 'instagram', 'meta', 'fb', 'ig'];
+    const PAID_MEDIUMS = ['paid', 'cpc', 'paid_social', 'paidsocial'];
+    try {
+      const qs = new URLSearchParams(window.location.search);
+      if (qs.get('fbclid')) { return true; }
+      const src = (qs.get('utm_source') || '').toLowerCase();
+      const med = (qs.get('utm_medium') || '').toLowerCase();
+      return PAID_SOURCES.includes(src) && PAID_MEDIUMS.includes(med);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function chatbotDisabled() {
+    try {
+      const b = document.body;
+      return (b && b.dataset && b.dataset.fcChatbot === 'off') ||
+             (b && b.getAttribute('data-fc-chatbot') === 'off');
+    } catch (e) {
+      return false;
+    }
+  }
+
+  if (isPaidSession() || chatbotDisabled()) {
+    return; // no DOM, no CSS, no listeners
   }
 
   // ─────────────────────────────────────────────
