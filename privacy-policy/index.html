@@ -80,6 +80,7 @@
     .doc ul { margin: 0 0 16px 0; padding-left: 22px; }
     .doc li { font-size: 15px; color: var(--body); margin-bottom: 8px; }
     .doc strong { color: var(--heading); font-weight: 600; }
+    .doc .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; color: var(--heading); }
 
     .callout {
       background: var(--surface);
@@ -181,14 +182,14 @@
     </p>
     <ul>
       <li><strong>Tally.</strong> Receives and stores the answers you type into the intake form, including your name, email, phone number and the details you give about your situation.</li>
-      <li><strong>Calendly.</strong> Receives the name, email, phone number and time slot you provide when you book a call.</li>
+      <li><strong>Calendly.</strong> Receives the name, email, phone number and time slot you provide when you book a call. On the thank-you page the calendar is not loaded until you press "Book a call"; pressing it makes your browser request the calendar from Calendly, which receives your IP address and browser information at that point.</li>
       <li><strong>Make.com.</strong> Receives your form or lead-form submission in transit and passes it into the lead-tracking system.</li>
       <li><strong>Zoho CRM.</strong> Receives and stores your enquiry record, including your contact details, the details you shared and any notes added during follow-up.</li>
       <li><strong>Google Workspace.</strong> Receives the content of any email you exchange with Raymond. F, and hosts the FisherCapital mailbox.</li>
       <li><strong>Google Fonts.</strong> Receives your IP address and browser information when your browser requests the fonts used on these pages.</li>
       <li><strong>GitHub Pages.</strong> Hosts this website and receives the standard technical request information that any web host receives, such as your IP address and browser type.</li>
       <li><strong>Vercel, Supabase and Anthropic.</strong> Together they run the website chat: Vercel receives and serves the chat requests, Anthropic receives the message text in order to generate a reply, and Supabase stores the conversation. See the section on website chat.</li>
-      <li><strong>Meta Platforms, Inc. and its affiliates.</strong> Receives page view and form-completion events from the Meta Pixel if you accept the notice on the two pages where it runs, and receives the information you type into a Facebook or Instagram lead form. See the section on cookies and advertising measurement.</li>
+      <li><strong>Meta Platforms, Inc. and its affiliates.</strong> Receives PageView, Lead and Schedule events from the Meta Pixel if you accept the notice on the two pages where it runs, together with the address of the page and standard browser and network information such as your IP address, and receives the information you type into a Facebook or Instagram lead form. See the section on cookies and advertising measurement.</li>
     </ul>
     <p>
       These providers may store data on servers located inside or outside of Canada. When information is stored or processed outside of Canada, it may be subject to the laws of the country where it is held.
@@ -196,20 +197,28 @@
 
     <h2><span class="num">5.</span>Cookies, advertising measurement and social media lead forms</h2>
     <p>
-      <strong>What the Meta Pixel does.</strong> The Meta Pixel is a small piece of code from Meta Platforms, Inc. It uses cookies and similar identifiers stored by your browser. When it is active it sends events to Meta, such as the fact that a page was viewed and that a form was completed. Meta uses those events to measure how the ads perform and to build audiences of people who have visited these pages, so that ads can be shown to similar people or to you again. Automatic collection of extra information from the page is turned off.
+      <strong>Campaign attribution, which happens without the Meta notice.</strong> When you arrive on the self-employed landing page or the thank-you page from a link that carries campaign parameters, this website reads those parameters from the address bar, which may include <span class="mono">utm_source</span>, <span class="mono">utm_medium</span>, <span class="mono">utm_campaign</span>, <span class="mono">utm_content</span>, <span class="mono">utm_term</span> and Facebook's <span class="mono">fbclid</span>, and stores them in your browser's session storage along with a randomly generated session token that identifies nobody. Those values are then appended to the intake form and booking links, so that if you go on to make an enquiry it can be attributed to the campaign it came from. This is first-party housekeeping and it is not the Meta Pixel: it happens whichever answer you give to the advertising notice, nothing is sent to Meta by it, and everything it stores is cleared when you close the browser tab. If you would rather it did not happen, remove the parameters from the address before loading the page, or use a browser that blocks site storage.
+    </p>
+    <p>
+      <strong>What the Meta Pixel does.</strong> The Meta Pixel is a small piece of code from Meta Platforms, Inc. It uses cookies and similar identifiers stored by your browser. When it is active it sends three events to Meta: <strong>PageView</strong> when one of the two pages is opened, <strong>Lead</strong> when a review request is completed, and <strong>Schedule</strong> when a call is booked through the calendar on the thank-you page. Each event carries the address of the page you are on and the standard browser and network information any web request carries, including your IP address, browser type and version, and the cookie or similar identifier Meta uses to recognise a browser. Meta uses this to measure how the ads perform and to show ads again to people who have visited these two pages. Automatic collection of extra information from the page is turned off, and no audience of people who resemble you is built from it.
     </p>
     <p>
       <strong>Where it runs and how to decline.</strong> The pixel loads only on the self-employed landing page and on the thank-you page, and only after you accept the notice shown at the bottom of those pages. It does not load on the homepage, on the other topic pages, or on this Privacy Policy. If you choose Decline, no pixel is loaded. You can change your choice by clearing this site's stored data in your browser, and you can control cookies generally through your browser settings. You can also review and change how Meta uses your information for ads in your Facebook or Instagram ad settings.
     </p>
     <p>
+      <strong>The calendar on the thank-you page.</strong> The Calendly booking calendar is not part of the page until you ask for it. Nothing is requested from calendly.com, and no Calendly cookie can be set, until you press "Book a call". If you never press it, Calendly receives nothing.
+    </p>
+    <p>
       <strong>Facebook and Instagram lead forms.</strong> If you fill out a lead form inside Facebook or Instagram rather than on this website, the information you submit there, which may include your name, email address, phone number, city, province, business structure, timing and what you are trying to do, is delivered to FisherCapital through Make.com and stored in Zoho CRM. Meta also keeps a copy under its own terms.
     </p>
     <p>
-      <strong>How long information is kept.</strong> These periods are drafts and are subject to review by the brokerage:
+      <strong>How long information is kept.</strong>
     </p>
     <ul>
-      <li>Enquiry records are kept for 24 months after the last contact, unless a mortgage application proceeds, in which case they are kept under the brokerage and FSRA record-keeping rules, currently 6 years.</li>
-      <li>Chat transcripts are intended to be kept for 90 days once the scheduled deletion routine is in place. Until then they are kept until deleted on request.</li>
+      <li>Enquiry records are kept for up to 24 months after the last contact with you.</li>
+      <li>If a mortgage application proceeds, the brokerage and regulatory record-keeping rules apply instead, and the records are kept for the period those rules require, currently 6 years.</li>
+      <li>Chat transcripts are kept until they are deleted on request. A scheduled deletion after 90 days will replace that once it is implemented, and this policy will be updated when it is.</li>
+      <li>Campaign attribution values are held in your browser's session storage only and are cleared when you close the tab.</li>
       <li>Meta pixel data is kept by Meta according to Meta's own retention practices.</li>
     </ul>
     <p>
