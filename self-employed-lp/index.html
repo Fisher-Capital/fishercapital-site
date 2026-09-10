@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <script src="/fc-tracking.js"></script>
   <style>
     :root {
       --bg:        #0C0E12;
@@ -66,6 +67,58 @@
       letter-spacing: -0.01em;
     }
     .lp-phone:hover { color: var(--accent); }
+    .lp-brand { display: flex; flex-direction: column; gap: 2px; }
+    .lp-brokerage {
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    /* Consent notice (LP and thank-you only) */
+    .fc-consent {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 200;
+      background: rgba(19,22,28,0.98);
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px 16px;
+    }
+    .fc-consent[hidden] { display: none; }
+    .fc-consent-text { font-size: 13px; color: var(--body); line-height: 1.5; margin: 0; }
+    .fc-consent-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .fc-consent-btn {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      min-height: 44px;
+      min-width: 88px;
+      padding: 10px 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #0C0E12;
+      cursor: pointer;
+    }
+    .fc-consent-btn.fc-consent-decline { background: transparent; color: var(--body); border-color: rgba(255,255,255,0.35); }
+    .fc-consent-btn:hover { background: var(--accent-dk); color: #0C0E12; }
+    .fc-consent-btn.fc-consent-decline:hover { background: rgba(255,255,255,0.06); color: var(--heading); }
+    .fc-consent-btn:focus-visible, .fc-consent-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .fc-consent-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 10px 12px;
+      font-size: 14px;
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
     /* ── Buttons ───────────────────────────── */
     .btn-primary {
@@ -382,28 +435,31 @@
     .footer-back a:hover { text-decoration: underline; }
   </style>
 </head>
-<body>
+<body data-fc-chatbot="off">
 
 <!-- ── HEADER ────────────────────────────────────── -->
 <header>
   <div class="container lp-nav">
-    <a href="/" class="logo">Fisher<span>Capital</span></a>
+    <div class="lp-brand">
+      <a href="#top" class="logo">Fisher<span>Capital</span></a>
+      <div class="lp-brokerage">Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. #13054</div>
+    </div>
     <a href="tel:4168980181" class="lp-phone">(416) 898-0181</a>
   </div>
 </header>
 
 
 <!-- ── HERO ──────────────────────────────────────── -->
-<section class="lp-hero">
+<section class="lp-hero" id="top">
   <div class="container">
     <div class="eyebrow">Self-Employed · Ontario Mortgage Agent</div>
-    <h1>Banks qualify on write-offs.<br><em>Some lenders qualify on what you actually deposit.</em></h1>
-    <p class="lp-sub">If you're self-employed and a bank has declined you — or told you that you don't qualify — the issue is usually how your income is being measured, not how much you earn. There are lenders that look at this differently.</p>
+    <h1>Write-offs can shrink the income on paper.<br><em>Some lenders can look at self-employed income in other ways.</em></h1>
+    <p class="lp-sub">If a bank has declined a self-employed application, the way income was documented is often part of the picture. A review looks at the options that may fit, depending on the lender and a full application.</p>
     <div class="hero-cta">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary">Tell me your situation →</a>
-      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn-secondary">Or book a call directly</a>
+      <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start Your Review</a>
+      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn-secondary">Prefer to talk first? Book a call.</a>
     </div>
-    <p class="hero-note">3-minute intake. No SIN. No documents. No commitment.</p>
+    <p class="hero-note">About 3 minutes. No SIN or documents needed for this first step. No commitment.</p>
   </div>
 </section>
 
@@ -414,15 +470,15 @@
     <div class="validation-inner">
       <div class="val-item">
         <div class="val-label">The bank's problem</div>
-        <div class="val-text">They used line 15000 — net income after all your write-offs. The more you've deducted, the less qualifying income they saw.</div>
+        <div class="val-text">Many lenders start from tax-reported income.</div>
       </div>
       <div class="val-item">
         <div class="val-label">The lender you haven't tried</div>
-        <div class="val-text">Some lenders qualify on 12 months of business bank deposits. Your cash flow, not your CRA number, becomes the income figure.</div>
+        <div class="val-text">Others may consider additional documentation, depending on their program.</div>
       </div>
       <div class="val-item">
         <div class="val-label">What I do</div>
-        <div class="val-text">I work specifically on files like this. Self-employed, complex income, bank declined. I know which lenders look at this differently — and I put files in front of the right ones.</div>
+        <div class="val-text">I work specifically on files like this. Self-employed, complex income, bank declined. A review can identify which documentation approaches may be worth pursuing.</div>
       </div>
     </div>
   </div>
@@ -430,26 +486,26 @@
 
 
 <!-- ── HOW I HELP ─────────────────────────────────── -->
-<section class="how-section">
+<section class="how-section" id="how">
   <div class="container">
     <div class="how-label">What I Can Look At With You</div>
     <h2 class="how-headline">Four paths that come up most often for self-employed borrowers</h2>
     <div class="how-list">
       <div class="how-item">
         <div class="how-tag">Bank Statement Qualifying</div>
-        <div class="how-desc">Some B-lenders qualify income on <strong>12 months of business account deposits</strong> instead of your T1. If cash flow is consistent and documented, this reflects what you actually earn — not what the CRA sees after write-offs.</div>
+        <div class="how-desc">Some lenders may consider <strong>12 months of business deposits</strong> alongside other documentation.</div>
       </div>
       <div class="how-item">
         <div class="how-tag">2-Year Income Averaging</div>
-        <div class="how-desc">Many alternative lenders allow <strong>income to be averaged over two years</strong>. A single low year doesn't kill the application if the overall picture is stable. Useful when income fluctuates year-to-year.</div>
+        <div class="how-desc">Many alternative lenders allow <strong>income to be averaged over two years</strong>. A lower year does not automatically end an application; treatment depends on the lender and the overall picture.</div>
       </div>
       <div class="how-item">
         <div class="how-tag">Stated Income with Support</div>
-        <div class="how-desc">Some lenders accept <strong>stated income backed by contracts, invoices, or business financials</strong> — without depending exclusively on CRA-reported net income. Documentation requirements vary by lender and loan amount.</div>
+        <div class="how-desc">Some lenders may consider <strong>stated income backed by contracts, invoices, or business financials</strong>, without depending exclusively on CRA-reported net income. Documentation requirements vary by lender and loan amount.</div>
       </div>
       <div class="how-item">
-        <div class="how-tag">B-Lender Access</div>
-        <div class="how-desc">Regulated alternative lenders exist specifically for complex income profiles. <strong>They're not payday lenders</strong> — they're FSRA-regulated institutions with real mortgage products. Rates are higher than a chartered bank. It's a different lane, not a last resort.</div>
+        <div class="how-tag">Regulated alternative lenders</div>
+        <div class="how-desc">Alternative lenders that are regulated financial institutions offer mortgage products for income profiles that do not fit a standard bank program. Pricing and terms differ from a chartered bank and are set by each lender.</div>
       </div>
     </div>
   </div>
@@ -457,14 +513,13 @@
 
 
 <!-- ── RESULT ─────────────────────────────────────── -->
-<section class="result-section">
+<section class="result-section" id="example">
   <div class="container">
     <div class="how-label">Anonymized Example</div>
     <div class="result-card">
       <div class="result-tag">Self-Employed · Bank Declined</div>
-      <h3>Strong cash flow. Low net income on paper. File closed on time.</h3>
-      <p>A contractor operating through a corporation had been self-employed for just under two years. Personal tax returns showed modest income after business write-offs — not enough to qualify at a major bank, which had already issued a decline.</p>
-      <p>Bank statement analysis through an alternative lender reflected monthly deposits consistent with the purchase they were under contract on. The file moved through and closed on time.</p>
+      <h3>What a review looks like</h3>
+      <p>A contractor operating through a corporation shares how the business earns, how they pay themselves, and what they are trying to do. The review maps that against the documentation different lenders may accept and identifies what would need to be gathered before any application. Whether any lender approves, and on what terms, depends on the full application.</p>
       <p class="result-disclaimer">This is an anonymized example. Outcomes vary by situation. Approval and specific terms depend on each individual's full financial picture. Nothing here is a guarantee of any result.</p>
     </div>
   </div>
@@ -472,13 +527,13 @@
 
 
 <!-- ── CTA ────────────────────────────────────────── -->
-<section class="lp-cta">
+<section class="lp-cta" id="intake">
   <div class="container">
     <h2>Tell me how your income is structured.</h2>
-    <p>The intake takes 3 minutes. I review what you share before we connect — so the conversation is useful from the start, not a discovery call.</p>
+    <p>The intake takes 3 minutes. I review what you share before we connect, so the conversation is useful from the start, not a discovery call.</p>
     <div class="cta-stack">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start the intake →</a>
-      <p class="cta-note">No SIN required. No documents uploaded. No commitment.</p>
+      <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start Your Review</a>
+      <p class="cta-note">About 3 minutes. No SIN or documents needed for this first step. No commitment.</p>
       <span class="cta-or">or</span>
       <a href="tel:4168980181" class="cta-call-link">Call (416) 898-0181</a>
     </div>
@@ -487,16 +542,16 @@
 
 
 <!-- ── TRUST STRIP ─────────────────────────────────── -->
-<section class="trust-strip">
+<section class="trust-strip" id="trust">
   <div class="container">
     <div class="trust-inner">
       <div>
         <div class="trust-label">Licence</div>
-        <div class="trust-value">Raymond F<br>Mortgage Agent Level 1<br>FSRA Lic. #M26000144</div>
+        <div class="trust-value">Raymond. F<br>Mortgage agent (Level 1)<br>FSRA Lic. #M26000144</div>
       </div>
       <div>
         <div class="trust-label">Brokerage</div>
-        <div class="trust-value">Centum Financial Services<br>Limited Partnership<br>FSRA Lic. #13054</div>
+        <div class="trust-value">Mortgage Commitment, an office of<br>Centum Financial Services Limited Partnership<br>FSRA Brokerage Lic. #13054</div>
       </div>
       <div>
         <div class="trust-label">FSRA Verification</div>
@@ -504,7 +559,7 @@
       </div>
       <div>
         <div class="trust-label">Contact</div>
-        <div class="trust-value"><a href="tel:4168980181">(416) 898-0181</a><br><a href="mailto:ray@mccbroker.ca">ray@mccbroker.ca</a></div>
+        <div class="trust-value"><a href="tel:4168980181">(416) 898-0181</a><br><a href="mailto:Raymond@fishercapital.ca">Raymond@fishercapital.ca</a></div>
       </div>
     </div>
   </div>
@@ -516,16 +571,23 @@
   <div class="container">
     <p class="footer-legal">
       General information only. Not mortgage advice. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
-      Raymond F, Licensed Mortgage Agent 1, FSRA Lic. #M26000144 | Centum Financial Services Limited Partnership, FSRA Lic. #13054 | (416) 898-0181
+      Raymond. F, Mortgage agent (Level 1), FSRA Lic. #M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. #13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181
     </p>
     <div class="footer-bottom">
       <a href="/privacy-policy/" class="footer-back">Privacy Policy</a>
-      <span class="footer-back"><a href="/">fishercapital.ca</a></span>
     </div>
   </div>
 </footer>
 
-<link rel="stylesheet" href="/chatbot.css" />
-<script src="/chatbot.js"></script>
+<!-- ── CONSENT NOTICE ─────────────────────────── -->
+<div class="fc-consent" id="fc-consent" role="region" aria-label="Advertising measurement notice" hidden>
+  <p class="fc-consent-text">This page uses the Meta Pixel to measure ads.</p>
+  <div class="fc-consent-actions">
+    <button type="button" class="fc-consent-btn fc-consent-accept" data-fc-consent="granted">Accept</button>
+    <button type="button" class="fc-consent-btn fc-consent-decline" data-fc-consent="denied">Decline</button>
+    <a class="fc-consent-link" href="/privacy-policy/">Privacy policy</a>
+  </div>
+</div>
+<script src="/fc-consent.js"></script>
 </body>
 </html>
