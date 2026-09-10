@@ -139,4 +139,9 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);}
 .ty-book{margin-top:48px;padding-top:40px;border-top:1px solid var(--border);}
 .ty-book h2{font-family:var(--font-serif);font-size:clamp(22px,3vw,30px);color:var(--heading);line-height:1.25;margin-bottom:12px;}
 .ty-book p{font-size:15px;color:var(--muted);margin-bottom:24px;max-width:560px;}
-.calendly-inline-widget{min-width:280px;height:700px;}
+.ty-link{color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-weight:600;}
+.ty-link:hover{color:var(--accent-dk);}
+#ty-book-btn{margin-bottom:8px;}
+#ty-book-btn[disabled]{opacity:0.6;cursor:default;}
+.calendly-inline-widget{min-width:280px;height:700px;margin-top:24px;}
+.calendly-inline-widget[hidden]{display:none;}

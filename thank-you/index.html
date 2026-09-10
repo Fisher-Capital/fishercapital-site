@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thanks, your review request is in | FisherCapital</title>
-  <meta name="description" content="Your review request has been received. Raymond reviews what you shared before reaching out." />
+  <title>Review request | FisherCapital</title>
+  <meta name="description" content="Confirmation page for a FisherCapital review request." />
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,29 +18,40 @@
   <div class="container ty-nav">
     <div class="ty-brand">
       <div class="logo">Fisher<span>Capital</span></div>
-      <div class="ty-brokerage">Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. #13054</div>
+      <div class="fc-header-disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. #13054</div>
     </div>
     <a href="tel:4168980181" class="ty-phone">(416) 898-0181</a>
   </div>
 </header>
 
 
-<!-- ── CONFIRMATION ──────────────────────────────── -->
 <main class="ty-main">
   <div class="container">
-    <h1>Thanks, your review request is in.</h1>
-    <p class="ty-lead">Raymond reviews what you shared before reaching out. Expect to hear back within one business day.</p>
-    <p class="ty-note">Please do not email a SIN, ID, banking details or documents. If anything is needed later, Raymond will explain how it is collected securely.</p>
-    <p class="ty-note">Nothing on this page or in any follow-up is a guarantee of approval, rate or terms. Every file depends on a full assessment and lender requirements.</p>
+
+    <!-- Neutral state is the default, so a page with no script, or a visit
+         with no verified completion token, never shows a false confirmation. -->
+    <section id="ty-neutral">
+      <h1>Review request</h1>
+      <p class="ty-lead">No completed review request was found on this device. If you just submitted the form, you are all set; otherwise start here.</p>
+      <p class="ty-note"><a class="ty-link" href="https://tally.so/r/KYGDrk">Start Your Review</a></p>
+      <p class="ty-note">About 3 minutes. No SIN or documents are needed for this first step. No commitment.</p>
+    </section>
+
+    <section id="ty-confirmed" hidden>
+      <h1>Thanks, your review request is in.</h1>
+      <p class="ty-lead">Raymond reviews what you shared before reaching out. Expect to hear back within one business day.</p>
+      <p class="ty-note">Please do not email a SIN, ID, banking details or documents. If anything is needed later, Raymond will explain how it is collected securely.</p>
+      <p class="ty-note">Nothing on this page or in any follow-up is a guarantee of approval, rate or terms. Every file depends on a full assessment and lender requirements.</p>
+    </section>
 
     <div class="ty-book">
       <h2>Want to pick a time now?</h2>
-      <p>Booking a call is optional. Raymond will reach out either way.</p>
-      <div class="calendly-inline-widget"
-           data-url="https://calendly.com/raymond-finance-co/mortgage-consultation"
-           data-auto-load="false"
-           style="min-width:280px;height:700px;"></div>
+      <p>Booking a call is optional. Raymond will reach out either way. Nothing loads from Calendly until you press the button.</p>
+      <button type="button" id="ty-book-btn" class="btn-primary">Book a call</button>
+      <div class="calendly-inline-widget" id="ty-calendly"
+           data-url="https://calendly.com/raymond-finance-co/mortgage-consultation" hidden></div>
     </div>
+
   </div>
 </main>
 
@@ -70,47 +81,85 @@
 </div>
 <script src="/fc-consent.js"></script>
 
-<!-- ── CALENDLY EMBED ─────────────────────────── -->
-<script src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
 <script>
 (function () {
   'use strict';
 
-  /* Calendly inline embed */
-  function initCalendly() {
+  /* ---------- completion check (review 2, B1 and S4) ----------
+     A token in the URL is not proof of anything on its own: it is visible and
+     anyone can invent one. Two cheap checks raise the bar:
+       1. it must match the token this browser minted on the landing page, or
+       2. the visitor must have arrived from tally.so.
+     Neither is a security control. The authoritative Lead is the server-side
+     Conversions API event keyed on the same event_id (see fc-tracking.js).
+     Without a pass, the page shows the neutral state and fires nothing. */
+  var tok = window.FC_URL_TOKEN || null;
+  var mintedHere = window.FC_TOK_AT_LOAD || null;
+
+  function fromTally() {
     try {
-      var el = document.querySelector('.calendly-inline-widget');
-      if (!el || !window.Calendly || el.getAttribute('data-fc-loaded') === '1') { return; }
-      window.Calendly.initInlineWidget({ url: el.getAttribute('data-url'), parentElement: el });
-      el.setAttribute('data-fc-loaded', '1');
-    } catch (e) { /* embed is optional */ }
+      if (!document.referrer) { return false; }
+      return new URL(document.referrer).hostname === 'tally.so';
+    } catch (e) { return false; }
   }
-  var tries = 0;
-  var timer = setInterval(function () {
-    tries++;
-    initCalendly();
-    if (tries > 40 || (window.Calendly && document.querySelector('.calendly-inline-widget[data-fc-loaded="1"]'))) {
-      clearInterval(timer);
+
+  var verified = !!tok && (tok === mintedHere || fromTally());
+
+  if (verified) {
+    var neutral = document.getElementById('ty-neutral');
+    var confirmed = document.getElementById('ty-confirmed');
+    if (neutral) { neutral.hidden = true; }
+    if (confirmed) { confirmed.hidden = false; }
+
+    if (window.FC_IS_PAID && typeof window.fcTrack === 'function') {
+      window.fcTrack('Lead', {}, tok);   // queued by fc-tracking.js if consent is unset
     }
-  }, 250);
-
-  /* Conversion: Lead. Requires a token that arrived in this page's URL, on a paid session. */
-  var attr = window.FC_ATTR || {};
-  var fromUrl = window.FC_ATTR_FROM_URL || {};
-  var tok = attr.fc_tok || null;
-
-  if (tok && fromUrl.fc_tok && window.FC_IS_PAID && typeof window.fcTrack === 'function') {
-    window.fcTrack('Lead', {}, tok);
   }
 
-  /* Conversion: Schedule, from the Calendly embed. */
+  /* ---------- Calendly, click to load ----------
+     No script, iframe or request reaches calendly.com until the visitor
+     presses the button. The privacy policy says so. */
+  var loaded = false;
+  function loadCalendly() {
+    if (loaded) { return; }
+    loaded = true;
+
+    var host = document.getElementById('ty-calendly');
+    var btn = document.getElementById('ty-book-btn');
+    if (!host) { return; }
+    host.hidden = false;
+    if (btn) { btn.disabled = true; btn.textContent = 'Loading the calendar'; }
+
+    var s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true;
+    s.onload = function () {
+      try {
+        if (window.Calendly) {
+          window.Calendly.initInlineWidget({ url: host.getAttribute('data-url'), parentElement: host });
+        }
+        if (btn) { btn.hidden = true; }
+      } catch (e) { /* the phone number is still on the page */ }
+    };
+    s.onerror = function () {
+      if (btn) { btn.disabled = false; btn.textContent = 'Book a call'; }
+      host.hidden = true;
+      loaded = false;
+    };
+    document.head.appendChild(s);
+  }
+
+  var bookBtn = document.getElementById('ty-book-btn');
+  if (bookBtn) { bookBtn.addEventListener('click', loadCalendly); }
+
+  /* ---------- Schedule conversion ---------- */
   window.addEventListener('message', function (e) {
     try {
       if (e.origin !== 'https://calendly.com') { return; }
       var data = e.data;
       if (!data || data.event !== 'calendly.event_scheduled') { return; }
       if (!tok || typeof window.fcTrack !== 'function') { return; }
-      window.fcTrack('Schedule', {}, tok + '-sched');
+      window.fcTrack('Schedule', {}, tok + '-sched');   // queued if consent is unset
     } catch (err) { /* never throw */ }
   });
 })();
