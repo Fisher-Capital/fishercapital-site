@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thanks, your review request is in | FisherCapital</title>
+  <meta name="description" content="Your review request has been received. Raymond reviews what you shared before reaching out." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/niche.css" />
+  <script src="/fc-tracking.js"></script>
+</head>
+<body data-fc-chatbot="off">
+
+<!-- ── HEADER ────────────────────────────────────── -->
+<header>
+  <div class="container ty-nav">
+    <div class="ty-brand">
+      <div class="logo">Fisher<span>Capital</span></div>
+      <div class="ty-brokerage">Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. #13054</div>
+    </div>
+    <a href="tel:4168980181" class="ty-phone">(416) 898-0181</a>
+  </div>
+</header>
+
+
+<!-- ── CONFIRMATION ──────────────────────────────── -->
+<main class="ty-main">
+  <div class="container">
+    <h1>Thanks, your review request is in.</h1>
+    <p class="ty-lead">Raymond reviews what you shared before reaching out. Expect to hear back within one business day.</p>
+    <p class="ty-note">Please do not email a SIN, ID, banking details or documents. If anything is needed later, Raymond will explain how it is collected securely.</p>
+    <p class="ty-note">Nothing on this page or in any follow-up is a guarantee of approval, rate or terms. Every file depends on a full assessment and lender requirements.</p>
+
+    <div class="ty-book">
+      <h2>Want to pick a time now?</h2>
+      <p>Booking a call is optional. Raymond will reach out either way.</p>
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/raymond-finance-co/mortgage-consultation"
+           data-auto-load="false"
+           style="min-width:280px;height:700px;"></div>
+    </div>
+  </div>
+</main>
+
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p class="footer-legal">
+      General information only. Not mortgage advice. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
+      Raymond. F, Mortgage agent (Level 1), FSRA Lic. #M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. #13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181
+    </p>
+    <div class="footer-bottom">
+      <a href="/privacy-policy/" class="footer-privacy">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ── CONSENT NOTICE ─────────────────────────── -->
+<div class="fc-consent" id="fc-consent" role="region" aria-label="Advertising measurement notice" hidden>
+  <p class="fc-consent-text">This page uses the Meta Pixel to measure ads.</p>
+  <div class="fc-consent-actions">
+    <button type="button" class="fc-consent-btn fc-consent-accept" data-fc-consent="granted">Accept</button>
+    <button type="button" class="fc-consent-btn fc-consent-decline" data-fc-consent="denied">Decline</button>
+    <a class="fc-consent-link" href="/privacy-policy/">Privacy policy</a>
+  </div>
+</div>
+<script src="/fc-consent.js"></script>
+
+<!-- ── CALENDLY EMBED ─────────────────────────── -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
+<script>
+(function () {
+  'use strict';
+
+  /* Calendly inline embed */
+  function initCalendly() {
+    try {
+      var el = document.querySelector('.calendly-inline-widget');
+      if (!el || !window.Calendly || el.getAttribute('data-fc-loaded') === '1') { return; }
+      window.Calendly.initInlineWidget({ url: el.getAttribute('data-url'), parentElement: el });
+      el.setAttribute('data-fc-loaded', '1');
+    } catch (e) { /* embed is optional */ }
+  }
+  var tries = 0;
+  var timer = setInterval(function () {
+    tries++;
+    initCalendly();
+    if (tries > 40 || (window.Calendly && document.querySelector('.calendly-inline-widget[data-fc-loaded="1"]'))) {
+      clearInterval(timer);
+    }
+  }, 250);
+
+  /* Conversion: Lead. Requires a token that arrived in this page's URL, on a paid session. */
+  var attr = window.FC_ATTR || {};
+  var fromUrl = window.FC_ATTR_FROM_URL || {};
+  var tok = attr.fc_tok || null;
+
+  if (tok && fromUrl.fc_tok && window.FC_IS_PAID && typeof window.fcTrack === 'function') {
+    window.fcTrack('Lead', {}, tok);
+  }
+
+  /* Conversion: Schedule, from the Calendly embed. */
+  window.addEventListener('message', function (e) {
+    try {
+      if (e.origin !== 'https://calendly.com') { return; }
+      var data = e.data;
+      if (!data || data.event !== 'calendly.event_scheduled') { return; }
+      if (!tok || typeof window.fcTrack !== 'function') { return; }
+      window.fcTrack('Schedule', {}, tok + '-sched');
+    } catch (err) { /* never throw */ }
+  });
+})();
+</script>
+</body>
+</html>
