@@ -479,8 +479,15 @@
   // ─────────────────────────────────────────────
   // Auto-open
   // ─────────────────────────────────────────────
+  function ssGetSafe(key) {
+    try { return window.sessionStorage.getItem(key); } catch (e) { return null; }
+  }
+  function ssSetSafe(key, value) {
+    try { window.sessionStorage.setItem(key, value); return true; } catch (e) { return false; }
+  }
+
   function scheduleAutoOpen() {
-    if (sessionStorage.getItem('fc_greeted')) return;
+    if (ssGetSafe('fc_greeted')) return;
 
     const isMobile = window.innerWidth < 768;
 
@@ -505,7 +512,7 @@
       if (scrolledAtAll) {
         triggered = true;
         window.removeEventListener('scroll', onScroll);
-        sessionStorage.setItem('fc_greeted', '1');
+        ssSetSafe('fc_greeted', '1');
         openChat();
       }
     }
@@ -520,16 +527,59 @@
 
   // ─────────────────────────────────────────────
   // Init guard: no chat on paid sessions, and none where the page opts out.
-  // Evaluated from location.search directly, independent of fc-tracking.js.
+  //
+  // This is the same last-touch rule as fc-tracking.js (S2), implemented
+  // independently so the guard cannot be defeated by blocking that file:
+  // the current URL wins, any utm_* or fbclid in the URL replaces the stored
+  // bundle entirely, and with no such parameters the stored bundle is used
+  // unchanged. Presence counts, not value, so a bare "?fbclid=" is paid.
+  // fc-tracking.js does not run on these pages, so the replacement write has
+  // to happen here or a later parameterless visit would still read the old
+  // bundle. Nothing else in the stored bundle is ever modified here.
   // ─────────────────────────────────────────────
+  const FC_UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  const FC_BUNDLE_KEYS = FC_UTM_KEYS.concat(['fbclid']);
+
+  function fcReadBundle() {
+    let urlBundle = {};
+    let urlHasBundle = false;
+    try {
+      const qs = new URLSearchParams(window.location.search);
+      for (const k of FC_BUNDLE_KEYS) {
+        if (qs.has(k)) { urlHasBundle = true; urlBundle[k] = qs.get(k) || ''; }
+      }
+    } catch (e) {
+      urlBundle = {}; urlHasBundle = false;
+    }
+
+    if (urlHasBundle) {
+      try { window.sessionStorage.setItem('fc_attr', JSON.stringify(urlBundle)); } catch (e) { /* ignore */ }
+      return urlBundle;
+    }
+
+    try {
+      const raw = window.sessionStorage.getItem('fc_attr');
+      if (!raw) { return {}; }
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') { return {}; }
+      const out = {};
+      for (const k of FC_BUNDLE_KEYS) {
+        if (typeof parsed[k] === 'string') { out[k] = parsed[k]; }
+      }
+      return out;
+    } catch (e) {
+      return {};
+    }
+  }
+
   function isPaidSession() {
     const PAID_SOURCES = ['facebook', 'instagram', 'meta', 'fb', 'ig'];
     const PAID_MEDIUMS = ['paid', 'cpc', 'paid_social', 'paidsocial'];
     try {
-      const qs = new URLSearchParams(window.location.search);
-      if (qs.get('fbclid')) { return true; }
-      const src = (qs.get('utm_source') || '').toLowerCase();
-      const med = (qs.get('utm_medium') || '').toLowerCase();
+      const attr = fcReadBundle();
+      if (Object.prototype.hasOwnProperty.call(attr, 'fbclid')) { return true; }
+      const src = (attr.utm_source || '').toLowerCase();
+      const med = (attr.utm_medium || '').toLowerCase();
       return PAID_SOURCES.includes(src) && PAID_MEDIUMS.includes(med);
     } catch (e) {
       return false;
