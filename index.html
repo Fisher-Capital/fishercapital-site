@@ -623,7 +623,10 @@
       .trust-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (min-width: 900px) {
-      .trust-grid { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+      /* N2: the content box is 1080px minus 24px padding each side = 1032px.
+         Five 150px columns plus four 20px gaps need 830px, so all five items
+         sit on one row at the maximum width instead of leaving an orphan. */
+      .trust-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
     }
     .trust-item-label {
       font-size: 11px;
