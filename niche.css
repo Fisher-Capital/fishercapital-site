@@ -41,7 +41,7 @@ nav.desktop a:hover{color:var(--heading);}
 .hamburger{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:4px;}
 .hamburger span{display:block;width:22px;height:2px;background:var(--body);border-radius:2px;transition:background 0.15s;}
 .hamburger:hover span{background:var(--heading);}
-.mobile-menu{display:none;position:fixed;inset:64px 0 0 0;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;border-top:1px solid var(--border);}
+.mobile-menu{display:none;position:fixed;inset:0;padding-top:150px;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;border-top:1px solid var(--border);}
 .mobile-menu.open{display:flex;}
 .mobile-menu a{font-size:22px;font-weight:500;color:var(--body);transition:color 0.15s;}
 .mobile-menu a:hover{color:var(--accent);}
@@ -128,8 +128,6 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);}
 
 /* ── Thank-you page ───────────────────────── */
 .ty-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:auto;min-height:64px;padding:10px 0;flex-wrap:wrap;}
-.ty-brand{display:flex;flex-direction:column;gap:2px;}
-.ty-brokerage{font-size:13px;line-height:1.35;color:var(--muted);max-width:420px;}
 .ty-phone{font-size:15px;font-weight:600;color:var(--heading);letter-spacing:-0.01em;}
 .ty-phone:hover{color:var(--accent);}
 .ty-main{padding:64px 0 72px;}
@@ -145,3 +143,9 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);}
 #ty-book-btn[disabled]{opacity:0.6;cursor:default;}
 .calendly-inline-widget{min-width:280px;height:700px;margin-top:24px;}
 .calendly-inline-widget[hidden]{display:none;}
+
+/* ── Header disclosure (FSRA, on every page) ─
+   Its own full-width row directly under the nav row, so it never competes
+   with the nav for horizontal space and never pushes the hamburger off a
+   narrow screen. 13px is the floor set by the brief. */
+.fc-header-disclosure{font-size:13px;line-height:1.4;color:rgba(255,255,255,0.62);padding-bottom:9px;margin-top:-4px;}
