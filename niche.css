@@ -110,7 +110,7 @@ footer{padding:48px 0 40px;border-top:1px solid var(--border);}
 .footer-divider{height:1px;background:var(--border);margin-bottom:28px;}
 .footer-bottom{display:flex;flex-direction:column;gap:12px;}
 @media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;align-items:flex-start;}}
-.footer-legal{font-size:12px;color:var(--muted);line-height:1.7;max-width:640px;}
+.footer-legal{font-size:13px;color:var(--body);line-height:1.7;max-width:640px;}
 .footer-privacy{font-size:12px;color:var(--muted);white-space:nowrap;padding-top:2px;}
 .footer-privacy:hover{color:var(--accent);}
 
