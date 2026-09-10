@@ -48,6 +48,10 @@
       <button type="button" id="ty-book-btn" class="btn-primary">Book a call</button>
       <div class="calendly-inline-widget" id="ty-calendly"
            data-url="https://calendly.com/raymond-finance-co/mortgage-consultation" hidden></div>
+      <p class="ty-note" id="ty-calendly-fallback" hidden>The calendar could not be loaded on this page.
+        <a class="ty-link" id="ty-calendly-link" rel="noopener"
+           href="https://calendly.com/raymond-finance-co/mortgage-consultation">Open the booking calendar on calendly.com</a>,
+        or call (416) 898-0181.</p>
     </div>
 
   </div>
@@ -116,44 +120,89 @@
 
   /* ---------- Calendly, click to load ----------
      No script, iframe or request reaches calendly.com until the visitor
-     presses the button. The privacy policy says so. */
-  var loaded = false;
-  function loadCalendly() {
-    if (loaded) { return; }
-    loaded = true;
+     presses the button. The privacy policy says so.
 
-    var host = document.getElementById('ty-calendly');
-    var btn = document.getElementById('ty-book-btn');
-    if (!host) { return; }
+     Review 3: the loader must never leave the visitor with nothing. If the
+     script loads but window.Calendly is absent, a plain link to the booking
+     page is shown. If initInlineWidget throws, the button is re-enabled and
+     the attempt can be retried, so "loaded" latches only after a widget
+     actually exists. */
+  var host = document.getElementById('ty-calendly');
+  var btn = document.getElementById('ty-book-btn');
+  var fallback = document.getElementById('ty-calendly-fallback');
+  var fallbackLink = document.getElementById('ty-calendly-link');
+  var calendlyUrl = host ? (host.getAttribute('data-url') || '') : '';
+
+  var loaded = false;    // a widget is up; never load twice
+  var loading = false;   // an attempt is in flight; do not stack attempts
+
+  function resetButton() {
+    if (btn) { btn.hidden = false; btn.disabled = false; btn.textContent = 'Book a call'; }
+  }
+
+  function showFallback() {
+    loading = false;
+    if (host) { host.hidden = true; }
+    if (btn) { btn.hidden = true; }
+    if (fallbackLink && calendlyUrl) { fallbackLink.setAttribute('href', calendlyUrl); }
+    if (fallback) { fallback.hidden = false; }
+  }
+
+  function initWidget() {
+    try {
+      window.Calendly.initInlineWidget({ url: calendlyUrl, parentElement: host });
+    } catch (e) {
+      // Nothing was built. Let the visitor try again.
+      loading = false;
+      if (host) { host.hidden = true; }
+      resetButton();
+      return;
+    }
+    loaded = true;
+    loading = false;
+    if (btn) { btn.hidden = true; }
+  }
+
+  function loadCalendly() {
+    if (!host || loaded || loading) { return; }
+    loading = true;
     host.hidden = false;
+    if (fallback) { fallback.hidden = true; }
     if (btn) { btn.disabled = true; btn.textContent = 'Loading the calendar'; }
+
+    // A previous attempt may have fetched the script already and only failed
+    // at init. Do not fetch it twice.
+    if (window.Calendly) { initWidget(); return; }
 
     var s = document.createElement('script');
     s.src = 'https://assets.calendly.com/assets/external/widget.js';
     s.async = true;
     s.onload = function () {
-      try {
-        if (window.Calendly) {
-          window.Calendly.initInlineWidget({ url: host.getAttribute('data-url'), parentElement: host });
-        }
-        if (btn) { btn.hidden = true; }
-      } catch (e) { /* the phone number is still on the page */ }
+      if (!window.Calendly) { showFallback(); return; }
+      initWidget();
     };
     s.onerror = function () {
-      if (btn) { btn.disabled = false; btn.textContent = 'Book a call'; }
+      loading = false;
       host.hidden = true;
-      loaded = false;
+      resetButton();
     };
     document.head.appendChild(s);
   }
 
-  var bookBtn = document.getElementById('ty-book-btn');
-  if (bookBtn) { bookBtn.addEventListener('click', loadCalendly); }
+  if (btn) { btn.addEventListener('click', loadCalendly); }
 
-  /* ---------- Schedule conversion ---------- */
+  /* ---------- Schedule conversion ----------
+     Three gates. The page must have passed the completion check, the message
+     must come from calendly.com, and e.source must be the contentWindow of
+     the iframe this page created. The last one is what stops a same-origin
+     script, or the page itself, from posting a forged event_scheduled. */
   window.addEventListener('message', function (e) {
     try {
+      if (verified !== true) { return; }
       if (e.origin !== 'https://calendly.com') { return; }
+      if (!host) { return; }
+      var iframe = host.querySelector('iframe');
+      if (!iframe || e.source !== iframe.contentWindow) { return; }
       var data = e.data;
       if (!data || data.event !== 'calendly.event_scheduled') { return; }
       if (!tok || typeof window.fcTrack !== 'function') { return; }
