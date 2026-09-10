@@ -125,19 +125,55 @@
      Review 3: the loader must never leave the visitor with nothing. If the
      script loads but window.Calendly is absent, a plain link to the booking
      page is shown. If initInlineWidget throws, the button is re-enabled and
-     the attempt can be retried, so "loaded" latches only after a widget
-     actually exists. */
+     the attempt can be retried.
+
+     Review 4: a call that returned is not proof of a widget, and a call that
+     threw may still have appended something. Every attempt therefore starts
+     from an empty container, a failed attempt empties it again, and "loaded"
+     latches only when a calendly.com iframe is really sitting in it. That is
+     also the iframe the Schedule listener binds to, so a stale first frame
+     can never reject the visible retry. */
   var host = document.getElementById('ty-calendly');
   var btn = document.getElementById('ty-book-btn');
   var fallback = document.getElementById('ty-calendly-fallback');
   var fallbackLink = document.getElementById('ty-calendly-link');
   var calendlyUrl = host ? (host.getAttribute('data-url') || '') : '';
 
-  var loaded = false;    // a widget is up; never load twice
-  var loading = false;   // an attempt is in flight; do not stack attempts
+  var loaded = false;      // a widget is up; never load twice
+  var loading = false;     // an attempt is in flight; do not stack attempts
+  var widgetFrame = null;  // the iframe Schedule messages must come from
 
   function resetButton() {
     if (btn) { btn.hidden = false; btn.disabled = false; btn.textContent = 'Book a call'; }
+  }
+
+  function emptyHost() {
+    if (!host) { return; }
+    while (host.firstChild) { host.removeChild(host.firstChild); }
+  }
+
+  // The only iframe worth trusting: one this container holds, pointing at
+  // calendly.com. A spinner div, a blank frame or an unparseable src is not it.
+  function calendlyFrame() {
+    if (!host) { return null; }
+    var frames = host.querySelectorAll('iframe');
+    for (var i = 0; i < frames.length; i++) {
+      try {
+        if (new URL(frames[i].getAttribute('src') || '', window.location.href).hostname === 'calendly.com') {
+          return frames[i];
+        }
+      } catch (e) { /* unparseable src; not ours */ }
+    }
+    return null;
+  }
+
+  // Give up on this attempt and leave nothing behind for the next one.
+  function failAttempt() {
+    loading = false;
+    widgetFrame = null;
+    emptyHost();
+    if (host) { host.hidden = true; }
+    resetButton();
   }
 
   function showFallback() {
@@ -152,12 +188,13 @@
     try {
       window.Calendly.initInlineWidget({ url: calendlyUrl, parentElement: host });
     } catch (e) {
-      // Nothing was built. Let the visitor try again.
-      loading = false;
-      if (host) { host.hidden = true; }
-      resetButton();
+      // The throw says nothing about what was appended first. Clear it.
+      failAttempt();
       return;
     }
+    var frame = calendlyFrame();
+    if (!frame) { failAttempt(); return; }   // returned, but built nothing usable
+    widgetFrame = frame;                     // rebound on every successful init
     loaded = true;
     loading = false;
     if (btn) { btn.hidden = true; }
@@ -166,6 +203,7 @@
   function loadCalendly() {
     if (!host || loaded || loading) { return; }
     loading = true;
+    emptyHost();          // a retry must not inherit a previous attempt's leftovers
     host.hidden = false;
     if (fallback) { fallback.hidden = true; }
     if (btn) { btn.disabled = true; btn.textContent = 'Loading the calendar'; }
@@ -182,9 +220,7 @@
       initWidget();
     };
     s.onerror = function () {
-      loading = false;
-      host.hidden = true;
-      resetButton();
+      failAttempt();
     };
     document.head.appendChild(s);
   }
@@ -194,15 +230,14 @@
   /* ---------- Schedule conversion ----------
      Three gates. The page must have passed the completion check, the message
      must come from calendly.com, and e.source must be the contentWindow of
-     the iframe this page created. The last one is what stops a same-origin
-     script, or the page itself, from posting a forged event_scheduled. */
+     the widget iframe latched at the last successful init. The last one is
+     what stops a same-origin script, or the page itself, from posting a
+     forged event_scheduled. */
   window.addEventListener('message', function (e) {
     try {
       if (verified !== true) { return; }
       if (e.origin !== 'https://calendly.com') { return; }
-      if (!host) { return; }
-      var iframe = host.querySelector('iframe');
-      if (!iframe || e.source !== iframe.contentWindow) { return; }
+      if (!widgetFrame || e.source !== widgetFrame.contentWindow) { return; }
       var data = e.data;
       if (!data || data.event !== 'calendly.event_scheduled') { return; }
       if (!tok || typeof window.fcTrack !== 'function') { return; }
