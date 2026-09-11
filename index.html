@@ -7,1105 +7,422 @@
   <meta name="description" content="Self-employed, bank declined, renewal, debt consolidation, bruised credit. Ontario mortgage solutions for situations that don't fit the standard profile." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/fc.css" />
   <!-- Meta domain verification slot. When the Meta dataset exists, paste the
        <meta name="facebook-domain-verification" content="..."> tag from Business
        Manager on the line below and nowhere else. -->
-  <style>
-    /* ─── TOKENS ────────────────────────────────────────────────── */
-    :root {
-      --bg:        #0C0E12;
-      --surface:   #13161C;
-      --border:    rgba(255,255,255,0.07);
-      --muted:     rgba(255,255,255,0.38);
-      --body:      rgba(255,255,255,0.78);
-      --heading:   #FFFFFF;
-      --accent:    #C8A96E;   /* amber, not corporate, not generic */
-      --accent-dk: #A68748;
-      --radius:    6px;
-      --font-sans: 'Outfit', sans-serif;
-      --font-serif: 'DM Serif Display', serif;
-    }
-
-    /* ─── RESET ─────────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--body);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-
-    /* ─── UTILITY ───────────────────────────────────────────────── */
-    .container {
-      width: 100%;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .accent { color: var(--accent); }
-    .muted  { color: var(--muted); }
-
-    /* ─── BUTTONS ───────────────────────────────────────────────── */
-    .btn-primary {
-      display: inline-block;
-      background: var(--accent);
-      color: #0C0E12;
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      transition: background 0.18s ease, transform 0.12s ease;
-      text-decoration: none;
-    }
-    .btn-primary:hover { background: var(--accent-dk); transform: translateY(-1px); }
-
-    .btn-ghost {
-      display: inline-block;
-      background: transparent;
-      color: var(--body);
-      font-family: var(--font-sans);
-      font-size: 14px;
-      font-weight: 400;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      padding-bottom: 2px;
-      cursor: pointer;
-      transition: color 0.15s, border-color 0.15s;
-    }
-    .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
-
-    /* ─── NAV ───────────────────────────────────────────────────── */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(12,14,18,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-    .logo {
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.02em;
-      color: var(--heading);
-    }
-    .logo span {
-      color: var(--accent);
-      font-weight: 500;
-      font-size: 0.76em;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-left: 3px;
-    }
-    .fc-header-disclosure { font-size: 13px; line-height: 1.4; color: rgba(255,255,255,0.62); padding-bottom: 9px; margin-top: -4px; }
-
-    nav.desktop {
-      display: none;
-      gap: 32px;
-      align-items: center;
-    }
-    nav.desktop a {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--muted);
-      transition: color 0.15s;
-    }
-    nav.desktop a:hover { color: var(--heading); }
-    .nav-cta { flex-shrink: 0; }
-
-    /* hamburger */
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-    }
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--body);
-      border-radius: 2px;
-      transition: all 0.2s;
-    }
-
-    /* mobile menu */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      padding-top: 150px;
-      background: var(--bg);
-      z-index: 99;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      border-top: 1px solid var(--border);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--body);
-      transition: color 0.15s;
-    }
-    .mobile-menu a:hover { color: var(--accent); }
-
-    @media (min-width: 768px) {
-      nav.desktop { display: flex; }
-      .hamburger  { display: none; }
-    }
-
-    /* ─── HERO ──────────────────────────────────────────────────── */
-    .hero {
-      padding: 80px 0 72px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 24px;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: var(--accent);
-    }
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(28px, 5vw, 52px);
-      line-height: 1.15;
-      color: var(--heading);
-      max-width: 780px;
-      margin-bottom: 24px;
-      letter-spacing: -0.01em;
-    }
-    .hero-sub {
-      font-size: clamp(16px, 2vw, 18px);
-      color: var(--body);
-      max-width: 560px;
-      margin-bottom: 40px;
-      line-height: 1.7;
-    }
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    @media (min-width: 480px) {
-      .hero-actions { flex-direction: row; align-items: center; }
-    }
-
-    /* ─── SECTION COMMON ────────────────────────────────────────── */
-    section { padding: 80px 0; }
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-    .section-headline {
-      font-family: var(--font-serif);
-      font-size: clamp(26px, 4vw, 40px);
-      color: var(--heading);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
-    }
-    .section-sub {
-      font-size: 16px;
-      color: var(--muted);
-      margin-bottom: 48px;
-      max-width: 520px;
-    }
-    .rule {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      border: none;
-    }
-
-    /* ─── SCENARIO TILES ────────────────────────────────────────── */
-    #who-i-help { border-top: 1px solid var(--border); }
-    .tile-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    @media (min-width: 640px) {
-      .tile-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 900px) {
-      .tile-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .tile {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 28px 24px;
-      transition: border-color 0.2s, transform 0.18s;
-    }
-    .tile:hover {
-      border-color: rgba(200, 169, 110, 0.3);
-      transform: translateY(-2px);
-    }
-    .tile-icon {
-      width: 36px;
-      height: 36px;
-      margin-bottom: 16px;
-      color: var(--accent);
-    }
-    .tile-label {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--heading);
-      margin-bottom: 8px;
-    }
-    .tile-desc {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .tile-link {
-      display: block;
-      font-size: 13px;
-      color: var(--accent);
-      margin-top: 16px;
-      font-weight: 500;
-    }
-    .tile-link:hover { text-decoration: underline; }
-    .tiles-footer {
-      margin-top: 40px;
-      font-size: 15px;
-      color: var(--muted);
-    }
-    .tiles-footer a { color: var(--accent); font-weight: 500; }
-    .tiles-footer a:hover { text-decoration: underline; }
-
-    /* ─── HOW IT WORKS ──────────────────────────────────────────── */
-    #how-it-works {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    @media (min-width: 768px) {
-      .steps { grid-template-columns: repeat(3, 1fr); }
-    }
-    .step {
-      padding: 32px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    @media (min-width: 768px) {
-      .step {
-        padding: 0 40px;
-        border-bottom: none;
-        border-right: 1px solid var(--border);
-      }
-      .step:last-child { border-right: none; }
-      .step:first-child { padding-left: 0; }
-    }
-    .step-num {
-      font-family: var(--font-serif);
-      font-size: 48px;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 20px;
-      opacity: 0.7;
-    }
-    .step-title {
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--heading);
-      margin-bottom: 10px;
-    }
-    .step-desc {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-    .step-action {
-      margin-top: 20px;
-    }
-
-    /* ─── WHY BROKER ────────────────────────────────────────────── */
-    #why-broker { border-top: 1px solid var(--border); }
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-    @media (min-width: 768px) {
-      .two-col { grid-template-columns: 2fr 3fr; gap: 80px; }
-    }
-    .broker-intro {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 16px;
-      line-height: 1.7;
-    }
-    .broker-points {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .broker-point {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .broker-point:last-child { border-bottom: none; }
-    .broker-num {
-      font-family: var(--font-serif);
-      font-size: 28px;
-      color: var(--accent);
-      opacity: 0.5;
-      line-height: 1;
-      flex-shrink: 0;
-      width: 32px;
-      padding-top: 4px;
-    }
-    .broker-text {
-      font-size: 15px;
-      color: var(--body);
-      line-height: 1.65;
-    }
-
-    /* ─── CTA BLOCK ─────────────────────────────────────────────── */
-    .cta-block {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-    }
-    .cta-block .section-headline {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-block .section-sub {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-    .cta-disclaimer {
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* ─── FOOTER ────────────────────────────────────────────────── */
-    footer {
-      padding: 48px 0 40px;
-      border-top: 1px solid var(--border);
-    }
-    .footer-top {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 32px;
-    }
-    @media (min-width: 640px) {
-      .footer-top {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-    .footer-email {
-      font-size: 14px;
-      color: var(--muted);
-      transition: color 0.15s;
-    }
-    .footer-email:hover { color: var(--accent); }
-    .footer-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 24px;
-    }
-    .footer-bottom {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    @media (min-width: 640px) {
-      .footer-bottom {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-    }
-    .footer-legal {
-      font-size: 13px;
-      color: var(--body);
-      line-height: 1.65;
-      max-width: 640px;
-    }
-    .footer-privacy {
-      font-size: 12px;
-      color: var(--muted);
-      white-space: nowrap;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding-bottom: 1px;
-      transition: color 0.15s;
-    }
-    .footer-privacy:hover { color: var(--accent); }
-
-    /* ─── ANIMATIONS ────────────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fade-up {
-      animation: fadeUp 0.55s ease both;
-    }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.22s; }
-    .delay-3 { animation-delay: 0.34s; }
-    .delay-4 { animation-delay: 0.46s; }
-
-    /* ─── SCENARIOS ─────────────────────────────────────────────── */
-    .scenarios-section {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .scenario-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-top: 40px;
-    }
-    @media (min-width: 768px) {
-      .scenario-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .scenario-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .scenario-tag {
-      display: inline-flex;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(200,169,110,0.08);
-      border: 1px solid rgba(200,169,110,0.18);
-      padding: 4px 10px;
-      border-radius: 4px;
-      width: fit-content;
-    }
-    .scenario-card h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--heading);
-      line-height: 1.35;
-    }
-    .scenario-card > p {
-      font-size: 14px;
-      color: var(--body);
-      line-height: 1.7;
-    }
-    .scenario-disclaimer {
-      font-size: 12px;
-      color: var(--muted);
-      font-style: italic;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      margin-top: auto;
-    }
-
-    /* ─── FAQ ───────────────────────────────────────────────────── */
-    .faq-section { border-top: 1px solid var(--border); }
-    .faq-list {
-      margin-top: 40px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-q {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      padding: 20px 24px;
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--heading);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      transition: background 0.15s;
-    }
-    .faq-q:hover { background: rgba(255,255,255,0.02); }
-    .faq-q.open  { color: var(--accent); }
-    .faq-icon {
-      flex-shrink: 0;
-      font-size: 22px;
-      line-height: 1;
-      color: var(--muted);
-      display: inline-block;
-      transition: transform 0.2s, color 0.15s;
-    }
-    .faq-q.open .faq-icon { transform: rotate(45deg); color: var(--accent); }
-    .faq-a {
-      display: none;
-      padding: 0 24px 20px;
-      font-size: 14.5px;
-      color: var(--body);
-      line-height: 1.7;
-    }
-    .faq-a.open { display: block; }
-
-    /* ─── TRUST BLOCK ──────────────────────────────────────────── */
-    .trust-block {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .trust-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    @media (min-width: 640px) {
-      .trust-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 900px) {
-      /* N2: the content box is 1080px minus 24px padding each side = 1032px.
-         Five 150px columns plus four 20px gaps need 830px, so all five items
-         sit on one row at the maximum width instead of leaving an orphan. */
-      .trust-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
-    }
-    .trust-item-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .trust-item-value {
-      font-size: 14px;
-      color: var(--body);
-      line-height: 1.6;
-    }
-    .trust-item-value a {
-      color: var(--accent);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .trust-item-value a:hover { color: var(--accent-dk); }
-  </style>
 </head>
 <body>
 
-<!-- ─────────────────────────────────────────────
-     NAVIGATION
-───────────────────────────────────────────────── -->
+<a href="#main" class="skip">Skip to content</a>
+
+<!-- ─────────── SHARED ILLUSTRATIONS ─────────── -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="il-debt" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="38" fill="var(--brand-soft)"/>
+      <rect x="14" y="20" width="26" height="7" rx="3.5" fill="var(--warm)"/>
+      <rect x="14" y="31" width="20" height="7" rx="3.5" fill="var(--warm)" opacity=".7"/>
+      <rect x="14" y="42" width="24" height="7" rx="3.5" fill="var(--warm)" opacity=".45"/>
+      <rect x="14" y="53" width="17" height="7" rx="3.5" fill="var(--warm)" opacity=".3"/>
+      <path d="M42 23.5h6c4 0 7 3 7 7v12c0 4-3 7-7 7h-6" fill="none" stroke="var(--brand)" stroke-width="2.5"/>
+      <rect x="50" y="33" width="18" height="14" rx="7" fill="var(--brand)"/>
+    </symbol>
+    <symbol id="il-self" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="38" fill="var(--brand-soft)"/>
+      <rect x="17" y="24" width="46" height="30" rx="4" fill="#fff" stroke="var(--brand)" stroke-width="2.5"/>
+      <rect x="12" y="54" width="56" height="6" rx="3" fill="var(--brand)"/>
+      <rect x="25" y="41" width="6" height="8" rx="2" fill="var(--warm)"/>
+      <rect x="35" y="35" width="6" height="14" rx="2" fill="var(--warm)" opacity=".75"/>
+      <rect x="45" y="30" width="6" height="19" rx="2" fill="var(--brand)"/>
+    </symbol>
+    <symbol id="il-renew" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="38" fill="var(--brand-soft)"/>
+      <rect x="18" y="20" width="44" height="42" rx="5" fill="#fff" stroke="var(--brand)" stroke-width="2.5"/>
+      <path d="M18 32h44" stroke="var(--brand)" stroke-width="2.5"/>
+      <rect x="27" y="14" width="4" height="11" rx="2" fill="var(--brand)"/>
+      <rect x="49" y="14" width="4" height="11" rx="2" fill="var(--brand)"/>
+      <path d="M31 47a9 9 0 1 1 3 6.7" fill="none" stroke="var(--warm)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M30 40v7h7" fill="none" stroke="var(--warm)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="il-declined" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="38" fill="var(--brand-soft)"/>
+      <rect x="16" y="16" width="32" height="40" rx="4" fill="#fff" stroke="var(--warm)" stroke-width="2.5"/>
+      <path d="M26 30l12 12M38 30l-12 12" stroke="var(--warm)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M32 60c14 0 18-8 26-8" fill="none" stroke="var(--brand)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 6"/>
+      <rect x="52" y="40" width="16" height="24" rx="4" fill="var(--brand)"/>
+      <path d="M56 50l3 3 6-6" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="il-buy" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="38" fill="var(--brand-soft)"/>
+      <path d="M16 38L38 20l22 18" fill="none" stroke="var(--brand)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M21 38v20a3 3 0 0 0 3 3h28a3 3 0 0 0 3-3V38" fill="#fff" stroke="var(--brand)" stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="33" y="45" width="12" height="16" rx="2" fill="var(--warm)"/>
+      <circle cx="59" cy="24" r="7" fill="none" stroke="var(--warm)" stroke-width="3"/>
+      <path d="M59 31v11m0-5h4" stroke="var(--warm)" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="il-other" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="38" fill="var(--brand-soft)"/>
+      <rect x="37" y="20" width="5" height="42" rx="2.5" fill="var(--brand)"/>
+      <path d="M37 26h20l6 6-6 6H37z" fill="var(--warm)"/>
+      <path d="M42 42H22l-6 6 6 6h20z" fill="var(--brand)"/>
+    </symbol>
+    <symbol id="il-s1" viewBox="0 0 80 80">
+      <rect x="14" y="12" width="42" height="52" rx="5" fill="var(--brand-soft)"/>
+      <rect x="22" y="24" width="26" height="4.5" rx="2.25" fill="var(--brand)"/>
+      <rect x="22" y="34" width="18" height="4.5" rx="2.25" fill="var(--brand)" opacity=".5"/>
+      <rect x="22" y="44" width="22" height="4.5" rx="2.25" fill="var(--brand)" opacity=".5"/>
+      <circle cx="56" cy="52" r="13" fill="var(--warm)"/>
+      <path d="M50 52l4 4 8-8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="il-s2" viewBox="0 0 80 80">
+      <rect x="10" y="18" width="38" height="28" rx="7" fill="var(--brand-soft)"/>
+      <path d="M20 46v8l9-8z" fill="var(--brand-soft)"/>
+      <rect x="18" y="27" width="20" height="4" rx="2" fill="var(--brand)"/>
+      <rect x="18" y="35" width="13" height="4" rx="2" fill="var(--brand)" opacity=".5"/>
+      <circle cx="55" cy="42" r="15" fill="none" stroke="var(--warm)" stroke-width="3"/>
+      <path d="M66 53l6 6" stroke="var(--warm)" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="il-s3" viewBox="0 0 80 80">
+      <circle cx="26" cy="40" r="9" fill="var(--brand)"/>
+      <path d="M35 40h10" stroke="var(--brand)" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/>
+      <rect x="46" y="14" width="24" height="16" rx="5" fill="var(--brand-soft)"/>
+      <rect x="46" y="32" width="24" height="16" rx="5" fill="var(--warm)"/>
+      <rect x="46" y="50" width="24" height="16" rx="5" fill="var(--brand-soft)"/>
+      <path d="M35 40c4 0 6-14 11-14M35 40c4 0 6 14 11 14" fill="none" stroke="var(--brand)" stroke-width="2" opacity=".45"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ─────────── HEADER ─────────── -->
 <header>
-  <div class="container nav-inner">
-    <a href="/" class="logo">Fisher<span>Capital</span></a>
-
-    <nav class="desktop">
-      <a href="#who-i-help">Who I Help</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation">Book a Call</a>
-    </nav>
-
-    <div style="display:flex; align-items:center; gap:12px;">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary nav-cta">Start Here →</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+  <div class="wrap">
+    <div class="nav">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--brand)"/><path d="M9 21V11h9M9 16h7" stroke="var(--on-brand)" stroke-width="2.6" stroke-linecap="round" fill="none"/><circle cx="22" cy="21" r="2.4" fill="var(--on-brand)"/></svg>
+        Fisher<span>Capital</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#situations">Your Situation</a>
+        <a href="#raymond">How I Work</a>
+        <a href="#how">The Process</a>
+        <a href="#calc">Calculator</a>
+        <a href="#faq">Questions</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="https://tally.so/r/KYGDrk" class="btn btn-primary btn-sm">Start Here</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+    <p class="disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. #13054</p>
   </div>
-  <div class="container fc-header-disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</div>
 </header>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#who-i-help" class="mobile-link">Who I Help</a>
-  <a href="#how-it-works" class="mobile-link">How It Works</a>
+  <a href="#situations" class="mobile-link">Your Situation</a>
+  <a href="#raymond" class="mobile-link">How I Work</a>
+  <a href="#how" class="mobile-link">The Process</a>
+  <a href="#calc" class="mobile-link">Calculator</a>
+  <a href="#faq" class="mobile-link">Questions</a>
   <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="mobile-link">Book a Call</a>
-  <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start Here →</a>
 </div>
 
+<main id="main">
 
-<!-- ─────────────────────────────────────────────
-     HERO
-───────────────────────────────────────────────── -->
+<!-- ─────────── HERO ─────────── -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-eyebrow fade-up">Ontario Mortgage Agent, Level 1</div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Ontario Mortgage Agent, Level 1</span>
+        <h1>Your bank said no. That doesn't mean the answer is no.</h1>
+        <p class="hero-sub">I work with Ontario borrowers on complex mortgage situations. Not the simple applications. The situations that take more than a standard process to navigate.</p>
+        <div class="hero-badges">
+          <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>No credit pull to start</span>
+          <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>About 3 minutes</span>
+          <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>FSRA Lic. #M26000144</span>
+        </div>
+      </div>
 
-    <h1 class="fade-up delay-1">
-      If your bank said no, your income is complicated, or your renewal is coming up and you're not sure where you stand.
-      <em>That's exactly who I work with.</em>
-    </h1>
-
-    <p class="hero-sub fade-up delay-2">
-      I work with Ontario borrowers on complex mortgage situations. Not the simple applications. The situations that take more than a standard process to navigate.
-    </p>
-
-    <div class="hero-actions fade-up delay-3">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary">Tell me your situation →</a>
-      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn-ghost">Or book a call directly</a>
+      <div class="picker">
+        <div class="picker-title">What's going on?</div>
+        <div class="picker-opts" role="group" aria-label="Choose your situation">
+          <button class="pk" data-k="declined" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Bank declined me</button>
+          <button class="pk" data-k="self" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2"/></svg>I'm self-employed</button>
+          <button class="pk" data-k="renewal" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Renewal or refinance</button>
+          <button class="pk" data-k="debt" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3L3 7.5l9 4.5 9-4.5L12 3zM3 16.5L12 21l9-4.5M3 12l9 4.5 9-4.5"/></svg>Consolidate debt</button>
+          <button class="pk" data-k="buying" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1v-9z"/></svg>Buying a home</button>
+          <button class="pk" data-k="unsure" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/></svg>Not sure</button>
+        </div>
+        <div class="picker-line" id="picker-line" aria-live="polite">
+          <strong>Not sure which fits? That's fine.</strong>
+          Start the intake; that is what the review is for. It takes about 3 minutes. No SIN or documents are needed for this first step.
+        </div>
+        <a href="https://tally.so/r/KYGDrk" class="btn btn-primary" id="picker-cta">Tell me your situation →</a>
+      </div>
     </div>
   </div>
 </section>
 
-
-<!-- ─────────────────────────────────────────────
-     WHO I HELP
-───────────────────────────────────────────────── -->
-<section id="who-i-help">
-  <div class="container">
-    <div class="section-label">Who I Work With</div>
-    <h2 class="section-headline">If your situation fits one of these, you're in the right place.</h2>
-    <p class="section-sub">Six situations where having the right guidance tends to matter most.</p>
-
-    <div class="tile-grid">
-
-      <!-- Tile 1: Self-Employed -->
-      <div class="tile">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="2" y="7" width="20" height="14" rx="2"/>
-          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-          <line x1="12" y1="12" x2="12" y2="16"/>
-          <line x1="10" y1="14" x2="14" y2="14"/>
-        </svg>
-        <div class="tile-label">Self-Employed or Irregular Income</div>
-        <p class="tile-desc">Self-employed qualifying works differently than the bank's standard process. There are lending channels built around that reality.</p>
-      </div>
-
-      <!-- Tile 2: Bank Declined -->
-      <div class="tile">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="15" y1="9" x2="9" y2="15"/>
-          <line x1="9" y1="9" x2="15" y2="15"/>
-        </svg>
-        <div class="tile-label">Bank Declined</div>
-        <p class="tile-desc">A lender decline is a reason to understand what happened, what information is missing, and whether another path should be reviewed.</p>
-      </div>
-
-      <!-- Tile 3: Renewal -->
-      <div class="tile">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="3" y="4" width="18" height="18" rx="2"/>
-          <line x1="16" y1="2" x2="16" y2="6"/>
-          <line x1="8" y1="2" x2="8" y2="6"/>
-          <line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-        <div class="tile-label">Mortgage Renewal</div>
-        <p class="tile-desc">Most borrowers accept their bank's renewal without exploring what else is available. Depending on how much time is left before your renewal date, there may be room to compare.</p>
-      </div>
-
-      <!-- Tile 4: Debt Consolidation -->
-      <div class="tile">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="M2 17l10 5 10-5"/>
-          <path d="M2 12l10 5 10-5"/>
-        </svg>
-        <div class="tile-label">Debt Consolidation</div>
-        <p class="tile-desc">Where there is home equity and higher-interest debt, restructuring may change the monthly payment; whether it is lower, and what it costs overall, depends on the lender, the terms and the full application. It is worth understanding what is possible before deciding.</p>
-      </div>
-
-      <!-- Tile 5: Bruised Credit -->
-      <div class="tile">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <div class="tile-label">Bruised or Recovering Credit</div>
-        <p class="tile-desc">A difficult credit history shapes the strategy. It doesn't end the conversation. The right approach depends on where you are and what timeline you're working with.</p>
-      </div>
-
-      <!-- Tile 6: Refinance -->
-      <div class="tile">
-        <svg class="tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <line x1="12" y1="1" x2="12" y2="23"/>
-          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-        </svg>
-        <div class="tile-label">Refinance or Equity Access</div>
-        <p class="tile-desc">If you need to restructure your mortgage, fund a renovation, or access equity you've built, the right move depends on your full picture. Let's start there.</p>
-      </div>
-
+<!-- ─────────── CHOOSE YOUR SITUATION ─────────── -->
+<section id="situations" class="band-tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Choose Your Situation</span>
+      <h2>If your situation fits one of these, you're in the right place.</h2>
+      <p class="lede">Each one has its own page, with how a review would approach it.</p>
     </div>
-
-    <p class="tiles-footer">
-      Not sure which category fits? That's fine. <a href="https://tally.so/r/KYGDrk">Start the intake; that is what the review is for →</a>
-    </p>
+    <div class="card-grid">
+      <a class="card" href="debt-consolidation/">
+        <svg class="spot" aria-hidden="true"><use href="#il-debt"/></svg>
+        <h3>Debt Consolidation</h3>
+        <p>Where there is home equity and higher-interest debt, restructuring may change the monthly payment; whether it is lower, and what it costs overall, depends on the lender, the terms and the full application.</p>
+        <span class="arrow">Debt consolidation →</span>
+      </a>
+      <a class="card" href="self-employed/">
+        <svg class="spot" aria-hidden="true"><use href="#il-self"/></svg>
+        <h3>Self-Employed or Irregular Income</h3>
+        <p>Self-employed qualifying works differently than the bank's standard process. There are lending channels built around that reality.</p>
+        <span class="arrow">Self-employed →</span>
+      </a>
+      <a class="card" href="renewal/">
+        <svg class="spot" aria-hidden="true"><use href="#il-renew"/></svg>
+        <h3>Renewal or Refinance</h3>
+        <p>Most borrowers accept their bank's renewal without exploring what else is available. Depending on how much time is left before your renewal date, there may be room to compare.</p>
+        <span class="arrow">Renewal and refinance →</span>
+      </a>
+      <a class="card" href="bank-declined/">
+        <svg class="spot" aria-hidden="true"><use href="#il-declined"/></svg>
+        <h3>Bank Declined</h3>
+        <p>A lender decline is a reason to understand what happened, what information is missing, and whether another path should be reviewed.</p>
+        <span class="arrow">Bank declined →</span>
+      </a>
+      <a class="card" href="buying-a-home/">
+        <svg class="spot" aria-hidden="true"><use href="#il-buy"/></svg>
+        <h3>Buying a Home</h3>
+        <p>A purchase where the income or credit picture is not standard is still a file that needs the right lender fit. A review looks at what you have, what would need to be gathered, and which lenders may consider it.</p>
+        <span class="arrow">Buying a home →</span>
+      </a>
+      <a class="card" href="https://tally.so/r/KYGDrk">
+        <svg class="spot" aria-hidden="true"><use href="#il-other"/></svg>
+        <h3>Something else, or more than one</h3>
+        <p>Bruised or recovering credit, an estate, or a file that touches two of these at once. Not sure which category fits? That's fine — start the intake; that is what the review is for.</p>
+        <span class="arrow">Start the intake →</span>
+      </a>
+    </div>
   </div>
 </section>
 
+<!-- ─────────── HOW I WORK ─────────── -->
+<section id="raymond">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-photo" role="img" aria-label="A desk by a window with a notebook, a pen and a small stack of papers in late afternoon light"></div>
+      <div class="about-copy">
+        <span class="eyebrow">How I Work</span>
+        <h2>One licensed person, who reads your file before you talk.</h2>
+        <p class="lede">Not a call centre. Not a form that disappears into a queue. Here is how I work, so you know what to expect before you send anything.</p>
+        <ul class="how-list">
+          <li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg></i><span>I review what you submit before we connect, so the conversation is focused and useful, not generic.</span></li>
+          <li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg></i><span>No credit pull, no documents and no commitment on the first conversation. The purpose is to understand your situation and whether there's a reasonable path forward.</span></li>
+          <li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg></i><span>If a fee could apply to your file, it is explained and agreed to in writing before anything moves forward.</span></li>
+          <li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg></i><span>Ontario only. Every file is under an FSRA-licensed brokerage, and you can check my licence yourself.</span></li>
+        </ul>
+        <div class="about-verify">
+          <span>Raymond. F · Mortgage agent (Level 1) · <b class="cred-num">FSRA Lic. #M26000144</b></span>
+          <a href="https://www.fsrao.ca/industry/mortgage-brokering/mortgage-broker-and-agent-licensing/check-your-licence" target="_blank" rel="noopener" class="arrow">Verify on FSRA.ca →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ─────────────────────────────────────────────
-     HOW IT WORKS
-───────────────────────────────────────────────── -->
-<section id="how-it-works">
-  <div class="container">
-    <div class="section-label">The Process</div>
-    <h2 class="section-headline">Three steps. No runaround.</h2>
-
-    <div class="steps">
-
+<!-- ─────────── THE PROCESS ─────────── -->
+<section id="how" class="band-tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The Process</span>
+      <h2>Three steps. No runaround.</h2>
+    </div>
+    <div class="rail">
       <div class="step">
         <div class="step-num">01</div>
-        <div class="step-title">Tell me your situation</div>
-        <p class="step-desc">Fill out a short intake form. It takes about 3 minutes. No SIN or documents are needed for this first step, and please do not enter account or ID numbers or financial records. Just enough context to understand where you are starting from.</p>
-        <div class="step-action">
-          <a href="https://tally.so/r/KYGDrk" class="btn-ghost">Start the intake →</a>
-        </div>
+        <svg class="spot" aria-hidden="true"><use href="#il-s1"/></svg>
+        <h3>Tell me what's happening</h3>
+        <p>Fill out a short intake form. It takes about 3 minutes. No SIN or documents are needed for this first step, and please do not enter account or ID numbers or financial records. Just enough context to understand where you are starting from.</p>
+        <a href="https://tally.so/r/KYGDrk" class="arrow">Start the intake →</a>
       </div>
-
       <div class="step">
         <div class="step-num">02</div>
-        <div class="step-title">We talk through your file</div>
-        <p class="step-desc">Book a call that fits your schedule. I'll review what you submitted before we connect, so the conversation is focused and useful, not generic.</p>
+        <svg class="spot" aria-hidden="true"><use href="#il-s2"/></svg>
+        <h3>Review the situation</h3>
+        <p>Book a call that fits your schedule. I'll review what you submitted before we connect, so the conversation is focused and useful, not generic.</p>
       </div>
-
       <div class="step">
         <div class="step-num">03</div>
-        <div class="step-title">What a review covers</div>
-        <p class="step-desc">Whether the next step is an application, more information, or a longer-term plan, the review outlines which documentation approaches may be worth pursuing and what would need to be gathered.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ─────────────────────────────────────────────
-     WHY NOT YOUR BANK
-───────────────────────────────────────────────── -->
-<section id="why-broker">
-  <div class="container">
-    <div class="two-col">
-
-      <div>
-        <div class="section-label">Why a Mortgage Agent?</div>
-        <h2 class="section-headline">Why not just go through your bank?</h2>
-        <p class="broker-intro">It's a reasonable question. Here's the straightforward answer.</p>
-      </div>
-
-      <div class="broker-points">
-
-        <div class="broker-point">
-          <div class="broker-num">1</div>
-          <p class="broker-text">Banks offer their own products. A mortgage agent has access to multiple lenders across different lending categories, which matters when your situation doesn't fit a standard profile.</p>
-        </div>
-
-        <div class="broker-point">
-          <div class="broker-num">2</div>
-          <p class="broker-text">Banks underwrite to standard criteria. A file assessed only on tax-reported income may not fit every lender's program.</p>
-        </div>
-
-        <div class="broker-point">
-          <div class="broker-num">3</div>
-          <p class="broker-text">Banks don't typically explain what didn't work, or what would. A mortgage agent's job is to understand your full picture and outline which documentation approaches may be worth pursuing. Not just run the application and deliver a decision.</p>
-        </div>
-
-        <div class="broker-point">
-          <div class="broker-num">4</div>
-          <p class="broker-text">In most residential mortgage transactions, the mortgage agent is compensated by the lender when the mortgage closes, not by you. In some situations involving alternative lenders, a fee may apply. If that is the case for your file, it will be explained and agreed to in writing before anything moves forward. Private mortgages are outside the scope of a Level 1 mortgage agent and are not arranged here, so no fee for one is ever quoted on this site. A file that appears to fit only a private lender is referred to a licensed mortgage broker at Mortgage Commitment.</p>
-        </div>
-
+        <svg class="spot" aria-hidden="true"><use href="#il-s3"/></svg>
+        <h3>Discuss available paths</h3>
+        <p>Whether the next step is an application, more information, or a longer-term plan, the review outlines which documentation approaches may be worth pursuing and what would need to be gathered.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ─────────── SOCIAL PROOF ───────────
+     Section intentionally omitted until real, consented client
+     reviews exist. Markup for it lives in the design mockup; drop
+     it in here when there are reviews to show, with the reviewer's
+     permission and a link to whichever platform they were left on.
+     Do not publish placeholder or composed testimonials.
+─────────────────────────────────────────── -->
 
-<!-- ─────────────────────────────────────────────
-     REAL SCENARIOS
-───────────────────────────────────────────────── -->
-<section class="scenarios-section">
-  <div class="container">
-    <div class="section-label">Illustrative Examples</div>
-    <h2 class="section-headline">How situations like these can play out</h2>
-    <p class="section-sub">These are illustrative examples of scenarios and lender paths that commonly exist, not descriptions of specific client files. Every file is different, and what any lender would do depends on the lender, its program and a full application. Nothing here is a guarantee of approval, timeline, or rate. Private mortgages are outside the scope of a Level 1 mortgage agent; a file that appears to fit only a private lender is referred to a licensed mortgage broker at the brokerage.</p>
-    <div class="scenario-grid">
-
-      <div class="scenario-card">
-        <span class="scenario-tag">Self-Employed</span>
-        <h3>Cash flow through the business, low net income on paper.</h3>
-        <p>Consider a contractor operating through a corporation, self-employed for just under two years, whose personal tax returns show modest income after business write-offs. A review would look at how the business earns, how the owner is paid, and which lenders may consider business deposits or other documentation alongside the tax return. Whether any lender would approve, and on what terms, depends on the lender's program and a full application.</p>
-        <p class="scenario-disclaimer">Illustrative only. Outcomes vary by situation. Approval and terms depend on each individual's full financial picture and lender requirements. Not a guarantee of any result.</p>
-      </div>
-
-      <div class="scenario-card">
-        <span class="scenario-tag">Renewal Declined</span>
-        <h3>When an existing lender will not renew.</h3>
-        <p>Consider a borrower approaching renewal with a credit event from several years back still on their bureau, whose existing lender declines to renew. A review would look at the maturity date, the equity in the property, and whether a chartered bank or a regulated alternative lender may consider the file. Private mortgages sometimes come up in this situation. They are outside the scope of a Level 1 mortgage agent and are not arranged here; a file that appears to fit only a private lender is referred to a licensed mortgage broker at Mortgage Commitment, who is accountable for advising on it.</p>
-        <p class="scenario-disclaimer">Illustrative only. Outcomes vary by situation. Not a guarantee of any result, timeline or lender.</p>
-      </div>
-
-      <div class="scenario-card">
-        <span class="scenario-tag">Debt Consolidation</span>
-        <h3>Higher-rate debt, equity in the property, one payment.</h3>
-        <p>Consider a business owner carrying higher-rate debt who has built equity in their property. A review would look at loan to value, income and total debt servicing, and at which lenders may consider a refinance. It would also set the costs of doing it, including legal fees, an appraisal and any prepayment penalty, against the obligations being replaced, since a lower monthly payment and a lower total cost are two different questions.</p>
-        <p class="scenario-disclaimer">Illustrative only. Refinancing involves costs including legal fees and potential prepayment penalties. Individual results vary. Not a guarantee of any result.</p>
-      </div>
-
+<!-- ─────────── CALCULATOR ─────────── -->
+<section id="calc">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Payment Calculator</span>
+      <h2>What would a mortgage payment look like?</h2>
+      <p class="lede">Plain arithmetic on the numbers you enter. It shows the payment, and what the same term costs in interest — because a lower monthly payment and a lower total cost are two different questions.</p>
     </div>
-  </div>
-</section>
-
-
-<!-- ─────────────────────────────────────────────
-     FAQ
-───────────────────────────────────────────────── -->
-<section class="faq-section">
-  <div class="container">
-    <div class="section-label">Questions</div>
-    <h2 class="section-headline">What I get asked most often</h2>
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I need two years of self-employment history to qualify?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          Not always. Traditional lenders typically look for a two-year track record. Some alternative lenders may consider a shorter history, depending on the lender's program, the documentation and a full application. The specifics depend on your situation, the lender, and how your income is structured.
+    <div class="calc">
+      <div class="calc-in">
+        <div class="field"><label for="c-amt">Mortgage amount <output id="o-amt">$500,000</output></label><input type="range" id="c-amt" min="100000" max="1500000" step="5000" value="500000"></div>
+        <div class="field"><label for="c-rate">Interest rate you enter <output id="o-rate">5.00%</output></label><input type="range" id="c-rate" min="2" max="10" step="0.05" value="5"></div>
+        <div class="field"><label for="c-amort">Amortization <output id="o-amort">25 years</output></label><input type="range" id="c-amort" min="5" max="30" step="1" value="25"></div>
+        <div class="field"><label for="c-term">Term <output id="o-term">5 years</output></label><input type="range" id="c-term" min="1" max="10" step="1" value="5"></div>
+        <div class="field"><span class="field-label" style="display:block;font-family:var(--display);font-size:13.5px;font-weight:700;margin-bottom:8px">Payment frequency</span>
+          <div class="seg" role="group" aria-label="Payment frequency">
+            <button type="button" data-f="monthly" aria-pressed="true">Monthly</button>
+            <button type="button" data-f="biweekly" aria-pressed="false">Bi-weekly</button>
+            <button type="button" data-f="accel" aria-pressed="false">Accelerated</button>
+          </div>
         </div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          My write-offs make my income look low on paper. Does that mean I can't qualify?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          It is a common situation. Many lenders qualify on net income after deductions, so the more that is written off, the less qualifying income they read from the return. Some lenders may consider business bank deposits alongside other documentation, read differently by each lender. Whether that path is available depends on the lender, its program and a full application.
+      <div class="calc-out">
+        <div>
+          <span class="eyebrow">Estimated payment</span>
+          <div class="calc-big" style="margin-top:10px"><span id="r-pay">$2,908</span><small id="r-freq">per month</small></div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What's the difference between an A-lender and a B-lender?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          These are general industry labels rather than fixed categories. In common usage, A-lenders are the major chartered banks and credit unions, and their qualification criteria are usually the tightest of the groups described here. Pricing is set by each lender. B-lenders are regulated alternative lenders. Pricing is set by each lender and typically differs from a chartered bank, and their criteria are generally built around income, credit history or situations that do not fit a standard profile. Where a particular lender sits, and what it will accept, comes down to that lender's own criteria and programs. The aim of a review is to work out which of them may be able to consider a file, depending on the lender's program and a full application.
+        <div class="calc-rows">
+          <div><span>Payments over the term</span><b id="r-count">60</b></div>
+          <div><span>Principal paid during term</span><b id="r-prin">$—</b></div>
+          <div><span>Interest paid during term</span><b id="r-int">$—</b></div>
+          <div><span>Balance at end of term</span><b id="r-bal">$—</b></div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          My bank declined me. Is it worth trying elsewhere?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          It depends on what caused the decline. Lenders underwrite to their own criteria, and those criteria differ. A file that does not fit a chartered bank may fit a regulated alternative lender, depending on that lender's program and a full application. Understanding the reason for the decline is the starting point for knowing whether another path exists.
+        <div>
+          <div class="split" aria-hidden="true"><i id="r-split" style="width:40%"></i></div>
+          <div class="split-key"><span>Principal</span><span class="int">Interest</span></div>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Will a credit check happen on the first call?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          No. The first conversation is just that, a conversation. No credit pull, no documents, no commitment. The purpose is to understand your situation and whether there's a reasonable path forward before anything formal starts.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How long does the process typically take?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          It depends on complexity. A straightforward alternative lender file may move in a few weeks with the right documentation, though timelines are set by the lender and the file. More complex situations, such as estate issues or files needing additional supporting documents, take longer. A realistic timeline becomes clearer once the full picture of your file is understood.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is there a cost to work with you?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          In most residential mortgage transactions, I am compensated by the lender at closing, with no direct cost to you. In some situations involving alternative lenders where lender-paid compensation is not available, a mortgage agent fee may apply. If that is the case for your file, it is disclosed and agreed to in writing before anything moves forward. Private mortgages are outside the scope of a Level 1 mortgage agent and are not arranged here, so no fee for one is quoted on this site; a file that appears to fit only a private lender is referred to a licensed mortgage broker at Mortgage Commitment.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          My renewal is coming up and my lender isn't renewing. What are my options?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          A lender declining to renew means the mortgage may need to move to another lender, be paid out, or be resolved another way, depending on equity, income and credit. Where another lender is the route, terms may differ from the current one. The earlier this is addressed before the renewal date, the more room there tends to be.
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ─────────────────────────────────────────────
-     TRUST BLOCK
-───────────────────────────────────────────────── -->
-<section class="trust-block">
-  <div class="container">
-    <div class="trust-grid">
-      <div>
-        <div class="trust-item-label">Licence</div>
-        <div class="trust-item-value">Raymond. F<br>Mortgage agent (Level 1)<br>FSRA Lic. M26000144</div>
-      </div>
-      <div>
-        <div class="trust-item-label">Brokerage</div>
-        <div class="trust-item-value">Mortgage Commitment, an office of<br>Centum Financial Services Limited Partnership<br>FSRA Brokerage Lic. 13054</div>
-      </div>
-      <div>
-        <div class="trust-item-label">FSRA Verification</div>
-        <div class="trust-item-value"><a href="https://www.fsrao.ca/industry/mortgage-brokering/mortgage-broker-and-agent-licensing/check-your-licence" target="_blank" rel="noopener">Verify licence on FSRA.ca →</a></div>
-      </div>
-      <div>
-        <div class="trust-item-label">Contact</div>
-        <div class="trust-item-value"><a href="tel:4168980181">(416) 898-0181</a><br><a href="mailto:Raymond@fishercapital.ca">Raymond@fishercapital.ca</a></div>
-      </div>
-      <div>
-        <div class="trust-item-label">Office</div>
-        <div class="trust-item-value">7681 Highway 27, Unit 4B<br>Woodbridge, ON L4L 4M5</div>
+        <p class="calc-fine">Illustration only, using the semi-annual compounding that applies to most Canadian fixed-rate mortgages. Not a quote, a rate, an approval or a qualification. Rates, terms and conditions are set by each lender and depend on a full application.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ─────────────────────────────────────────────
-     CTA BLOCK
-───────────────────────────────────────────────── -->
-<section class="cta-block">
-  <div class="container" style="text-align:center;">
-    <div class="section-label" style="justify-content:center; display:flex;">Ready?</div>
-    <h2 class="section-headline">Not sure if your situation fits?</h2>
-    <p class="section-sub">Tell me what's going on. The intake takes 3 minutes and I review what you share before we connect, so the conversation is useful from the start.</p>
-    <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start Your Review</a>
-    <p class="cta-disclaimer">About 3 minutes. No SIN or documents are needed for this first step. No commitment.</p>
+<!-- ─────────── WHY NOT YOUR BANK ─────────── -->
+<section id="why" class="band-deep">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why a Mortgage Agent?</span>
+      <h2>Why not just go through your bank?</h2>
+      <p class="lede">It's a reasonable question. Here's the straightforward answer.</p>
+    </div>
+    <div class="compare">
+      <div class="cmp">
+        <div class="cmp-title">Through your bank</div>
+        <span class="cmp-node">Your file</span>
+        <div class="cmp-connector"></div>
+        <ul class="cmp-list"><li><svg class="cmp-tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 10h12"/></svg>That bank's own mortgage products</li></ul>
+      </div>
+      <div class="cmp is-focus">
+        <div class="cmp-title">Through a mortgage agent</div>
+        <span class="cmp-node">Your file</span>
+        <div class="cmp-connector"></div>
+        <ul class="cmp-list">
+          <li><svg class="cmp-tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>Chartered banks and credit unions</li>
+          <li><svg class="cmp-tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>Regulated alternative lenders</li>
+          <li class="is-out"><svg class="cmp-tick" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6.5 6.5l7 7M13.5 6.5l-7 7"/></svg>Private lenders — outside a Level 1 agent's scope; referred to a licensed mortgage broker</li>
+        </ul>
+      </div>
+    </div>
+    <div class="points">
+      <div class="point"><div class="point-num">01</div><p>Banks offer their own products. A mortgage agent has access to multiple lenders across different lending categories, which matters when your situation doesn't fit a standard profile.</p></div>
+      <div class="point"><div class="point-num">02</div><p>Banks underwrite to standard criteria. A file assessed only on tax-reported income may not fit every lender's program.</p></div>
+      <div class="point"><div class="point-num">03</div><p>Banks don't typically explain what didn't work, or what would. A mortgage agent's job is to understand your full picture and outline which documentation approaches may be worth pursuing. Not just run the application and deliver a decision.</p></div>
+      <div class="point"><div class="point-num">04</div><p>In most residential mortgage transactions, the mortgage agent is compensated by the lender when the mortgage closes, not by you. In some situations involving alternative lenders, a fee may apply. If that is the case for your file, it will be explained and agreed to in writing before anything moves forward. Private mortgages are outside the scope of a Level 1 mortgage agent and are not arranged here, so no fee for one is ever quoted on this site. A file that appears to fit only a private lender is referred to a licensed mortgage broker at Mortgage Commitment.</p></div>
+    </div>
   </div>
 </section>
 
+<!-- ─────────── FAQ ─────────── -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Questions</span>
+      <h2>What I get asked most often</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="true">Do I need two years of self-employment history to qualify?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a open">Not always. Traditional lenders typically look for a two-year track record. Some alternative lenders may consider a shorter history, depending on the lender's program, the documentation and a full application. The specifics depend on your situation, the lender, and how your income is structured.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">My write-offs make my income look low on paper. Does that mean I can't qualify?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">It is a common situation. Many lenders qualify on net income after deductions, so the more that is written off, the less qualifying income they read from the return. Some lenders may consider business bank deposits alongside other documentation, read differently by each lender. Whether that path is available depends on the lender, its program and a full application.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">What's the difference between an A-lender and a B-lender?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">These are general industry labels rather than fixed categories. In common usage, A-lenders are the major chartered banks and credit unions, and their qualification criteria are usually the tightest of the groups described here. Pricing is set by each lender. B-lenders are regulated alternative lenders. Pricing is set by each lender and typically differs from a chartered bank, and their criteria are generally built around income, credit history or situations that do not fit a standard profile. Where a particular lender sits, and what it will accept, comes down to that lender's own criteria and programs. The aim of a review is to work out which of them may be able to consider a file, depending on the lender's program and a full application.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">My bank declined me. Is it worth trying elsewhere?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">It depends on what caused the decline. Lenders underwrite to their own criteria, and those criteria differ. A file that does not fit a chartered bank may fit a regulated alternative lender, depending on that lender's program and a full application. Understanding the reason for the decline is the starting point for knowing whether another path exists.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Will a credit check happen on the first call?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">No. The first conversation is just that, a conversation. No credit pull, no documents, no commitment. The purpose is to understand your situation and whether there's a reasonable path forward before anything formal starts.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">How long does the process typically take?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">It depends on complexity. A straightforward alternative lender file may move in a few weeks with the right documentation, though timelines are set by the lender and the file. More complex situations, such as estate issues or files needing additional supporting documents, take longer. A realistic timeline becomes clearer once the full picture of your file is understood.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Is there a cost to work with you?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">In most residential mortgage transactions, I am compensated by the lender at closing, with no direct cost to you. In some situations involving alternative lenders where lender-paid compensation is not available, a mortgage agent fee may apply. If that is the case for your file, it is disclosed and agreed to in writing before anything moves forward. Private mortgages are outside the scope of a Level 1 mortgage agent and are not arranged here, so no fee for one is quoted on this site; a file that appears to fit only a private lender is referred to a licensed mortgage broker at Mortgage Commitment.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">My renewal is coming up and my lender isn't renewing. What are my options?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">A lender declining to renew means the mortgage may need to move to another lender, be paid out, or be resolved another way, depending on equity, income and credit. Where another lender is the route, terms may differ from the current one. The earlier this is addressed before the renewal date, the more room there tends to be.</div></div>
+    </div>
+  </div>
+</section>
 
-<!-- ─────────────────────────────────────────────
-     FOOTER
-───────────────────────────────────────────────── -->
+<!-- ─────────── CREDENTIALS ─────────── -->
+<section class="band-deep" style="padding-top:68px;padding-bottom:68px">
+  <div class="wrap">
+    <div class="cred-grid">
+      <div class="cred"><div class="cred-label">Licence</div><div class="cred-value">Raymond. F<br>Mortgage agent (Level 1)<br><span class="cred-num">FSRA Lic. #M26000144</span></div></div>
+      <div class="cred"><div class="cred-label">Brokerage</div><div class="cred-value">Mortgage Commitment, an office of<br>Centum Financial Services Limited Partnership<br><span class="cred-num">FSRA Brokerage Lic. #13054</span></div></div>
+      <div class="cred"><div class="cred-label">FSRA Verification</div><div class="cred-value"><a href="https://www.fsrao.ca/industry/mortgage-brokering/mortgage-broker-and-agent-licensing/check-your-licence" target="_blank" rel="noopener">Verify licence on FSRA.ca →</a></div></div>
+      <div class="cred"><div class="cred-label">Contact</div><div class="cred-value"><a href="tel:4168980181">(416) 898-0181</a><br><a href="mailto:Raymond@fishercapital.ca">Raymond@fishercapital.ca</a></div></div>
+      <div class="cred"><div class="cred-label">Office</div><div class="cred-value">7681 Highway 27, Unit 4B<br>Woodbridge, ON L4L 4M5</div></div>
+      <div class="cred"><div class="cred-label">Scope</div><div class="cred-value">Ontario borrowers. Private mortgages are not arranged here and are referred to a licensed mortgage broker at the brokerage.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── FINAL CTA ─────────── -->
+<section class="close-cta">
+  <div class="wrap">
+    <span class="eyebrow">Ready?</span>
+    <h2>Not sure if your situation fits?</h2>
+    <p class="lede">Tell me what's going on. The intake takes 3 minutes and I review what you share before we connect, so the conversation is useful from the start.</p>
+    <a href="https://tally.so/r/KYGDrk" class="btn btn-invert">Start Your Review</a>
+    <p class="cta-fine">About 3 minutes · No SIN or documents needed for this first step · No commitment</p>
+  </div>
+</section>
+
+</main>
+
 <footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="logo">Fisher<span class="accent">Capital</span></div>
-      <a href="mailto:Raymond@fishercapital.ca" class="footer-email">Raymond@fishercapital.ca</a>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="logo"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#fff"/><path d="M9 21V11h9M9 16h7" stroke="#0E1116" stroke-width="2.6" stroke-linecap="round" fill="none"/><circle cx="22" cy="21" r="2.4" fill="#0E1116"/></svg>Fisher<span>Capital</span></span>
+      <a href="mailto:Raymond@fishercapital.ca" class="foot-email">Raymond@fishercapital.ca</a>
     </div>
-
-    <div class="footer-divider"></div>
-
-    <div class="footer-bottom">
-      <p class="footer-legal">
-        FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
-        Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181
-      </p>
-      <a href="privacy-policy/" class="footer-privacy">Privacy Policy</a>
+    <div class="foot-bottom">
+      <p class="foot-legal">FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed. Raymond. F, Mortgage agent (Level 1), FSRA Lic. #M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. #13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181</p>
+      <a href="privacy-policy/" class="foot-privacy">Privacy Policy</a>
     </div>
   </div>
 </footer>
 
+<div class="sticky-cta">
+  <a href="https://tally.so/r/KYGDrk" class="btn btn-primary btn-sm">Start Here</a>
+  <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn btn-line btn-sm">Book a call</a>
+</div>
 
-<!-- ─────────────────────────────────────────────
-     SCRIPTS
-───────────────────────────────────────────────── -->
-<script>
-  // Hamburger toggle
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-
-  // Close mobile menu when a link is clicked
-  document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-    });
-  });
-
-  // Close mobile menu when scrolling resumes
-  window.addEventListener('scroll', () => {
-    mobileMenu.classList.remove('open');
-  }, { passive: true });
-
-  // FAQ accordion
-  function toggleFaq(btn) {
-    const answer = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
-    document.querySelectorAll('.faq-q.open').forEach(q => {
-      q.classList.remove('open');
-      q.nextElementSibling.classList.remove('open');
-    });
-    if (!isOpen) {
-      btn.classList.add('open');
-      answer.classList.add('open');
-    }
-  }
-</script>
-
+<script src="/fc.js" defer></script>
 <link rel="stylesheet" href="/chatbot.css" />
 <script src="/chatbot.js" defer></script>
 </body>
