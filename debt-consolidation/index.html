@@ -7,8 +7,8 @@
   <meta name="description" content="Using home equity to consolidate higher-interest debt in Ontario. How refinancing works, what it involves, and the costs that belong in the comparison." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../niche.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/fc.css" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
@@ -16,188 +16,202 @@
 </head>
 <body>
 
+<a href="#main" class="skip">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="il-debt" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="38" fill="var(--brand-soft)"/>
+      <rect x="14" y="20" width="26" height="7" rx="3.5" fill="var(--warm)"/>
+      <rect x="14" y="31" width="20" height="7" rx="3.5" fill="var(--warm)" opacity=".7"/>
+      <rect x="14" y="42" width="24" height="7" rx="3.5" fill="var(--warm)" opacity=".45"/>
+      <rect x="14" y="53" width="17" height="7" rx="3.5" fill="var(--warm)" opacity=".3"/>
+      <path d="M42 23.5h6c4 0 7 3 7 7v12c0 4-3 7-7 7h-6" fill="none" stroke="var(--brand)" stroke-width="2.5"/>
+      <rect x="50" y="33" width="18" height="14" rx="7" fill="var(--brand)"/>
+    </symbol>
+  </defs>
+</svg>
+
 <header>
-  <div class="container nav-inner">
-    <a href="/" class="logo">Fisher<span>Capital</span></a>
-    <nav class="desktop">
-      <a href="/#who-i-help">Who I Help</a>
-      <a href="/#how-it-works">How It Works</a>
-      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation">Book a Call</a>
-    </nav>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary" style="font-size:14px;padding:10px 20px;">Start Here →</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+  <div class="wrap">
+    <div class="nav">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="var(--ink)"/><path d="M19 17h11v37H19z" fill="var(--ink)"/><path d="M30 33h13v10H30z" fill="var(--warm)"/></g></svg>
+        Fisher<span>Capital</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/#situations">Your Situation</a>
+        <a href="/#raymond">How I Work</a>
+        <a href="/#how">The Process</a>
+        <a href="/#calc">Calculator</a>
+        <a href="/#faq">Questions</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="https://tally.so/r/KYGDrk" class="btn btn-primary btn-sm">Start Here</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+    <p class="disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</p>
   </div>
-  <div class="container fc-header-disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/#who-i-help" class="mobile-link">Who I Help</a>
-  <a href="/#how-it-works" class="mobile-link">How It Works</a>
+  <a href="/#situations" class="mobile-link">Your Situation</a>
+  <a href="/#raymond" class="mobile-link">How I Work</a>
+  <a href="/#how" class="mobile-link">The Process</a>
+  <a href="/#calc" class="mobile-link">Calculator</a>
   <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="mobile-link">Book a Call</a>
-  <a href="https://tally.so/r/KYGDrk" class="mobile-link">Start Here →</a>
 </div>
 
+<div class="wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/">FisherCapital</a>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+    <span aria-current="page">Debt Consolidation</span>
+  </nav>
+</div>
 
-<!-- ── HERO ───────────────────────────────────────── -->
-<section class="page-hero">
-  <div class="container">
-    <div class="hero-eyebrow">Debt Consolidation · Ontario</div>
-    <h1>Consolidating debt against home equity is a math problem. Whether it helps depends on the full picture.</h1>
-    <p class="hero-sub">Carrying credit card balances, car loans or other obligations at higher rates while holding equity in a property is a specific situation. A refinance may change monthly carrying costs, but it is not always the right move and it is not free. The numbers, including the costs of doing it, are what decide the question.</p>
-    <div class="hero-actions">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary">Walk me through your situation →</a>
-      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn-ghost">Or book a call directly</a>
+<main id="main">
+
+<!-- ─────────── HERO ─────────── -->
+<section class="hero hero-plain">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Debt Consolidation · Ontario</span>
+        <h1>Consolidating debt against home equity is a math problem. Whether it helps depends on the full picture.</h1>
+        <p class="hero-sub">Carrying credit card balances, car loans or other obligations at higher rates while holding equity in a property is a specific situation. A refinance may change monthly carrying costs, but it is not always the right move and it is not free. The numbers, including the costs of doing it, are what decide the question.</p>
+        <div class="hero-actions">
+          <a href="https://tally.so/r/KYGDrk" class="btn btn-primary">Walk me through your situation →</a>
+          <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn btn-line">Or book a call directly</a>
+        </div>
+      </div>
+      <div>
+        <svg aria-hidden="true" style="width:100%;max-width:300px;aspect-ratio:1;margin-inline:auto"><use href="#il-debt"/></svg>
+      </div>
     </div>
-    <div class="breadcrumb"><a href="/">FisherCapital</a> → Debt Consolidation</div>
   </div>
 </section>
 
-
-<!-- ── WHERE THINGS GO WRONG ──────────────────────── -->
-<section class="pain-section">
-  <div class="container">
-    <div class="section-label">What's Usually Happening</div>
-    <h2 class="section-headline">Where debt consolidation files get complicated</h2>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-card-title">Several payments, several rates</div>
+<!-- ─────────── WHERE FILES GET COMPLICATED ─────────── -->
+<section class="band-tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What's Usually Happening</span>
+      <h2>Where debt consolidation files get complicated</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Several payments, several rates</h3>
         <p>Multiple payments across several creditors, each at a different rate, add up. Where equity exists in a property there may be a path to simplifying those obligations, though it comes with its own costs and trade-offs.</p>
       </div>
-      <div class="pain-card">
-        <div class="pain-card-title">A refinance was declined</div>
+      <div class="card">
+        <h3>A refinance was declined</h3>
         <p>Lenders assess loan to value, income and total debt servicing together. Adding debt to a mortgage increases the mortgage balance, which affects those ratios. A single measure being offside can lead to a decline even where there is equity in the property.</p>
       </div>
-      <div class="pain-card">
-        <div class="pain-card-title">Whether consolidating helps is not obvious</div>
+      <div class="card">
+        <h3>Whether consolidating helps is not obvious</h3>
         <p>Rolling higher-interest debt into a mortgage changes the rate on that portion, and it usually extends repayment over the remaining amortization. Monthly payments and total interest paid can move in opposite directions. Whether the trade-off makes sense depends on the specific numbers.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ── OPTIONS ────────────────────────────────────── -->
-<section class="options-section">
-  <div class="container">
-    <div class="section-label">What Tends to Exist</div>
-    <h2 class="section-headline">Consolidation paths, and what each one involves</h2>
-    <p class="section-sub">Which path is available depends on loan to value, income, credit and the current lender. These are the options that commonly come up. Not all will apply to any given file.</p>
-    <div class="options-list">
-      <div class="option-item">
-        <div class="option-label">Conventional Refinance</div>
-        <div class="option-desc">Where income, credit and loan to value fit a chartered bank's parameters, a refinance may add the debt to the mortgage balance at the mortgage rate. <strong>It usually involves costs such as an appraisal and legal fees, depending on the lender and the product, and in some cases a prepayment penalty</strong> if a term is broken early. The rate applied to the consolidated portion changes, and so does the period over which it is repaid, so total interest on that debt has to be worked out for the specific numbers rather than assumed.</div>
+<!-- ─────────── PATHS ─────────── -->
+<section class="band-deep">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What Tends to Exist</span>
+      <h2>Consolidation paths, and what each one involves</h2>
+      <p class="lede">Which path is available depends on loan to value, income, credit and the current lender. These are the options that commonly come up. Not all will apply to any given file.</p>
+    </div>
+    <div class="check-grid">
+      <div class="check">
+        <h3>Conventional Refinance</h3>
+        <p>Where income, credit and loan to value fit a chartered bank's parameters, a refinance may add the debt to the mortgage balance at the mortgage rate. <strong>It usually involves costs such as an appraisal and legal fees, depending on the lender and the product, and in some cases a prepayment penalty</strong> if a term is broken early. The rate applied to the consolidated portion changes, and so does the period over which it is repaid, so total interest on that debt has to be worked out for the specific numbers rather than assumed.</p>
       </div>
-      <div class="option-item">
-        <div class="option-label">B-Lender Refinance</div>
-        <div class="option-desc">Where a chartered bank's criteria do not support the refinance, whether because of credit history, income type or loan to value, some <strong>alternative lenders that are regulated financial institutions may consider different qualifying criteria</strong>, depending on the lender's program and a full application. Pricing is set by each lender and typically differs from a chartered bank, and lender fees may apply. Whether consolidating changes the monthly payment or the total cost depends on the lender, the terms and the full application, so both belong in the comparison.</div>
+      <div class="check">
+        <h3>B-Lender Refinance</h3>
+        <p>Where a chartered bank's criteria do not support the refinance, whether because of credit history, income type or loan to value, some <strong>alternative lenders that are regulated financial institutions may consider different qualifying criteria</strong>, depending on the lender's program and a full application. Pricing is set by each lender and typically differs from a chartered bank, and lender fees may apply. Whether consolidating changes the monthly payment or the total cost depends on the lender, the terms and the full application, so both belong in the comparison.</p>
       </div>
-      <div class="option-item">
-        <div class="option-label">HELOC Instead of Refinancing</div>
-        <div class="option-desc">Where a mortgage is already with a chartered bank and there is equity, a <strong>HELOC, or home equity line of credit, may serve a similar purpose without changing the mortgage</strong>. The line is drawn on to pay off the higher-rate debt and the balance is then carried at the HELOC rate, typically prime plus a margin. It still requires income and credit to qualify, and may not be available if circumstances have changed since the mortgage was set up.</div>
+      <div class="check">
+        <h3>HELOC Instead of Refinancing</h3>
+        <p>Where a mortgage is already with a chartered bank and there is equity, a <strong>HELOC, or home equity line of credit, may serve a similar purpose without changing the mortgage</strong>. The line is drawn on to pay off the higher-rate debt and the balance is then carried at the HELOC rate, typically prime plus a margin. It still requires income and credit to qualify, and may not be available if circumstances have changed since the mortgage was set up.</p>
       </div>
-      <div class="option-item">
-        <div class="option-label">Private lending is out of scope here</div>
-        <div class="option-desc">Where neither a chartered bank nor a regulated alternative lender is available, people sometimes ask about private mortgages. <strong>Private mortgages are outside the scope of a Level 1 mortgage agent</strong>, so they are not arranged here and no terms or costs for them are quoted on this site. A file that appears to fit only a private lender is referred to a licensed mortgage broker at Mortgage Commitment, who is the person accountable for that advice.</div>
+      <div class="check">
+        <h3>Private lending is out of scope here</h3>
+        <p>Where neither a chartered bank nor a regulated alternative lender is available, people sometimes ask about private mortgages. <strong>Private mortgages are outside the scope of a Level 1 mortgage agent</strong>, so they are not arranged here and no terms or costs for them are quoted on this site. A file that appears to fit only a private lender is referred to a licensed mortgage broker at Mortgage Commitment, who is the person accountable for that advice.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ── FAQ ────────────────────────────────────────── -->
-<section class="page-faq">
-  <div class="container">
-    <div class="section-label">Questions</div>
-    <h2 class="section-headline">What people usually ask about debt consolidation</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How much equity do I need to consolidate debt through a refinance?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          Generally lenders want at least 20% equity remaining in the property after the refinance, meaning the new mortgage balance, that is the existing mortgage plus the consolidated debt, would not exceed 80% of the appraised value at most chartered banks. Some regulated alternative lenders may consider higher loan to value ratios, depending on the lender's program and a full application. Pricing is set by each lender and typically differs from a chartered bank, and lender fees may apply. The appraised value is what counts, and it may differ from an owner's own estimate.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Does refinancing to consolidate affect my mortgage rate?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          Yes. A refinance means a new mortgage at the rates available at the time. If the existing rate is lower than what is available today, the rate on the new mortgage may be higher than the current one, before the consolidated debt is even considered. The comparison has to cover total obligations before and after, not the mortgage rate alone.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Can I consolidate debt without actually refinancing the mortgage?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          In some cases. A HELOC gives access to equity as a revolving line without changing the mortgage itself. If one is already set up with room on it, it may already be available to draw on, depending on the lender and the terms of that facility. Adding one requires a new application. Not all lenders offer HELOCs, and qualification requirements still apply, including income, credit and loan to value.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What's the real cost of consolidating debt into a mortgage?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          The costs to account for include legal fees, an appraisal fee, any prepayment penalty for breaking a term early, lender fees where a regulated alternative lender is used, and the total interest on the consolidated debt over the period it is now amortized across. Fees vary by provider and by file, so the figures for a given situation have to be quoted rather than assumed. The point worth taking away is that a lower monthly payment and a lower total cost are two different questions, and both belong in the comparison.
-        </div>
-      </div>
+<!-- ─────────── FAQ ─────────── -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Questions</span>
+      <h2>What people usually ask about debt consolidation</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="true">How much equity do I need to consolidate debt through a refinance?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a open">Generally lenders want at least 20% equity remaining in the property after the refinance, meaning the new mortgage balance, that is the existing mortgage plus the consolidated debt, would not exceed 80% of the appraised value at most chartered banks. Some regulated alternative lenders may consider higher loan to value ratios, depending on the lender's program and a full application. Pricing is set by each lender and typically differs from a chartered bank, and lender fees may apply. The appraised value is what counts, and it may differ from an owner's own estimate.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Does refinancing to consolidate affect my mortgage rate?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">Yes. A refinance means a new mortgage at the rates available at the time. If the existing rate is lower than what is available today, the rate on the new mortgage may be higher than the current one, before the consolidated debt is even considered. The comparison has to cover total obligations before and after, not the mortgage rate alone.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Can I consolidate debt without actually refinancing the mortgage?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">In some cases. A HELOC gives access to equity as a revolving line without changing the mortgage itself. If one is already set up with room on it, it may already be available to draw on, depending on the lender and the terms of that facility. Adding one requires a new application. Not all lenders offer HELOCs, and qualification requirements still apply, including income, credit and loan to value.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">What's the real cost of consolidating debt into a mortgage?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">The costs to account for include legal fees, an appraisal fee, any prepayment penalty for breaking a term early, lender fees where a regulated alternative lender is used, and the total interest on the consolidated debt over the period it is now amortized across. Fees vary by provider and by file, so the figures for a given situation have to be quoted rather than assumed. The point worth taking away is that a lower monthly payment and a lower total cost are two different questions, and both belong in the comparison.</div></div>
     </div>
   </div>
 </section>
 
-
-<!-- ── CTA ────────────────────────────────────────── -->
-<section class="cta-block">
-  <div class="container">
-    <div class="section-label" style="justify-content:center;display:flex;">Next Step</div>
-    <h2 class="section-headline">Ask for a review of your situation</h2>
-    <p class="section-sub">The intake takes 3 minutes and asks about your situation in general terms, so the first conversation can start from something useful.</p>
-    <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start Your Review</a>
-    <p class="cta-disclaimer">About 3 minutes. No SIN or documents are needed for this first step. No commitment. Please do not enter balances, property values, income amounts, account or ID numbers, or documents.</p>
+<!-- ─────────── OTHER SITUATIONS ─────────── -->
+<section class="band-tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Other Situations</span>
+      <h2>Not quite it?</h2>
+    </div>
+    <div class="also">
+      <a href="/self-employed/">Self-employed<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="/bank-declined/">Bank declined<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="/renewal/">Renewal or refinance<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="/buying-a-home/">Buying a home<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
   </div>
 </section>
 
+<!-- ─────────── CTA ─────────── -->
+<section class="close-cta">
+  <div class="wrap">
+    <span class="eyebrow">Next Step</span>
+    <h2>Ask for a review of your situation</h2>
+    <p class="lede">The intake takes 3 minutes and asks about your situation in general terms, so the first conversation can start from something useful.</p>
+    <a href="https://tally.so/r/KYGDrk" class="btn btn-invert">Start Your Review</a>
+    <p class="cta-fine">About 3 minutes. No SIN or documents are needed for this first step. No commitment. Please do not enter balances, property values, income amounts, account or ID numbers, or documents.</p>
+  </div>
+</section>
 
-<!-- ── FOOTER ─────────────────────────────────────── -->
+</main>
+
 <footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="logo">Fisher<span>Capital</span></div>
-      <a href="mailto:Raymond@fishercapital.ca" class="footer-email">Raymond@fishercapital.ca</a>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="#fff"/><path d="M19 17h11v37H19z" fill="#fff"/><path d="M30 33h13v10H30z" fill="#9DB6D6"/></g></svg>Fisher<span>Capital</span></span>
+      <a href="mailto:Raymond@fishercapital.ca" class="foot-email">Raymond@fishercapital.ca</a>
     </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bottom">
-      <p class="footer-legal">
-        FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
-        Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181
-      </p>
-      <a href="/privacy-policy/" class="footer-privacy">Privacy Policy</a>
+    <div class="foot-bottom">
+      <p class="foot-legal">FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed. Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181</p>
+      <a href="/privacy-policy/" class="foot-privacy">Privacy Policy</a>
     </div>
   </div>
 </footer>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
-  window.addEventListener('scroll', () => mobileMenu.classList.remove('open'), { passive: true });
-  function toggleFaq(btn) {
-    const answer = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
-    document.querySelectorAll('.faq-q.open').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
-    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
-  }
-</script>
+<div class="sticky-cta">
+  <a href="https://tally.so/r/KYGDrk" class="btn btn-primary btn-sm">Start Here</a>
+  <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn btn-line btn-sm">Book a call</a>
+</div>
+
+<script src="/fc.js" defer></script>
 <link rel="stylesheet" href="/chatbot.css" />
 <script src="/chatbot.js"></script>
 </body>
