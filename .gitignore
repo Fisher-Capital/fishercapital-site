@@ -1,3 +1,9 @@
 .DS_Store
 /*.png
 /Screenshot*
+
+# Favicons are deliberate root-level PNGs. The /*.png rule above exists to keep
+# stray screenshots out of the repo, not the site's own icons.
+!/favicon-16.png
+!/favicon-32.png
+!/apple-touch-icon.png
