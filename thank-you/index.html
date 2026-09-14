@@ -8,7 +8,8 @@
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="/niche.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/fc.css" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
@@ -19,16 +20,21 @@
 
 <!-- ── HEADER ────────────────────────────────────── -->
 <header>
-  <div class="container ty-nav">
-    <div class="logo">Fisher<span>Capital</span></div>
-    <a href="tel:4168980181" class="ty-phone">(416) 898-0181</a>
+  <div class="wrap">
+    <div class="ty-nav">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="var(--ink)"/><path d="M19 17h11v37H19z" fill="var(--ink)"/><path d="M30 33h13v10H30z" fill="var(--warm)"/></g></svg>
+        Fisher<span>Capital</span>
+      </a>
+      <a href="tel:4168980181" class="ty-phone">(416) 898-0181</a>
+    </div>
+    <p class="disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</p>
   </div>
-  <div class="container fc-header-disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</div>
 </header>
 
 
 <main class="ty-main">
-  <div class="container">
+  <div class="wrap">
 
     <!-- Neutral state is the default, so a page with no script, or a visit
          with no verified completion token, never shows a false confirmation. -->
@@ -49,7 +55,7 @@
     <div class="ty-book">
       <h2>Want to pick a time now?</h2>
       <p>Booking a call is optional. Nothing loads from Calendly until you press the button.</p>
-      <button type="button" id="ty-book-btn" class="btn-primary">Book a call</button>
+      <button type="button" id="ty-book-btn" class="btn btn-primary">Book a call</button>
       <div class="calendly-inline-widget" id="ty-calendly"
            data-url="https://calendly.com/raymond-finance-co/mortgage-consultation" hidden></div>
       <p class="ty-note" id="ty-calendly-fallback" hidden>The calendar could not be loaded on this page.
@@ -64,13 +70,14 @@
 
 <!-- ── FOOTER ─────────────────────────────────────── -->
 <footer>
-  <div class="container">
-    <p class="footer-legal">
-      General information only. Not mortgage advice. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
-      Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181
-    </p>
-    <div class="footer-bottom">
-      <a href="/privacy-policy/" class="footer-privacy">Privacy Policy</a>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="#fff"/><path d="M19 17h11v37H19z" fill="#fff"/><path d="M30 33h13v10H30z" fill="#9DB6D6"/></g></svg>Fisher<span>Capital</span></span>
+      <a href="mailto:Raymond@fishercapital.ca" class="foot-email">Raymond@fishercapital.ca</a>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-legal">General information only. Not mortgage advice. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed. Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181</p>
+      <a href="/privacy-policy/" class="foot-privacy">Privacy Policy</a>
     </div>
   </div>
 </footer>
