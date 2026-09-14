@@ -7,8 +7,8 @@
   <meta name="description" content="A lender's renewal offer is not the only option. Ontario mortgage renewal reviews: comparing the offer, what to do when a lender does not renew, and what switching involves." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../niche.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/fc.css" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
@@ -16,188 +16,202 @@
 </head>
 <body>
 
+<a href="#main" class="skip">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="il-renew" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="38" fill="var(--brand-soft)"/>
+      <rect x="18" y="20" width="44" height="42" rx="5" fill="#fff" stroke="var(--brand)" stroke-width="2.5"/>
+      <path d="M18 32h44" stroke="var(--brand)" stroke-width="2.5"/>
+      <rect x="27" y="14" width="4" height="11" rx="2" fill="var(--brand)"/>
+      <rect x="49" y="14" width="4" height="11" rx="2" fill="var(--brand)"/>
+      <path d="M31 47a9 9 0 1 1 3 6.7" fill="none" stroke="var(--warm)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M30 40v7h7" fill="none" stroke="var(--warm)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
 <header>
-  <div class="container nav-inner">
-    <a href="/" class="logo">Fisher<span>Capital</span></a>
-    <nav class="desktop">
-      <a href="/#who-i-help">Who I Help</a>
-      <a href="/#how-it-works">How It Works</a>
-      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation">Book a Call</a>
-    </nav>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary" style="font-size:14px;padding:10px 20px;">Start Here →</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+  <div class="wrap">
+    <div class="nav">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="var(--ink)"/><path d="M19 17h11v37H19z" fill="var(--ink)"/><path d="M30 33h13v10H30z" fill="var(--warm)"/></g></svg>
+        Fisher<span>Capital</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/#situations">Your Situation</a>
+        <a href="/#raymond">How I Work</a>
+        <a href="/#how">The Process</a>
+        <a href="/#calc">Calculator</a>
+        <a href="/#faq">Questions</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="https://tally.so/r/KYGDrk" class="btn btn-primary btn-sm">Start Here</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+    <p class="disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</p>
   </div>
-  <div class="container fc-header-disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/#who-i-help" class="mobile-link">Who I Help</a>
-  <a href="/#how-it-works" class="mobile-link">How It Works</a>
+  <a href="/#situations" class="mobile-link">Your Situation</a>
+  <a href="/#raymond" class="mobile-link">How I Work</a>
+  <a href="/#how" class="mobile-link">The Process</a>
+  <a href="/#calc" class="mobile-link">Calculator</a>
   <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="mobile-link">Book a Call</a>
-  <a href="https://tally.so/r/KYGDrk" class="mobile-link">Start Here →</a>
 </div>
 
+<div class="wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/">FisherCapital</a>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+    <span aria-current="page">Renewal</span>
+  </nav>
+</div>
 
-<!-- ── HERO ───────────────────────────────────────── -->
-<section class="page-hero">
-  <div class="container">
-    <div class="hero-eyebrow">Mortgage Renewal · Ontario</div>
-    <h1>A lender typically sends a renewal offer before maturity. That offer is not the only option, and not every lender renews every file.</h1>
-    <p class="hero-sub">Many mortgage holders sign what their lender sends without comparing it. Sometimes the offer is competitive and sometimes it is not, and the difference over a term depends on the numbers in front of you. Sometimes a lender does not renew at all, which is a different situation again.</p>
-    <div class="hero-actions">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary">Tell me about your renewal →</a>
-      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn-ghost">Or book a call directly</a>
+<main id="main">
+
+<!-- ─────────── HERO ─────────── -->
+<section class="hero hero-plain">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Mortgage Renewal · Ontario</span>
+        <h1>A lender typically sends a renewal offer before maturity. That offer is not the only option, and not every lender renews every file.</h1>
+        <p class="hero-sub">Many mortgage holders sign what their lender sends without comparing it. Sometimes the offer is competitive and sometimes it is not, and the difference over a term depends on the numbers in front of you. Sometimes a lender does not renew at all, which is a different situation again.</p>
+        <div class="hero-actions">
+          <a href="https://tally.so/r/KYGDrk" class="btn btn-primary">Tell me about your renewal →</a>
+          <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn btn-line">Or book a call directly</a>
+        </div>
+      </div>
+      <div>
+        <svg aria-hidden="true" style="width:100%;max-width:300px;aspect-ratio:1;margin-inline:auto"><use href="#il-renew"/></svg>
+      </div>
     </div>
-    <div class="breadcrumb"><a href="/">FisherCapital</a> → Renewal</div>
   </div>
 </section>
 
-
-<!-- ── WHERE THINGS GO WRONG ──────────────────────── -->
-<section class="pain-section">
-  <div class="container">
-    <div class="section-label">What's Usually Happening</div>
-    <h2 class="section-headline">Three renewal situations worth understanding</h2>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-card-title">The renewal offer arrived</div>
+<!-- ─────────── THREE SITUATIONS ─────────── -->
+<section class="band-tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What's Usually Happening</span>
+      <h2>Three renewal situations worth understanding</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>The renewal offer arrived</h3>
         <p>An existing lender sends terms. Whether those terms are competitive depends on what else is available to someone with that qualification profile at that time. Comparing is the only way to find out.</p>
       </div>
-      <div class="pain-card">
-        <div class="pain-card-title">The lender is not offering a renewal</div>
+      <div class="card">
+        <h3>The lender is not offering a renewal</h3>
         <p>This happens for a range of reasons: credit events, changes in lender policy, or shifts in a file since the original application. A non-renewal creates a deadline, and what can be arranged tends to depend on how much time is left before the maturity date. Addressing it early gives more room.</p>
       </div>
-      <div class="pain-card">
-        <div class="pain-card-title">The situation has changed since you first qualified</div>
+      <div class="card">
+        <h3>The situation has changed since you first qualified</h3>
         <p>Income, employment or credit may look different now than when the mortgage was first arranged. Whether that affects renewal options, and how, depends on where things currently stand and on each lender's criteria.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ── OPTIONS ────────────────────────────────────── -->
-<section class="options-section">
-  <div class="container">
-    <div class="section-label">What Tends to Exist</div>
-    <h2 class="section-headline">Renewal options, and what each path involves</h2>
-    <p class="section-sub">Which of these applies depends on the situation, the current lender and the timing. These are the options that commonly come up.</p>
-    <div class="options-list">
-      <div class="option-item">
-        <div class="option-label">Shopping the Renewal</div>
-        <div class="option-desc">At maturity a borrower can generally move lenders without a prepayment penalty. <strong>Comparing a renewal typically means a new full application</strong>, including a credit pull, income verification and a property assessment. Where a situation has not changed much this is a normal process, though what it involves depends on the lender and a full application. The question is whether the difference in terms justifies the effort and the costs of moving.</div>
+<!-- ─────────── OPTIONS ─────────── -->
+<section class="band-deep">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What Tends to Exist</span>
+      <h2>Renewal options, and what each path involves</h2>
+      <p class="lede">Which of these applies depends on the situation, the current lender and the timing. These are the options that commonly come up.</p>
+    </div>
+    <div class="check-grid">
+      <div class="check">
+        <h3>Shopping the Renewal</h3>
+        <p>At maturity a borrower can generally move lenders without a prepayment penalty. <strong>Comparing a renewal typically means a new full application</strong>, including a credit pull, income verification and a property assessment. Where a situation has not changed much this is a normal process, though what it involves depends on the lender and a full application. The question is whether the difference in terms justifies the effort and the costs of moving.</p>
       </div>
-      <div class="option-item">
-        <div class="option-label">Non-Renewal Situations</div>
-        <div class="option-desc">Where a lender is not renewing, what may be possible depends on <strong>equity, credit and income</strong>. Regulated alternative lenders may consider files that do not meet a chartered bank's criteria, depending on the lender and a full application. Private mortgages are outside the scope of a Level 1 mortgage agent and are not arranged here; a file that appears to fit only a private lender is referred to a licensed mortgage broker at Mortgage Commitment. Addressing a non-renewal further out from maturity generally leaves more room to work with.</div>
+      <div class="check">
+        <h3>Non-Renewal Situations</h3>
+        <p>Where a lender is not renewing, what may be possible depends on <strong>equity, credit and income</strong>. Regulated alternative lenders may consider files that do not meet a chartered bank's criteria, depending on the lender and a full application. Private mortgages are outside the scope of a Level 1 mortgage agent and are not arranged here; a file that appears to fit only a private lender is referred to a licensed mortgage broker at Mortgage Commitment. Addressing a non-renewal further out from maturity generally leaves more room to work with.</p>
       </div>
-      <div class="option-item">
-        <div class="option-label">Early Renewal or Break-and-Refi</div>
-        <div class="option-desc">Breaking a mortgage before maturity commonly triggers a prepayment charge; whether one applies, and how it is calculated, depends on the lender and the mortgage contract. A common basis is the greater of three months' interest or the interest rate differential. <strong>Whether breaking early makes sense depends on the rate gap, the remaining term and the penalty calculation</strong>. It works out sometimes and not others, and the arithmetic belongs before the decision, not after it.</div>
+      <div class="check">
+        <h3>Early Renewal or Break-and-Refi</h3>
+        <p>Breaking a mortgage before maturity commonly triggers a prepayment charge; whether one applies, and how it is calculated, depends on the lender and the mortgage contract. A common basis is the greater of three months' interest or the interest rate differential. <strong>Whether breaking early makes sense depends on the rate gap, the remaining term and the penalty calculation</strong>. It works out sometimes and not others, and the arithmetic belongs before the decision, not after it.</p>
       </div>
-      <div class="option-item">
-        <div class="option-label">Improving the File Before Renewal</div>
-        <div class="option-desc">Where renewal is months away, there may be time to <strong>address credit, pay down a card balance, or organise income documentation</strong> before a new application. What is worth doing depends on the specific issue, and lenders do not all weigh the same things the same way.</div>
+      <div class="check">
+        <h3>Improving the File Before Renewal</h3>
+        <p>Where renewal is months away, there may be time to <strong>address credit, pay down a card balance, or organise income documentation</strong> before a new application. What is worth doing depends on the specific issue, and lenders do not all weigh the same things the same way.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ── FAQ ────────────────────────────────────────── -->
-<section class="page-faq">
-  <div class="container">
-    <div class="section-label">Questions</div>
-    <h2 class="section-headline">Renewal questions people usually ask</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How early can I start shopping a renewal?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          Rate holds, where offered, are set by each lender and are not guaranteed. Starting early leaves more time to compare and takes the pressure off the maturity date. An existing lender may also allow an early renewal, though an early offer is worth comparing rather than accepting on its own.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Will switching lenders at renewal require a new appraisal?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          Usually yes. A new lender typically requires a current appraisal to confirm property value and establish loan to value. Some lenders use automated valuation models for straightforward properties, which can reduce cost and time. An appraisal is a real cost and belongs in the comparison alongside legal fees and whatever difference in terms is on the table.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What if I can't qualify for renewal anywhere?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          Private mortgages are outside the scope of a Level 1 mortgage agent. They are not arranged here, and no rates, fees or outcomes for them are quoted on this site. Where a situation appears to point that way, the file is referred to a licensed mortgage broker at Mortgage Commitment, who is the person accountable for advising on it. What can be looked at here is whether a chartered bank or a regulated alternative lender may be an option first.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is it worth switching if rates are similar?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          Rate is one factor. Prepayment privileges, mortgage features and lender flexibility vary too, and which of those matters most differs from one borrower to the next. Whether another lender may consider a file, and on what terms, depends on the lender's program and a full application. If terms are similar and switching involves legal and appraisal costs, staying may be the better call. The answer depends on the full comparison, not on rate alone.
-        </div>
-      </div>
+<!-- ─────────── FAQ ─────────── -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Questions</span>
+      <h2>Renewal questions people usually ask</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="true">How early can I start shopping a renewal?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a open">Rate holds, where offered, are set by each lender and are not guaranteed. Starting early leaves more time to compare and takes the pressure off the maturity date. An existing lender may also allow an early renewal, though an early offer is worth comparing rather than accepting on its own.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Will switching lenders at renewal require a new appraisal?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">Usually yes. A new lender typically requires a current appraisal to confirm property value and establish loan to value. Some lenders use automated valuation models for straightforward properties, which can reduce cost and time. An appraisal is a real cost and belongs in the comparison alongside legal fees and whatever difference in terms is on the table.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">What if I can't qualify for renewal anywhere?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">Private mortgages are outside the scope of a Level 1 mortgage agent. They are not arranged here, and no rates, fees or outcomes for them are quoted on this site. Where a situation appears to point that way, the file is referred to a licensed mortgage broker at Mortgage Commitment, who is the person accountable for advising on it. What can be looked at here is whether a chartered bank or a regulated alternative lender may be an option first.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Is it worth switching if rates are similar?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">Rate is one factor. Prepayment privileges, mortgage features and lender flexibility vary too, and which of those matters most differs from one borrower to the next. Whether another lender may consider a file, and on what terms, depends on the lender's program and a full application. If terms are similar and switching involves legal and appraisal costs, staying may be the better call. The answer depends on the full comparison, not on rate alone.</div></div>
     </div>
   </div>
 </section>
 
-
-<!-- ── CTA ────────────────────────────────────────── -->
-<section class="cta-block">
-  <div class="container">
-    <div class="section-label" style="justify-content:center;display:flex;">Next Step</div>
-    <h2 class="section-headline">When is your renewal coming up?</h2>
-    <p class="section-sub">The intake takes 3 minutes. I look at what you share before we connect, so the first conversation is about your situation rather than a generic pitch.</p>
-    <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start Your Review</a>
-    <p class="cta-disclaimer">About 3 minutes. No SIN or documents are needed for this first step. No commitment.</p>
+<!-- ─────────── OTHER SITUATIONS ─────────── -->
+<section class="band-tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Other Situations</span>
+      <h2>Not quite it?</h2>
+    </div>
+    <div class="also">
+      <a href="/self-employed/">Self-employed<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="/bank-declined/">Bank declined<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="/debt-consolidation/">Debt consolidation<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="/buying-a-home/">Buying a home<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
   </div>
 </section>
 
+<!-- ─────────── CTA ─────────── -->
+<section class="close-cta">
+  <div class="wrap">
+    <span class="eyebrow">Next Step</span>
+    <h2>When is your renewal coming up?</h2>
+    <p class="lede">The intake takes 3 minutes. I look at what you share before we connect, so the first conversation is about your situation rather than a generic pitch.</p>
+    <a href="https://tally.so/r/KYGDrk" class="btn btn-invert">Start Your Review</a>
+    <p class="cta-fine">About 3 minutes. No SIN or documents are needed for this first step. No commitment.</p>
+  </div>
+</section>
 
-<!-- ── FOOTER ─────────────────────────────────────── -->
+</main>
+
 <footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="logo">Fisher<span>Capital</span></div>
-      <a href="mailto:Raymond@fishercapital.ca" class="footer-email">Raymond@fishercapital.ca</a>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="#fff"/><path d="M19 17h11v37H19z" fill="#fff"/><path d="M30 33h13v10H30z" fill="#9DB6D6"/></g></svg>Fisher<span>Capital</span></span>
+      <a href="mailto:Raymond@fishercapital.ca" class="foot-email">Raymond@fishercapital.ca</a>
     </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bottom">
-      <p class="footer-legal">
-        FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
-        Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181
-      </p>
-      <a href="/privacy-policy/" class="footer-privacy">Privacy Policy</a>
+    <div class="foot-bottom">
+      <p class="foot-legal">FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed. Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181</p>
+      <a href="/privacy-policy/" class="foot-privacy">Privacy Policy</a>
     </div>
   </div>
 </footer>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
-  window.addEventListener('scroll', () => mobileMenu.classList.remove('open'), { passive: true });
-  function toggleFaq(btn) {
-    const answer = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
-    document.querySelectorAll('.faq-q.open').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
-    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
-  }
-</script>
+<div class="sticky-cta">
+  <a href="https://tally.so/r/KYGDrk" class="btn btn-primary btn-sm">Start Here</a>
+  <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn btn-line btn-sm">Book a call</a>
+</div>
+
+<script src="/fc.js" defer></script>
 <link rel="stylesheet" href="/chatbot.css" />
 <script src="/chatbot.js"></script>
 </body>
