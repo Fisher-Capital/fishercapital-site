@@ -7,8 +7,8 @@
   <meta name="description" content="A bank decline reflects one lender's criteria. Understanding what caused it is the starting point. Ontario mortgage reviews after a decline." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../niche.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/fc.css" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
@@ -16,188 +16,201 @@
 </head>
 <body>
 
+<a href="#main" class="skip">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="il-declined" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="38" fill="var(--brand-soft)"/>
+      <rect x="16" y="16" width="32" height="40" rx="4" fill="#fff" stroke="var(--warm)" stroke-width="2.5"/>
+      <path d="M26 30l12 12M38 30l-12 12" stroke="var(--warm)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M32 60c14 0 18-8 26-8" fill="none" stroke="var(--brand)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 6"/>
+      <rect x="52" y="40" width="16" height="24" rx="4" fill="var(--brand)"/>
+      <path d="M56 50l3 3 6-6" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
 <header>
-  <div class="container nav-inner">
-    <a href="/" class="logo">Fisher<span>Capital</span></a>
-    <nav class="desktop">
-      <a href="/#who-i-help">Who I Help</a>
-      <a href="/#how-it-works">How It Works</a>
-      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation">Book a Call</a>
-    </nav>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary" style="font-size:14px;padding:10px 20px;">Start Here →</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+  <div class="wrap">
+    <div class="nav">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="var(--ink)"/><path d="M19 17h11v37H19z" fill="var(--ink)"/><path d="M30 33h13v10H30z" fill="var(--warm)"/></g></svg>
+        Fisher<span>Capital</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/#situations">Your Situation</a>
+        <a href="/#raymond">How I Work</a>
+        <a href="/#how">The Process</a>
+        <a href="/#calc">Calculator</a>
+        <a href="/#faq">Questions</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="https://tally.so/r/KYGDrk" class="btn btn-primary btn-sm">Start Here</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+    <p class="disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</p>
   </div>
-  <div class="container fc-header-disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/#who-i-help" class="mobile-link">Who I Help</a>
-  <a href="/#how-it-works" class="mobile-link">How It Works</a>
+  <a href="/#situations" class="mobile-link">Your Situation</a>
+  <a href="/#raymond" class="mobile-link">How I Work</a>
+  <a href="/#how" class="mobile-link">The Process</a>
+  <a href="/#calc" class="mobile-link">Calculator</a>
   <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="mobile-link">Book a Call</a>
-  <a href="https://tally.so/r/KYGDrk" class="mobile-link">Start Here →</a>
 </div>
 
+<div class="wrap">
+  <nav class="crumb" aria-label="Breadcrumb">
+    <a href="/">FisherCapital</a>
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+    <span aria-current="page">Bank Declined</span>
+  </nav>
+</div>
 
-<!-- ── HERO ───────────────────────────────────────── -->
-<section class="page-hero">
-  <div class="container">
-    <div class="hero-eyebrow">Bank Declined · Ontario</div>
-    <h1>A bank decline reflects one lender's criteria. It does not describe every lender's.</h1>
-    <p class="hero-sub">Lenders underwrite to their own criteria, and those criteria differ. Understanding what caused a decline is the starting point for working out what, if anything, may be worth trying next.</p>
-    <div class="hero-actions">
-      <a href="https://tally.so/r/KYGDrk" class="btn-primary">Tell me what happened →</a>
-      <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn-ghost">Or book a call directly</a>
+<main id="main">
+
+<!-- ─────────── HERO ─────────── -->
+<section class="hero hero-plain">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Bank Declined · Ontario</span>
+        <h1>A bank decline reflects one lender's criteria. It does not describe every lender's.</h1>
+        <p class="hero-sub">Lenders underwrite to their own criteria, and those criteria differ. Understanding what caused a decline is the starting point for working out what, if anything, may be worth trying next.</p>
+        <div class="hero-actions">
+          <a href="https://tally.so/r/KYGDrk" class="btn btn-primary">Tell me what happened →</a>
+          <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn btn-line">Or book a call directly</a>
+        </div>
+      </div>
+      <div>
+        <svg aria-hidden="true" style="width:100%;max-width:300px;aspect-ratio:1;margin-inline:auto"><use href="#il-declined"/></svg>
+      </div>
     </div>
-    <div class="breadcrumb"><a href="/">FisherCapital</a> → Bank Declined</div>
   </div>
 </section>
 
-
-<!-- ── WHERE THINGS GO WRONG ──────────────────────── -->
-<section class="pain-section">
-  <div class="container">
-    <div class="section-label">What's Usually Happening</div>
-    <h2 class="section-headline">What a bank decline actually means</h2>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-card-title">It happened fast, and without much explanation</div>
+<!-- ─────────── WHAT A DECLINE MEANS ─────────── -->
+<section class="band-tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What's Usually Happening</span>
+      <h2>What a bank decline actually means</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>It happened fast, and without much explanation</h3>
         <p>Declines often come quickly. Lenders are not required to explain the specific reason in detail, which can leave an applicant unsure what went wrong or whether it can be addressed.</p>
       </div>
-      <div class="pain-card">
-        <div class="pain-card-title">One metric may not have fit</div>
+      <div class="card">
+        <h3>One metric may not have fit</h3>
         <p>Lenders run files through automated underwriting. A single measure being offside, such as debt service, credit score or loan to value, can trigger a decline on its own. The decline usually does not say which one it was.</p>
       </div>
-      <div class="pain-card">
-        <div class="pain-card-title">The next step is not obvious</div>
+      <div class="card">
+        <h3>The next step is not obvious</h3>
         <p>Another bank? An alternative lender? Address something first? What is worth trying depends on what caused the first decline. Without that information it is hard to judge whether a second attempt would go any differently.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ── OPTIONS ────────────────────────────────────── -->
-<section class="options-section">
-  <div class="container">
-    <div class="section-label">What Tends to Exist</div>
-    <h2 class="section-headline">After a decline, what a review looks at</h2>
-    <p class="section-sub">What is worth pursuing depends on what caused the decline. These are the areas that commonly come up. None of them apply universally.</p>
-    <div class="options-list">
-      <div class="option-item">
-        <div class="option-label">Understand the Decline First</div>
-        <div class="option-desc">Not all declines are the same. <strong>Credit score, income qualification, debt ratios, property type, employment type</strong>: each one changes what may be worth exploring. Understanding which factor was the issue is the starting point before looking at any lender.</div>
+<!-- ─────────── WHAT A REVIEW LOOKS AT ─────────── -->
+<section class="band-deep">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What Tends to Exist</span>
+      <h2>After a decline, what a review looks at</h2>
+      <p class="lede">What is worth pursuing depends on what caused the decline. These are the areas that commonly come up. None of them apply universally.</p>
+    </div>
+    <div class="check-grid">
+      <div class="check">
+        <h3>Understand the Decline First</h3>
+        <p>Not all declines are the same. <strong>Credit score, income qualification, debt ratios, property type, employment type</strong>: each one changes what may be worth exploring. Understanding which factor was the issue is the starting point before looking at any lender.</p>
       </div>
-      <div class="option-item">
-        <div class="option-label">Alternative Lenders Are Regulated</div>
-        <div class="option-desc">Alternative lenders in this category are <strong>regulated financial institutions</strong> offering mortgage products. Their underwriting criteria differ from a chartered bank's, and pricing and terms differ too, set by each lender. Whether a file that was declined at a bank fits one of them depends on the reason for the decline and a full application.</div>
+      <div class="check">
+        <h3>Alternative Lenders Are Regulated</h3>
+        <p>Alternative lenders in this category are <strong>regulated financial institutions</strong> offering mortgage products. Their underwriting criteria differ from a chartered bank's, and pricing and terms differ too, set by each lender. Whether a file that was declined at a bank fits one of them depends on the reason for the decline and a full application.</p>
       </div>
-      <div class="option-item">
-        <div class="option-label">Credit Was the Issue</div>
-        <div class="option-desc">If credit was the factor, <strong>how old the issue is and what caused it</strong> can matter alongside the current score. Some lenders look at the trend over time, and a long-settled item may be read differently from a recent one, though how much weight it carries is up to each lender.</div>
+      <div class="check">
+        <h3>Credit Was the Issue</h3>
+        <p>If credit was the factor, <strong>how old the issue is and what caused it</strong> can matter alongside the current score. Some lenders look at the trend over time, and a long-settled item may be read differently from a recent one, though how much weight it carries is up to each lender.</p>
       </div>
-      <div class="option-item">
-        <div class="option-label">Income Was the Issue</div>
-        <div class="option-desc">If qualifying income was the problem, it is worth understanding whether it is a <strong>documentation issue or a structural one</strong>. Sometimes income exists but is not presented in a way a particular lender can use. Sometimes the income will not support the amount being sought, and it is better to know that early.</div>
+      <div class="check">
+        <h3>Income Was the Issue</h3>
+        <p>If qualifying income was the problem, it is worth understanding whether it is a <strong>documentation issue or a structural one</strong>. Sometimes income exists but is not presented in a way a particular lender can use. Sometimes the income will not support the amount being sought, and it is better to know that early.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ── FAQ ────────────────────────────────────────── -->
-<section class="page-faq">
-  <div class="container">
-    <div class="section-label">Questions</div>
-    <h2 class="section-headline">After a decline, what people usually ask</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Does a bank decline hurt my credit score?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          The decline itself doesn't appear on your bureau. What does affect your score is the hard credit pull that happened when you applied. Each hard inquiry has a small, temporary impact. Multiple hard pulls in a short window, typically 14 to 45 days depending on the bureau, are often treated as a single inquiry for mortgage shopping purposes. It is still worth understanding where your credit stands before applying again.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Can I just try a different bank right away?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          You can, though if the same issue is still there the result may be similar, and there would be another hard inquiry on your bureau. The more useful question is whether something has changed or can be documented differently. If the decline was about how income was presented and another lender reads income differently, a second application may be worth considering.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How long do I have to wait after a decline?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          There is no waiting period that applies across the board. The timing question is really about whether anything will be different the next time. If the issue was something that can be addressed, such as a credit item, a documentation gap or a debt that can be paid down, the timeline is however long that takes. Moving to a lender with different criteria may not involve a wait, but some lenders and some programs apply their own seasoning or eligibility rules, so whether it does depends on the lender and the program.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is a B-lender always the next step after a bank decline?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">
-          Not necessarily. It depends on what caused the decline. If the issue was a documentation gap that can be addressed, reapplying to the same class of lender with better documentation may be worth considering. If income or credit is the underlying issue, an alternative lender that is a regulated financial institution may be the more realistic direction, depending on the lender and a full application. Private mortgages are outside the scope of a Level 1 mortgage agent, so a file that only fits a private lender is referred to a licensed mortgage broker at the brokerage rather than handled here.
-        </div>
-      </div>
+<!-- ─────────── FAQ ─────────── -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Questions</span>
+      <h2>After a decline, what people usually ask</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="true">Does a bank decline hurt my credit score?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a open">The decline itself doesn't appear on your bureau. What does affect your score is the hard credit pull that happened when you applied. Each hard inquiry has a small, temporary impact. Multiple hard pulls in a short window, typically 14 to 45 days depending on the bureau, are often treated as a single inquiry for mortgage shopping purposes. It is still worth understanding where your credit stands before applying again.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Can I just try a different bank right away?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">You can, though if the same issue is still there the result may be similar, and there would be another hard inquiry on your bureau. The more useful question is whether something has changed or can be documented differently. If the decline was about how income was presented and another lender reads income differently, a second application may be worth considering.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">How long do I have to wait after a decline?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">There is no waiting period that applies across the board. The timing question is really about whether anything will be different the next time. If the issue was something that can be addressed, such as a credit item, a documentation gap or a debt that can be paid down, the timeline is however long that takes. Moving to a lender with different criteria may not involve a wait, but some lenders and some programs apply their own seasoning or eligibility rules, so whether it does depends on the lender and the program.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false">Is a B-lender always the next step after a bank decline?<svg class="faq-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg></button><div class="faq-a">Not necessarily. It depends on what caused the decline. If the issue was a documentation gap that can be addressed, reapplying to the same class of lender with better documentation may be worth considering. If income or credit is the underlying issue, an alternative lender that is a regulated financial institution may be the more realistic direction, depending on the lender and a full application. Private mortgages are outside the scope of a Level 1 mortgage agent, so a file that only fits a private lender is referred to a licensed mortgage broker at the brokerage rather than handled here.</div></div>
     </div>
   </div>
 </section>
 
-
-<!-- ── CTA ────────────────────────────────────────── -->
-<section class="cta-block">
-  <div class="container">
-    <div class="section-label" style="justify-content:center;display:flex;">Next Step</div>
-    <h2 class="section-headline">Tell me what happened with the decline</h2>
-    <p class="section-sub">The intake takes 3 minutes. I look at what you share before we connect, so the first conversation starts with an understanding of your situation.</p>
-    <a href="https://tally.so/r/KYGDrk" class="btn-primary">Start Your Review</a>
-    <p class="cta-disclaimer">About 3 minutes. No SIN or documents are needed for this first step. No commitment.</p>
+<!-- ─────────── OTHER SITUATIONS ─────────── -->
+<section class="band-tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Other Situations</span>
+      <h2>Not quite it?</h2>
+    </div>
+    <div class="also">
+      <a href="/self-employed/">Self-employed<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="/renewal/">Renewal or refinance<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="/debt-consolidation/">Debt consolidation<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="/buying-a-home/">Buying a home<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
   </div>
 </section>
 
+<!-- ─────────── CTA ─────────── -->
+<section class="close-cta">
+  <div class="wrap">
+    <span class="eyebrow">Next Step</span>
+    <h2>Tell me what happened with the decline</h2>
+    <p class="lede">The intake takes 3 minutes. I look at what you share before we connect, so the first conversation starts with an understanding of your situation.</p>
+    <a href="https://tally.so/r/KYGDrk" class="btn btn-invert">Start Your Review</a>
+    <p class="cta-fine">About 3 minutes. No SIN or documents are needed for this first step. No commitment.</p>
+  </div>
+</section>
 
-<!-- ── FOOTER ─────────────────────────────────────── -->
+</main>
+
 <footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="logo">Fisher<span>Capital</span></div>
-      <a href="mailto:Raymond@fishercapital.ca" class="footer-email">Raymond@fishercapital.ca</a>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="#fff"/><path d="M19 17h11v37H19z" fill="#fff"/><path d="M30 33h13v10H30z" fill="#9DB6D6"/></g></svg>Fisher<span>Capital</span></span>
+      <a href="mailto:Raymond@fishercapital.ca" class="foot-email">Raymond@fishercapital.ca</a>
     </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bottom">
-      <p class="footer-legal">
-        FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
-        Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181
-      </p>
-      <a href="/privacy-policy/" class="footer-privacy">Privacy Policy</a>
+    <div class="foot-bottom">
+      <p class="foot-legal">FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed. Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181</p>
+      <a href="/privacy-policy/" class="foot-privacy">Privacy Policy</a>
     </div>
   </div>
 </footer>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
-  window.addEventListener('scroll', () => mobileMenu.classList.remove('open'), { passive: true });
-  function toggleFaq(btn) {
-    const answer = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
-    document.querySelectorAll('.faq-q.open').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
-    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
-  }
-</script>
+<div class="sticky-cta">
+  <a href="https://tally.so/r/KYGDrk" class="btn btn-primary btn-sm">Start Here</a>
+  <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn btn-line btn-sm">Book a call</a>
+</div>
+
+<script src="/fc.js" defer></script>
 <link rel="stylesheet" href="/chatbot.css" />
 <script src="/chatbot.js"></script>
 </body>
