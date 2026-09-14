@@ -7,132 +7,32 @@
   <meta name="description" content="How FisherCapital collects, uses, and handles the information you share through this website." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/fc.css" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <style>
-    :root {
-      --bg:        #0C0E12;
-      --surface:   #13161C;
-      --border:    rgba(255,255,255,0.07);
-      --muted:     rgba(255,255,255,0.38);
-      --body:      rgba(255,255,255,0.78);
-      --heading:   #FFFFFF;
-      --accent:    #C8A96E;
-      --accent-dk: #A68748;
-      --radius:    6px;
-      --font-sans: 'Outfit', sans-serif;
-      --font-serif: 'DM Serif Display', serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--body);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-    /* NAV */
-    header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(12,14,18,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1080px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between; height: 64px;
-    }
-    .nav-disclosure { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    .logo {
-      font-family: var(--font-sans); font-weight: 700; font-size: 18px;
-      letter-spacing: -0.02em; color: var(--heading);
-    }
-    .logo span { color: var(--accent); }
-    .fc-header-disclosure { font-size: 13px; line-height: 1.4; color: rgba(255,255,255,0.62); padding-bottom: 9px; margin-top: -4px; }
-
-    .nav-back { font-size: 14px; color: var(--muted); }
-    .nav-back:hover { color: var(--heading); text-decoration: none; }
-
-    /* DOC */
-    .doc { padding: 64px 0 80px; }
-    .doc-eyebrow {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
-    }
-    .doc h1 {
-      font-family: var(--font-serif); font-size: clamp(30px, 5vw, 46px);
-      color: var(--heading); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 16px;
-    }
-    .doc-meta { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
-    .doc-intro {
-      font-size: 16px; color: var(--body); margin: 28px 0 12px;
-      padding-bottom: 32px; border-bottom: 1px solid var(--border);
-    }
-    .doc h2 {
-      font-family: var(--font-sans); font-weight: 600; font-size: 19px;
-      color: var(--heading); margin: 44px 0 14px;
-    }
-    .doc h2 .num { color: var(--accent); margin-right: 10px; font-family: var(--font-serif); }
-    .doc p { font-size: 15px; color: var(--body); margin-bottom: 14px; }
-    .doc ul { margin: 0 0 16px 0; padding-left: 22px; }
-    .doc li { font-size: 15px; color: var(--body); margin-bottom: 8px; }
-    .doc strong { color: var(--heading); font-weight: 600; }
-    .doc .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; color: var(--heading); }
-
-    .callout {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: var(--radius);
-      padding: 20px 22px; margin: 24px 0;
-    }
-    .callout p { margin-bottom: 0; font-size: 14px; }
-
-    .contact-block {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 24px 24px; margin-top: 20px;
-    }
-    .contact-block p { margin-bottom: 6px; font-size: 15px; }
-    .contact-block .name { color: var(--heading); font-weight: 600; }
-
-    /* FOOTER */
-    footer { padding: 40px 0; border-top: 1px solid var(--border); }
-    .footer-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    .footer-legal { font-size: 13px; color: var(--body); line-height: 1.65; max-width: 700px; }
-    .footer-top {
-      display: flex; flex-direction: column; gap: 12px;
-      align-items: flex-start; margin-bottom: 24px;
-    }
-    @media (min-width: 640px) {
-      .footer-top { flex-direction: row; align-items: center; justify-content: space-between; }
-    }
-    .footer-email { font-size: 14px; color: var(--muted); }
-    .footer-email:hover { color: var(--accent); }
-    .footer-divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 22px; }
-  </style>
 </head>
 <body>
 
+<a href="#main" class="skip">Skip to content</a>
+
 <header>
-  <div class="nav-inner">
-    <a href="../" class="logo">Fisher<span>Capital</span></a>
-    <a href="../" class="nav-back">← Back to home</a>
+  <div class="wrap">
+    <div class="nav">
+      <a href="/" class="logo">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="var(--ink)"/><path d="M19 17h11v37H19z" fill="var(--ink)"/><path d="M30 33h13v10H30z" fill="var(--warm)"/></g></svg>
+        Fisher<span>Capital</span>
+      </a>
+      <a href="/" class="nav-back">← Back to home</a>
+    </div>
+    <p class="disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</p>
   </div>
-  <div class="nav-disclosure fc-header-disclosure">Raymond. F, Mortgage agent | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054</div>
 </header>
 
-<main class="doc">
-  <div class="container">
+<main class="doc" id="main">
+  <div class="wrap">
 
     <div class="doc-eyebrow">FisherCapital.ca</div>
     <h1>Privacy Policy</h1>
@@ -305,16 +205,14 @@
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="logo">Fisher<span class="accent" style="color:var(--accent);">Capital</span></div>
-      <a href="mailto:Raymond@fishercapital.ca" class="footer-email">Raymond@fishercapital.ca</a>
+  <div class="wrap">
+    <div class="foot-top">
+      <span class="logo"><svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(32 32) scale(1.42) translate(-32 -32)"><path d="M19 17h27v10H19z" fill="#fff"/><path d="M19 17h11v37H19z" fill="#fff"/><path d="M30 33h13v10H30z" fill="#9DB6D6"/></g></svg>Fisher<span>Capital</span></span>
+      <a href="mailto:Raymond@fishercapital.ca" class="foot-email">Raymond@fishercapital.ca</a>
     </div>
-    <div class="footer-divider"></div>
-    <p class="footer-legal">
-      FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed.
-      Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181
-    </p>
+    <div class="foot-bottom">
+      <p class="foot-legal">FisherCapital is a personal brand operated by a licensed mortgage agent. All mortgage applications are subject to lender approval. Rates, terms, and conditions vary and are not guaranteed. Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054 | 7681 Highway 27, Unit 4B, Woodbridge, ON L4L 4M5 | Raymond@fishercapital.ca | (416) 898-0181</p>
+    </div>
   </div>
 </footer>
 
