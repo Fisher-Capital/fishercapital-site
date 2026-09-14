@@ -287,7 +287,10 @@ footer{background:var(--deep-2);color:var(--on-deep-muted);padding:46px 0 42px}
   .also{grid-template-columns:repeat(4,1fr)}
   .sticky-cta{display:none}
 }
-@media (max-width:899px){ body{padding-bottom:72px} }
+/* Room for the sticky CTA, on the pages that actually carry one. Applied
+   unconditionally it left 72px of ground below the footer on privacy-policy/,
+   which has no sticky CTA. */
+@media (max-width:899px){ body:has(.sticky-cta){padding-bottom:72px} }
 
 /* ════════════════════════════════════════════════════════════════
    Long-form document pages, the confirmation page, and the
