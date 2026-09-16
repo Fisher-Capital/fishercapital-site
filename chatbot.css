@@ -9,17 +9,20 @@
      brand. Outfit is no longer loaded on any converted page, so the widget was
      silently falling back to system-ui. Values below are fc.css --deep,
      --on-deep and --accent-deep. */
-  --fc-bg:        #0E1116;
-  --fc-surface:   #171B22;
-  --fc-surface-2: #1F242C;
-  --fc-border:    rgba(255,255,255,0.09);
-  --fc-muted:     rgba(237,239,242,0.45);
-  --fc-body:      rgba(237,239,242,0.82);
+  /* Follows fc.css again, now on Direction A. The panel stays dark on purpose,
+     as contrast against a light site, but the dark is the site's own --deep-2
+     and the accent is the brass. Brass on this ground reads 7.8:1. */
+  --fc-bg:        #0B231C;
+  --fc-surface:   #12332A;
+  --fc-surface-2: #1A4034;
+  --fc-border:    rgba(255,255,255,0.10);
+  --fc-muted:     rgba(237,241,236,0.48);
+  --fc-body:      rgba(237,241,236,0.85);
   --fc-heading:   #FFFFFF;
-  --fc-accent:    #9DB6D6;
-  --fc-accent-dk: #7E9BC0;
+  --fc-accent:    #D9A961;
+  --fc-accent-dk: #BC8C42;
   --fc-radius:    10px;
-  --fc-font:      'Manrope', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --fc-font:      'Inter Tight', 'Archivo', system-ui, sans-serif;
   --fc-shadow:    0 24px 64px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4);
 }
 
@@ -39,7 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 24px rgba(157,182,214,0.35), 0 2px 8px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 24px rgba(217,169,97,0.35), 0 2px 8px rgba(0,0,0,0.4);
   transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
   font-family: var(--fc-font);
   outline: none;
@@ -59,7 +62,7 @@
 #fc-chat-launcher:hover {
   background: var(--fc-accent-dk);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(157,182,214,0.4), 0 2px 8px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 32px rgba(217,169,97,0.4), 0 2px 8px rgba(0,0,0,0.4);
 }
 
 #fc-chat-launcher:focus-visible {
@@ -68,14 +71,14 @@
 }
 
 #fc-chat-launcher svg {
-  color: #0E1116;
+  color: #0B231C;
   transition: opacity 0.15s;
 }
 
 @keyframes fc-pulse-ring {
-  0%   { box-shadow: 0 4px 24px rgba(157,182,214,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(157,182,214,0.5); }
-  60%  { box-shadow: 0 4px 24px rgba(157,182,214,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 14px rgba(157,182,214,0); }
-  100% { box-shadow: 0 4px 24px rgba(157,182,214,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(157,182,214,0); }
+  0%   { box-shadow: 0 4px 24px rgba(217,169,97,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(217,169,97,0.5); }
+  60%  { box-shadow: 0 4px 24px rgba(217,169,97,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 14px rgba(217,169,97,0); }
+  100% { box-shadow: 0 4px 24px rgba(217,169,97,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(217,169,97,0); }
 }
 
 #fc-chat-launcher.fc-pulse {
@@ -165,7 +168,7 @@
   justify-content: center;
   font-size: 13px;
   font-weight: 700;
-  color: #0E1116;
+  color: #0B231C;
   flex-shrink: 0;
 }
 
@@ -248,15 +251,15 @@
 }
 
 .fc-msg.raymond .fc-bubble {
-  background: rgba(157,182,214,0.08);
-  border: 1px solid rgba(157,182,214,0.2);
+  background: rgba(217,169,97,0.08);
+  border: 1px solid rgba(217,169,97,0.2);
   color: var(--fc-body);
   border-bottom-left-radius: 4px;
 }
 
 .fc-msg.visitor .fc-bubble {
   background: var(--fc-accent);
-  color: #0E1116;
+  color: #0B231C;
   border-bottom-right-radius: 4px;
   font-weight: 500;
 }
@@ -264,11 +267,11 @@
 .fc-bubble a {
   color: var(--fc-accent);
   text-decoration: underline;
-  text-decoration-color: rgba(157,182,214,0.4);
+  text-decoration-color: rgba(217,169,97,0.4);
 }
 
 .fc-msg.visitor .fc-bubble a {
-  color: #0E1116;
+  color: #0B231C;
   text-decoration-color: rgba(12,14,18,0.4);
 }
 
@@ -328,7 +331,7 @@
   font-weight: 500;
   color: var(--fc-accent);
   background: transparent;
-  border: 1px solid rgba(157,182,214,0.3);
+  border: 1px solid rgba(217,169,97,0.3);
   border-radius: 20px;
   padding: 5px 12px;
   cursor: pointer;
@@ -338,8 +341,8 @@
 }
 
 .fc-quick-btn:hover {
-  background: rgba(157,182,214,0.08);
-  border-color: rgba(157,182,214,0.5);
+  background: rgba(217,169,97,0.08);
+  border-color: rgba(217,169,97,0.5);
 }
 
 .fc-quick-btn:focus-visible {
@@ -348,8 +351,8 @@
 }
 
 .fc-quick-btn--contextual {
-  background: rgba(157,182,214,0.06);
-  border-color: rgba(157,182,214,0.45);
+  background: rgba(217,169,97,0.06);
+  border-color: rgba(217,169,97,0.45);
 }
 
 /* ─── Input area ────────────────────────────── */
@@ -382,7 +385,7 @@
 }
 
 #fc-input::placeholder { color: var(--fc-muted); }
-#fc-input:focus { border-color: rgba(157,182,214,0.4); }
+#fc-input:focus { border-color: rgba(217,169,97,0.4); }
 
 #fc-send-btn {
   width: 38px;
@@ -395,7 +398,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #0E1116;
+  color: #0B231C;
   transition: background 0.15s, transform 0.12s;
   outline: none;
 }
@@ -453,7 +456,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 4px;
-  color: #0E1116;
+  color: #0B231C;
 }
 
 .fc-welcome-title {
