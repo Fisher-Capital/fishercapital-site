@@ -39,6 +39,17 @@
   outline: none;
 }
 
+/* The site's mobile sticky CTA bar is fixed at bottom:0 and about 72px tall
+   (fc.css .sticky-cta, and the body padding-bottom that reserves room for it).
+   The launcher sits at z-index 9000, so at bottom:24px it lands on top of the
+   "Book a call" button and swallows the tap. Lift it clear wherever that bar
+   is on screen. fc.css hides .sticky-cta above 899px. */
+@media (max-width: 899px) {
+  #fc-chat-launcher {
+    bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+}
+
 #fc-chat-launcher:hover {
   background: var(--fc-accent-dk);
   transform: translateY(-2px);
@@ -473,7 +484,8 @@
   }
 
   #fc-chat-launcher {
-    bottom: 16px;
+    /* Clears the site's mobile sticky CTA bar. See the 899px rule above. */
+    bottom: calc(88px + env(safe-area-inset-bottom));
     right: 16px;
     z-index: 10000;
   }
