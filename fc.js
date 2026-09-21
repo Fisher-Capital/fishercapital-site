@@ -41,7 +41,7 @@
     },
     renewal: {
       t: 'Renewal or refinance',
-      s: "Most borrowers accept their bank's renewal without exploring what else is available. Depending on how much time is left before your renewal date, there may be room to compare.",
+      s: "A renewal is an opportunity to compare the existing offer, other available options and any costs of switching. Starting early gives time to review the details.",
       cta: 'Start with a renewal →', href: '/renewal/'
     },
     debt: {
@@ -97,18 +97,20 @@
       var pay;
       if (freq === 'accel') {
         var im = Math.pow(1 + r / 2, 2 / 12) - 1;
-        pay = (P * im / (1 - Math.pow(1 + im, -A * 12))) / 2;
+        pay = (im === 0 ? P / (A * 12) : P * im / (1 - Math.pow(1 + im, -A * 12))) / 2;
       } else {
-        pay = P * i / (1 - Math.pow(1 + i, -A * perYear));
+        pay = i === 0 ? P / (A * perYear) : P * i / (1 - Math.pow(1 + i, -A * perYear));
       }
 
-      var bal = P, interest = 0, count = T * perYear;
-      for (var k = 0; k < count && bal > 0; k++) {
+      var bal = P, interest = 0, count = 0, scheduledCount = T * perYear;
+      for (var k = 0; k < scheduledCount && bal > 0.0000001; k++) {
         var it = bal * i;
+        var actualPayment = Math.min(pay, bal + it);
         interest += it;
-        bal = bal + it - pay;
+        bal = Math.max(0, bal + it - actualPayment);
+        count++;
       }
-      if (bal < 0) bal = 0;
+      if (bal < 0.0000001) bal = 0;
       var principal = P - bal;
 
       document.getElementById('r-pay').textContent = cad(pay);
