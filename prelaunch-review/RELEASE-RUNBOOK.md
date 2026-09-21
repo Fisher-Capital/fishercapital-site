@@ -4,7 +4,7 @@ Current decision: DO NOT LAUNCH. This is a review package and source candidate, 
 
 ## Preserve the approved baseline
 
-Use this package revision PB-AB-2026-09-21-R1 and its MANIFEST.sha256. Original website source read at commit 36ef55e497e2e81921bd6e8679394960c22470b8; it was clean and was not edited. Compare the current source with website-source-baseline.json before applying site-changes.patch. The complete website-candidate directory includes supporting assets and review-only routes; it must not be deployed as-is.
+The website changes are already applied to this prelaunch branch. General corrections are published on main at 6723cbc. Do not apply the original review-package patch or deploy this branch as-is. Confirm the current main and branch revisions, complete identity and processing facts, obtain appropriate broker review, and remove draft-only routes and placeholders from the final release.
 
 ## Finalize copy and source
 
