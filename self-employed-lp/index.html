@@ -73,6 +73,8 @@
     .lp-phone:hover { color: var(--accent); }
     /* FSRA: brokerage name at least as prominent as the 18px FisherCapital wordmark. */
     .lp-brokerage-id { font-family: var(--font-sans); font-size: 18px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; color: var(--heading); padding-bottom: 4px; }
+    /* Same as the main site: with the full disclosure the header is too tall to pin on a small phone. */
+    @media (max-width: 600px) { header { position: static; } }
     .fc-header-disclosure { font-size: 13px; line-height: 1.4; color: rgba(255,255,255,0.62); padding-bottom: 9px; margin-top: -4px; }
 
     /* Consent notice (LP and thank-you only) */
