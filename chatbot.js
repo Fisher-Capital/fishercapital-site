@@ -18,7 +18,7 @@
   };
 
   const COMPLIANCE_FOOTER =
-    'General information only. Not mortgage advice. Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144 | Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054.';
+    'General information only. Not mortgage advice. Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144. Mortgage Commitment, an office of Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054. Ontario only. Rates and terms are not guaranteed. Subject to lender approval.';
 
   const WELCOME_MESSAGE =
     'Ontario mortgage question? Tell me what your situation is:';

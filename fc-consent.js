@@ -15,6 +15,10 @@
     if (!bar) { return; }
     if (typeof window.fcConsent !== 'function' || typeof window.fcSetConsent !== 'function') { return; }
 
+    /* No pixel configured means nothing to consent to: never show the notice. */
+    var t = window.FC_TRACKING;
+    if (!t || typeof t.META_PIXEL_ID !== 'string' || t.META_PIXEL_ID === '') { bar.hidden = true; return; }
+
     bar.hidden = window.fcConsent() !== 'unset';
 
     var buttons = bar.querySelectorAll('[data-fc-consent]');
