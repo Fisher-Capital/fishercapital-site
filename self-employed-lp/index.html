@@ -55,6 +55,8 @@
       height: 64px;
     }
     .logo {
+      display: inline-flex;
+      align-items: center;
       /* Archivo 800, the same face and weight as the wordmark on the shared pages. */
       font-family: var(--font-mark);
       font-weight: 800;
@@ -62,6 +64,8 @@
       color: var(--heading);
       letter-spacing: -0.02em;
     }
+    /* Same sizing as .logo-mark in fc.css: the house is about 1.6x the cap height. */
+    .logo-mark { width: 1.4em; height: 1.4em; flex: 0 0 auto; margin: 0 .2em 0 -.17em; }
     .lp-phone {
       font-size: 15px;
       font-weight: 600;
@@ -441,7 +445,7 @@
 <!-- ── HEADER ────────────────────────────────────── -->
 <header>
   <div class="container lp-nav">
-    <a href="#top" class="logo"><!-- LOGO SLOT: final mark pending -->The Mortgage Room</a>
+    <a href="#top" class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="logo-mark" aria-hidden="true" focusable="false"><path d="M10 28.5 L32 9 L54 28.5 V55.5 H10 Z" fill="none" stroke="#F7F4EE" stroke-width="4.4" stroke-linejoin="miter" stroke-miterlimit="10"/><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#F7F4EE" stroke-width="4.0"/><rect x="28.8" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#D9A961" stroke-width="4.0"/><defs><clipPath id="g1-ct-h"><rect x="26.8" y="31.0" width="10.4" height="8.4"/></clipPath></defs><g clip-path="url(#g1-ct-h)"><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#F7F4EE" stroke-width="4.0"/></g></svg>The Mortgage Room</a>
     <a href="tel:4168980181" class="lp-phone">(416) 898-0181</a>
   </div>
   <div class="container lp-brokerage-id">Centum Financial Services Limited Partnership, <span style="white-space:nowrap">FSRA Brokerage Lic. 13054</span></div>

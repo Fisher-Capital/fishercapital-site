@@ -56,12 +56,12 @@ p{text-wrap:pretty}
 header{position:sticky;top:0;z-index:300;background:color-mix(in srgb,var(--ground) 90%,transparent);backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid var(--border)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
 .logo{display:flex;align-items:center;font-family:var(--display);font-size:var(--logo-size);font-weight:800;letter-spacing:-.03em;color:var(--ink);text-decoration:none;white-space:nowrap}
-.logo-mark{width:28px;height:28px;flex:0 0 auto;margin-right:9px}
-/* LOGO SLOT: the retired mark had a letter in it, so it is gone and the new one
-   is still being designed. No page renders .logo-mark today; the rule stays so
-   the final mark drops straight back in beside the wordmark. .logo is a flex
-   row with no gap on purpose: a gap would sit between the mark and the
-   wordmark, so the mark carries its own margin instead. */
+.logo-mark{width:1.4em;height:1.4em;flex:0 0 auto;margin:0 .2em 0 -.17em}
+/* The mark (house and two links) is inline SVG, decorative, beside the live-text
+   wordmark. It is sized in em so it tracks --logo-size: the drawn house is about 1.6x
+   the wordmark's cap height. Its 64-unit box has about 8 units of air on each side,
+   so the negative left margin lines the house up with the page gutter. .logo is a
+   flex row with no gap on purpose: the mark carries its own margin instead. */
 .nav-links{display:none;gap:26px;font-size:14.5px;font-weight:600}
 .nav-links a{text-decoration:none;color:var(--muted);transition:color .16s}
 .nav-links a:hover{color:var(--ink)}
@@ -75,8 +75,15 @@ header{position:sticky;top:0;z-index:300;background:color-mix(in srgb,var(--grou
 @media (max-width:480px){
   /* The wordmark is three words now, so on a phone the header row cannot hold it,
      the Start Here button and the menu button all at full size. The wordmark gives
-     way; the brokerage line never does, and keeps --id-size. */
-  :root{--logo-size:14px}}
+     way; the brokerage line never does, and keeps --id-size. The mark adds about 20px
+     beside the wordmark, so the row's gap narrows to keep Start Here on one line and
+     the menu button at 44px. */
+  :root{--logo-size:14px}
+  .nav{gap:12px}}
+@media (max-width:380px){
+  /* 360px Android phones: one more small step for the wordmark and the gap only. */
+  :root{--logo-size:13px}
+  .nav{gap:8px}}
 @media (max-width:600px){:root{--id-size:16px}
   /* With the full disclosure the header is ~250px tall on a small phone. Letting it scroll
      away keeps the disclosure at the top of every page without pinning a third of the
