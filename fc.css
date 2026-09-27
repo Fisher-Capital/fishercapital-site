@@ -55,7 +55,7 @@ p{text-wrap:pretty}
 /* ── header ─────────────────────────────────────────────────── */
 header{position:sticky;top:0;z-index:300;background:color-mix(in srgb,var(--ground) 90%,transparent);backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid var(--border)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
-.logo{display:flex;align-items:center;font-family:var(--display);font-size:var(--id-size);font-weight:800;letter-spacing:-.03em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.logo{display:flex;align-items:center;font-family:var(--display);font-size:var(--logo-size);font-weight:800;letter-spacing:-.03em;color:var(--ink);text-decoration:none;white-space:nowrap}
 .logo-mark{width:28px;height:28px;flex:0 0 auto;margin-right:9px}
 /* LOGO SLOT: the retired mark had a letter in it, so it is gone and the new one
    is still being designed. No page renders .logo-mark today; the rule stays so
@@ -66,9 +66,16 @@ header{position:sticky;top:0;z-index:300;background:color-mix(in srgb,var(--grou
 .nav-links a{text-decoration:none;color:var(--muted);transition:color .16s}
 .nav-links a:hover{color:var(--ink)}
 /* FSRA: the brokerage's authorized name and licence must be at least as prominent as
-   the trade name The Mortgage Room. Both read the same size token, and the brokerage line
-   is set in ink at display weight, so neither can drift below the other. */
-:root{--id-size:17px}
+   the trade name The Mortgage Room. The brokerage line reads --id-size and the wordmark
+   reads --logo-size, which defaults to --id-size and is only ever set smaller, never
+   larger, so the brokerage line cannot drift below the wordmark. Both are set in ink at
+   display weight. */
+:root{--id-size:17px;--logo-size:var(--id-size)}
+@media (max-width:480px){
+  /* The wordmark is three words now, so on a phone the header row cannot hold it,
+     the Start Here button and the menu button all at full size. The wordmark gives
+     way; the brokerage line never does, and keeps --id-size. */
+  :root{--logo-size:14px}}
 @media (max-width:600px){:root{--id-size:16px}
   /* With the full disclosure the header is ~250px tall on a small phone. Letting it scroll
      away keeps the disclosure at the top of every page without pinning a third of the
