@@ -73,6 +73,8 @@
           <div class="fc-avatar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="fc-avatar-mark" aria-hidden="true" focusable="false"><path d="M10 28.5 L32 9 L54 28.5 V55.5 H10 Z" fill="none" stroke="#12332A" stroke-width="4.4" stroke-linejoin="miter" stroke-miterlimit="10"/><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#12332A" stroke-width="4.0"/><rect x="28.8" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#D9A961" stroke-width="4.0"/><defs><clipPath id="g1-ct-chat"><rect x="26.8" y="31.0" width="10.4" height="8.4"/></clipPath></defs><g clip-path="url(#g1-ct-chat)"><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#12332A" stroke-width="4.0"/></g></svg></div>
           <div class="fc-header-text">
             <span class="fc-header-name">The Mortgage Room</span>
+            <span class="fc-header-agent">Raymond. F, Mortgage agent</span>
+            <span class="fc-header-brokerage">Centum Financial Services Limited Partnership, <span class="fc-nowrap">FSRA Brokerage Lic. 13054</span></span>
             <span class="fc-header-status" id="fc-status-text">Ask a mortgage question</span>
           </div>
         </div>

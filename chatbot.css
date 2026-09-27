@@ -144,7 +144,8 @@
 
 #fc-chat-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 8px;
   justify-content: space-between;
   padding: 14px 16px;
   background: var(--fc-bg);
@@ -154,8 +155,10 @@
 
 .fc-header-identity {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
+  flex: 1;
+  min-width: 0;
 }
 
 .fc-avatar {
@@ -181,14 +184,25 @@
 .fc-header-text {
   display: flex;
   flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
-.fc-header-name {
+/* FSRA: the agent's advertising name and the brokerage's name and licence must be
+   at least as prominent as the trade name, so all three header lines share one
+   size, weight and colour at every width, fullscreen mobile included. The rest of
+   the disclosure stays in the compliance footer's small type. */
+.fc-header-name,
+.fc-header-agent,
+.fc-header-brokerage {
   font-size: 14px;
   font-weight: 600;
   color: var(--fc-heading);
-  line-height: 1.2;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
+
+.fc-nowrap { white-space: nowrap; }
 
 .fc-header-status {
   font-size: 11px;
@@ -200,7 +214,11 @@
   border: none;
   cursor: pointer;
   color: var(--fc-muted);
-  padding: 4px;
+  width: 44px;
+  height: 44px;
+  margin: -6px -10px -6px 0;
+  flex-shrink: 0;
+  padding: 0;
   border-radius: 4px;
   display: flex;
   align-items: center;
