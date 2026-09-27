@@ -57,10 +57,11 @@ header{position:sticky;top:0;z-index:300;background:color-mix(in srgb,var(--grou
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
 .logo{display:flex;align-items:center;font-family:var(--display);font-size:var(--id-size);font-weight:800;letter-spacing:-.03em;color:var(--ink);text-decoration:none;white-space:nowrap}
 .logo-mark{width:28px;height:28px;flex:0 0 auto;margin-right:9px}
-/* The wordmark is one word. .logo is a flex row, so a gap here would also
-   fall between the "Fisher" text node and the "Capital" span and render it
-   as two words. The mark carries its own margin instead. */
-.logo span{color:var(--muted);font-weight:600}
+/* LOGO SLOT: the retired mark had a letter in it, so it is gone and the new one
+   is still being designed. No page renders .logo-mark today; the rule stays so
+   the final mark drops straight back in beside the wordmark. .logo is a flex
+   row with no gap on purpose: a gap would sit between the mark and the
+   wordmark, so the mark carries its own margin instead. */
 .nav-links{display:none;gap:26px;font-size:14.5px;font-weight:600}
 .nav-links a{text-decoration:none;color:var(--muted);transition:color .16s}
 .nav-links a:hover{color:var(--ink)}
@@ -269,7 +270,6 @@ section{padding:80px 0}
 footer{background:var(--deep-2);color:var(--on-deep-muted);padding:46px 0 42px}
 .foot-top{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding-bottom:24px;border-bottom:1px solid var(--border-deep)}
 .foot-top .logo{color:#fff}
-.foot-top .logo span{color:var(--on-deep-muted)}
 .foot-email{font-size:14.5px;color:var(--on-deep-muted);text-decoration:none;border-bottom:1px solid var(--border-deep)}
 .foot-email:hover{color:#fff}
 .foot-legal{font-size:13px;line-height:1.6;padding-top:22px;max-width:92ch}
