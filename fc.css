@@ -65,11 +65,12 @@ header{position:sticky;top:0;z-index:300;background:color-mix(in srgb,var(--grou
 .nav-links{display:none;gap:26px;font-size:14.5px;font-weight:600}
 .nav-links a{text-decoration:none;color:var(--muted);transition:color .16s}
 .nav-links a:hover{color:var(--ink)}
-/* FSRA: the brokerage's authorized name and licence must be at least as prominent as
-   the trade name The Mortgage Room. The brokerage line reads --id-size and the wordmark
-   reads --logo-size, which defaults to --id-size and is only ever set smaller, never
-   larger, so the brokerage line cannot drift below the wordmark. Both are set in ink at
-   display weight. */
+/* FSRA: the brokerage's authorized name and licence, and the agent's advertising name
+   "Raymond. F, Mortgage agent" (.agent-id), must be at least as prominent as the trade
+   name The Mortgage Room. Both read --id-size; the wordmark reads --logo-size, which
+   defaults to --id-size and is only ever set smaller, never larger, so neither line can
+   drift below the wordmark. All three are Archivo 800 in the same colour as the wordmark
+   (ink in the header, white in the footer). */
 :root{--id-size:17px;--logo-size:var(--id-size)}
 @media (max-width:480px){
   /* The wordmark is three words now, so on a phone the header row cannot hold it,
@@ -81,9 +82,11 @@ header{position:sticky;top:0;z-index:300;background:color-mix(in srgb,var(--grou
      away keeps the disclosure at the top of every page without pinning a third of the
      screen; the bottom sticky CTA bar keeps the actions in reach. */
   header{position:static}}
-.brokerage-id{font-family:var(--display);font-size:var(--id-size);font-weight:700;letter-spacing:-.015em;line-height:1.3;color:var(--ink);margin:0 0 4px}
+.brokerage-id{font-family:var(--display);font-size:var(--id-size);font-weight:800;letter-spacing:-.015em;line-height:1.3;color:var(--ink);margin:0 0 4px}
 .brokerage-lic{white-space:nowrap}
-.brokerage-id--foot{color:var(--on-deep);padding-top:18px;margin:0}
+.brokerage-id--foot{color:#fff;padding-top:18px;margin:0}
+.agent-id{font-family:var(--display);font-size:var(--id-size);font-weight:800;letter-spacing:-.015em;color:var(--ink)}
+footer .agent-id{color:#fff}
 .disclosure{font-size:12.5px;line-height:1.45;color:var(--muted);padding:0 0 9px;margin-top:-4px}
 .hamburger{display:grid;place-items:center;width:44px;height:44px;background:none;border:1px solid var(--border);border-radius:var(--r);cursor:pointer}
 .hamburger span{display:block;width:17px;height:1.8px;background:var(--ink);margin:2.2px 0;border-radius:2px}
