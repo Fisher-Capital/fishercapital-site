@@ -1,4 +1,4 @@
-/* FisherCapital — shared behaviour: mobile menu, situation picker,
+/* The Mortgage Room shared behaviour: mobile menu, situation picker,
    payment calculator, FAQ accordion. Each block no-ops if its
    markup is absent, so every page can load the same file. */
 (function () {

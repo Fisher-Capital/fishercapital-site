@@ -1,11 +1,11 @@
 /* ════════════════════════════════════════════════════════════════
-   FisherCapital — shared design system
+   The Mortgage Room: shared design system
    Graphite: dark and light shades, steel accent, warm photography.
    Type: Plus Jakarta Sans (display) + Manrope (body).
    ════════════════════════════════════════════════════════════════ */
 
 :root{
-  /* photographs — paths resolve relative to this stylesheet */
+  /* photographs: paths resolve relative to this stylesheet */
   --img-hero:url("images/home-living-room.jpg");
   --img-desk:url("images/desk-review.jpg");
   --img-house:url("images/ontario-home.jpg");
@@ -64,9 +64,9 @@ header{position:sticky;top:0;z-index:300;background:color-mix(in srgb,var(--grou
 .nav-links{display:none;gap:26px;font-size:14.5px;font-weight:600}
 .nav-links a{text-decoration:none;color:var(--muted);transition:color .16s}
 .nav-links a:hover{color:var(--ink)}
-/* FSRA: the brokerage's authorized name and licence must be at least as prominent as the
-   FisherCapital trade name. Both read the same size token, and the brokerage line is set
-   in ink at display weight, so neither can drift below the other. */
+/* FSRA: the brokerage's authorized name and licence must be at least as prominent as
+   the trade name The Mortgage Room. Both read the same size token, and the brokerage line
+   is set in ink at display weight, so neither can drift below the other. */
 :root{--id-size:17px}
 @media (max-width:600px){:root{--id-size:16px}
   /* With the full disclosure the header is ~250px tall on a small phone. Letting it scroll

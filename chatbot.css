@@ -1,5 +1,5 @@
 /* chatbot.css */
-/* FisherCapital chat widget -- matches site token system */
+/* The Mortgage Room chat widget -- matches site token system */
 /* Uses same --bg, --surface, --accent, --font-sans variables as main site */
 
 :root {
@@ -166,7 +166,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 11px;
+  letter-spacing: 0.01em;
   font-weight: 700;
   color: #0B231C;
   flex-shrink: 0;

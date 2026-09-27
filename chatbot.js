@@ -1,6 +1,6 @@
 // chatbot.js
-// FisherCapital chat widget -- vanilla JS, no framework
-// Drop this script + chatbot.css into the FisherCapital.ca HTML
+// The Mortgage Room chat widget -- vanilla JS, no framework
+// Drop this script + chatbot.css into the themortgageroom.ca HTML
 
 (function () {
   'use strict';
@@ -64,15 +64,15 @@
     launcher.addEventListener('click', toggleChat);
 
     // Chat window
-    const win = el('div', { id: 'fc-chat-window', role: 'dialog', 'aria-label': 'FisherCapital chat', 'aria-modal': 'false' });
+    const win = el('div', { id: 'fc-chat-window', role: 'dialog', 'aria-label': 'The Mortgage Room chat', 'aria-modal': 'false' });
 
     win.innerHTML = `
       <!-- Header -->
       <div id="fc-chat-header">
         <div class="fc-header-identity">
-          <div class="fc-avatar">FC</div>
+          <div class="fc-avatar">TMR</div>
           <div class="fc-header-text">
-            <span class="fc-header-name">FisherCapital</span>
+            <span class="fc-header-name">The Mortgage Room</span>
             <span class="fc-header-status" id="fc-status-text">Ask a mortgage question</span>
           </div>
         </div>

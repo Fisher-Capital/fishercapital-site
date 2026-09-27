@@ -1,4 +1,4 @@
-/* FisherCapital tracking. Loaded in <head> of /self-employed-lp/ and /thank-you/ only.
+/* The Mortgage Room tracking. Loaded in <head> of /self-employed-lp/ and /thank-you/ only.
    Never throws. Every storage access is wrapped and falls back to memory.
 
    ON THE COMPLETION TOKEN (review 2, B1)
@@ -22,7 +22,7 @@
 (function () {
   'use strict';
 
-  // ===== FisherCapital tracking config (edit here only) =====
+  // ===== The Mortgage Room tracking config (edit here only) =====
   var FC_TRACKING = { META_PIXEL_ID: "" };
   // ==========================================================
 
@@ -171,7 +171,7 @@
 
       var id = FC_TRACKING.META_PIXEL_ID;
       window.fbq('set', 'autoConfig', false, id);        // no automatic collection
-      window.fbq('init', id, {}, { agent: 'fishercapital' });
+      window.fbq('init', id, {}, { agent: 'themortgageroom' });
       window.fbq('track', 'PageView');
       pixelLoaded = true;
       return true;
