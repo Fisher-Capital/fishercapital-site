@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Mortgage Room | Ontario Mortgage Agent | Complex Mortgage Situations</title>
-  <meta name="description" content="Self-employed, bank declined, renewal, debt consolidation, bruised credit. Ontario mortgage solutions for situations that don't fit the standard profile." />
+  <meta name="description" content="Your mortgage. Our mission. A personal review of your situation, your options and your next steps with Raymond. F, a licensed Ontario mortgage agent." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -18,6 +18,7 @@
        home page only, inside <head>, and must not be injected by JavaScript. -->
   <meta name="facebook-domain-verification" content="iqghlbbxytlxgapr9m26iym538x3m5" />
   <!-- META DOMAIN VERIFICATION: themortgageroom.ca tag pending -->
+  <link rel="stylesheet" href="/room.css?v=20260928" />
 </head>
 <body>
 
@@ -112,7 +113,7 @@
       <nav class="nav-links" aria-label="Main">
         <a href="#situations">Your Situation</a>
         <a href="#raymond">How I Work</a>
-        <a href="#how">The Process</a>
+        <a href="#how">Your Options</a>
         <a href="#calc">Calculator</a>
         <a href="#faq">Questions</a>
       </nav>
@@ -131,7 +132,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#situations" class="mobile-link">Your Situation</a>
   <a href="#raymond" class="mobile-link">How I Work</a>
-  <a href="#how" class="mobile-link">The Process</a>
+  <a href="#how" class="mobile-link">Your Options</a>
   <a href="#calc" class="mobile-link">Calculator</a>
   <a href="#faq" class="mobile-link">Questions</a>
   <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="mobile-link">Book a Call</a>
@@ -140,13 +141,15 @@
 <main id="main">
 
 <!-- ─────────── HERO ─────────── -->
-<section class="hero">
+<section class="hero room-hero">
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">Ontario Mortgage Agent, Level 1</span>
-        <h1>Your bank said no. That doesn't mean the answer is no.</h1>
-        <p class="hero-sub">I work with Ontario borrowers on complex mortgage situations. Not the simple applications. The situations that take more than a standard process to navigate.</p>
+        <span class="eyebrow">A clear place to start · Ontario</span>
+        <h1>Your mortgage.<span>Our mission.</span></h1>
+        <p class="hero-kicker">Complicated situation?<br>Pull up a chair.</p>
+        <p class="hero-sub">Tell me what's happening. We’ll look at the details, talk through your options, and map out the next steps together.</p>
+        <div class="hero-actions"><a href="https://tally.so/r/KYGDrk" class="btn btn-primary">Let’s talk about your situation <span aria-hidden="true">↗</span></a></div>
         <div class="hero-badges">
           <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>No credit pull to start</span>
           <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>About 3 minutes</span>
@@ -154,8 +157,11 @@
         </div>
       </div>
 
-      <div class="picker">
-        <div class="picker-title">What's going on?</div>
+      <div class="picker" aria-label="Your situation briefing">
+        <div class="brief-top"><span>Your situation briefing</span><span>01 / Start here</span></div>
+        <div class="picker-inner">
+        <h2 class="picker-title">What brings you to the room?</h2>
+        <p class="picker-intro">Pick a situation. See where we’d start.</p>
         <div class="picker-opts" role="group" aria-label="Choose your situation">
           <button class="pk" data-k="declined" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Bank declined me</button>
           <button class="pk" data-k="self" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2"/></svg>I'm self-employed</button>
@@ -164,13 +170,22 @@
           <button class="pk" data-k="buying" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1v-9z"/></svg>Buying a home</button>
           <button class="pk" data-k="unsure" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/></svg>Not sure</button>
         </div>
-        <div class="picker-line" id="picker-line" aria-live="polite">
-          <strong>Not sure which fits? That's fine.</strong>
-          Start the intake; that is what the review is for. It takes about 3 minutes. No SIN or documents are needed for this first step.
+        <div class="brief-label">Here’s where we start</div>
+        <div class="picker-line" id="picker-line" aria-live="polite" aria-atomic="true">
+          <strong>You don’t need all the answers yet.</strong>
+          We’ll start with what you want to do, what’s getting in the way, and your timing. There’s room to work through the questions together.
         </div>
-        <a href="https://tally.so/r/KYGDrk" class="btn btn-primary" id="picker-cta">Tell me your situation →</a>
+        <ul class="brief-focus" id="brief-focus" aria-label="Topics to discuss"><li>Your goal</li><li>Your questions</li><li>Your timing</li></ul>
+        <a href="https://tally.so/r/KYGDrk" class="btn btn-primary" id="picker-cta">Let’s talk about your situation →</a>
+        <p class="brief-note">A starting point, not an application or an approval.</p>
+        </div>
       </div>
     </div>
+    <nav class="room-route" aria-label="Your path through the room">
+      <a href="#situations"><span>01</span>Your situation<b aria-hidden="true">→</b></a>
+      <a href="#how"><span>02</span>Your options<b aria-hidden="true">→</b></a>
+      <a href="#next-move"><span>03</span>Your next move<b aria-hidden="true">↗</b></a>
+    </nav>
   </div>
 </section>
 
@@ -178,42 +193,48 @@
 <section id="situations" class="band-tint">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Choose Your Situation</span>
-      <h2>If your situation fits one of these, you're in the right place.</h2>
-      <p class="lede">Each one has its own page, with how a review would approach it.</p>
+      <span class="eyebrow">01 / Your situation</span>
+      <h2>Every situation deserves a closer look.</h2>
+      <p class="lede">Find the starting point that sounds like you. Each briefing explains what we’d look at and the questions we’d work through.</p>
     </div>
     <div class="card-grid">
-      <a class="card" href="debt-consolidation/">
-        <svg class="spot" aria-hidden="true"><use href="#il-debt"/></svg>
-        <h3>Debt Consolidation</h3>
-        <p>Where there is home equity and higher-interest debt, restructuring may change the monthly payment; whether it is lower, and what it costs overall, depends on the lender, the terms and the full application.</p>
-        <span class="arrow">Debt consolidation →</span>
-      </a>
       <a class="card" href="self-employed/">
+        <span class="brief-reference" aria-hidden="true">BRIEF / 01</span>
         <svg class="spot" aria-hidden="true"><use href="#il-self"/></svg>
         <h3>Self-Employed or Irregular Income</h3>
         <p>Self-employed qualifying works differently than the bank's standard process. There are lending channels built around that reality.</p>
         <span class="arrow">Self-employed →</span>
       </a>
-      <a class="card" href="renewal/">
-        <svg class="spot" aria-hidden="true"><use href="#il-renew"/></svg>
-        <h3>Renewal or Refinance</h3>
-        <p>A renewal is an opportunity to compare the existing offer, other available options and any costs of switching. Starting early gives time to review the details.</p>
-        <span class="arrow">Renewal and refinance →</span>
-      </a>
       <a class="card" href="bank-declined/">
+        <span class="brief-reference" aria-hidden="true">BRIEF / 02</span>
         <svg class="spot" aria-hidden="true"><use href="#il-declined"/></svg>
         <h3>Bank Declined</h3>
         <p>A lender decline is a reason to understand what happened, what information is missing, and whether another path should be reviewed.</p>
         <span class="arrow">Bank declined →</span>
       </a>
+      <a class="card" href="renewal/">
+        <span class="brief-reference" aria-hidden="true">BRIEF / 03</span>
+        <svg class="spot" aria-hidden="true"><use href="#il-renew"/></svg>
+        <h3>Renewal or Refinance</h3>
+        <p>A renewal is an opportunity to compare the existing offer, other available options and any costs of switching. Starting early gives time to review the details.</p>
+        <span class="arrow">Renewal and refinance →</span>
+      </a>
+      <a class="card" href="debt-consolidation/">
+        <span class="brief-reference" aria-hidden="true">BRIEF / 04</span>
+        <svg class="spot" aria-hidden="true"><use href="#il-debt"/></svg>
+        <h3>Debt Consolidation</h3>
+        <p>Where there is home equity and higher-interest debt, restructuring may change the monthly payment; whether it is lower, and what it costs overall, depends on the lender, the terms and the full application.</p>
+        <span class="arrow">Debt consolidation →</span>
+      </a>
       <a class="card" href="buying-a-home/">
+        <span class="brief-reference" aria-hidden="true">BRIEF / 05</span>
         <svg class="spot" aria-hidden="true"><use href="#il-buy"/></svg>
         <h3>Buying a Home</h3>
         <p>A purchase where the income or credit picture is not standard is still a file that needs the right lender fit. A review looks at what you have, what would need to be gathered, and which lenders may consider it.</p>
         <span class="arrow">Buying a home →</span>
       </a>
       <a class="card" href="https://tally.so/r/KYGDrk">
+        <span class="brief-reference" aria-hidden="true">BRIEF / 06</span>
         <svg class="spot" aria-hidden="true"><use href="#il-other"/></svg>
         <h3>Something else, or more than one</h3>
         <p>Bruised or recovering credit, an estate, or a file that touches two of these at once. Not sure which category fits? That's fine, start the intake; that is what the review is for.</p>
@@ -230,8 +251,8 @@
       <div class="about-photo" role="img" aria-label="A desk by a window with a notebook, a pen and a small stack of papers in late afternoon light"></div>
       <div class="about-copy">
         <span class="eyebrow">How I Work</span>
-        <h2>One licensed person, who reads your file before you talk.</h2>
-        <p class="lede">Not a call centre. Not a form that disappears into a queue. Here is how I work, so you know what to expect before you send anything.</p>
+        <h2>Someone in your corner. Someone on the details.</h2>
+        <p class="lede">I’m Raymond. I review what you share before we speak, so we can spend our time on your situation, your questions, and what comes next.</p>
         <ul class="how-list">
           <li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg></i><span>I review what you submit before we connect, so the conversation is focused and useful, not generic.</span></li>
           <li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg></i><span>No credit pull, no documents and no commitment on the first conversation. The purpose is to understand your situation and whether there's a reasonable path forward.</span></li>
@@ -251,27 +272,27 @@
 <section id="how" class="band-tint">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">The Process</span>
-      <h2>Three steps. No runaround.</h2>
+      <span class="eyebrow">02 / Your options</span>
+      <h2>The facts. The options. The next move.</h2>
     </div>
     <div class="rail">
       <div class="step">
         <div class="step-num">01</div>
         <svg class="spot" aria-hidden="true"><use href="#il-s1"/></svg>
-        <h3>Tell me what's happening</h3>
+        <h3>Your situation</h3>
         <p>Fill out a short intake form. It takes about 3 minutes. No SIN or documents are needed for this first step, and please do not enter account or ID numbers or financial records. Just enough context to understand where you are starting from.</p>
         <a href="https://tally.so/r/KYGDrk" class="arrow">Start the intake →</a>
       </div>
       <div class="step">
         <div class="step-num">02</div>
         <svg class="spot" aria-hidden="true"><use href="#il-s2"/></svg>
-        <h3>Review the situation</h3>
-        <p>Book a call that fits your schedule. I'll review what you submitted before we connect, so the conversation is focused and useful, not generic.</p>
+        <h3>Your options</h3>
+        <p>I’ll review what you shared before we connect. Together, we’ll discuss what may be possible, what needs a closer look, and the costs and trade-offs to consider.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
         <svg class="spot" aria-hidden="true"><use href="#il-s3"/></svg>
-        <h3>Discuss available paths</h3>
+        <h3>Your next move</h3>
         <p>Whether the next step is an application, more information, or a longer-term plan, the review outlines which documentation approaches may be worth pursuing and what would need to be gathered.</p>
       </div>
     </div>
@@ -290,7 +311,7 @@
 <section id="calc">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Payment Calculator</span>
+      <span class="eyebrow">Run the numbers</span>
       <h2>What would a mortgage payment look like?</h2>
       <p class="lede">Plain arithmetic on the numbers you enter. It shows the payment, and what the same term costs in interest, because a lower monthly payment and a lower total cost are two different questions.</p>
     </div>
@@ -399,12 +420,12 @@
 </section>
 
 <!-- ─────────── FINAL CTA ─────────── -->
-<section class="close-cta">
+<section class="close-cta" id="next-move">
   <div class="wrap">
-    <span class="eyebrow">Ready?</span>
-    <h2>Not sure if your situation fits?</h2>
-    <p class="lede">Tell me what's going on. The intake takes 3 minutes and I review what you share before we connect, so the conversation is useful from the start.</p>
-    <a href="https://tally.so/r/KYGDrk" class="btn btn-invert">Start Your Review</a>
+    <span class="eyebrow">03 / Your next move</span>
+    <h2>Your situation. Let’s make a plan.</h2>
+    <p class="lede">You don’t need to have it all figured out before you reach out. Tell me what’s happening, and we’ll start there.</p>
+    <a href="https://tally.so/r/KYGDrk" class="btn btn-invert">Let’s talk about your situation →</a>
     <p class="cta-fine">About 3 minutes · No SIN or documents needed for this first step · No commitment</p>
   </div>
 </section>
@@ -430,7 +451,7 @@
   <a href="https://calendly.com/raymond-finance-co/mortgage-consultation" class="btn btn-line btn-sm">Book a call</a>
 </div>
 
-<script src="/fc.js?v=90eaef1" defer></script>
+<script src="/fc.js?v=room-20260928" defer></script>
 <link rel="stylesheet" href="/chatbot.css" />
 <script src="/chatbot.js" defer></script>
 </body>

@@ -1,0 +1,102 @@
+/* The Mortgage Room: situation room direction. Shared by all public pages. */
+:root{--r:6px;--r-lg:10px;--r-xl:12px;--warm:#D9A961;--on-deep-muted:#bdccc2}
+html{scroll-padding-top:190px}
+header{background:#F7F4EE;backdrop-filter:none}
+.nav-links{gap:20px}
+.nav-links a{font-size:13px}
+.disclosure{font-size:13px}
+.btn{border-radius:5px}
+.btn-primary:hover{background:#234c3e}
+.eyebrow{letter-spacing:.16em}
+.room-hero{background:#12332A;color:#F7F4EE;padding:66px 0 0}
+.room-hero::before{background-image:linear-gradient(#ffffff04 1px,transparent 1px),linear-gradient(90deg,#ffffff04 1px,transparent 1px);background-size:64px 64px;background-position:center}
+.room-hero::after{display:none}
+.room-hero .hero-grid{align-items:center;gap:64px;padding-bottom:54px}
+.room-hero h1{font-size:clamp(3.1rem,4.4vw,4.1rem);line-height:1.01;letter-spacing:-.055em;margin:0 0 24px}
+.room-hero h1 span{display:block;color:#D9A961}
+.room-hero .hero-kicker{font-size:clamp(1.15rem,2vw,1.45rem);font-weight:600;line-height:1.4;margin-bottom:14px;max-width:25ch}
+.room-hero .hero-sub{font-size:17px;max-width:43ch;color:#d0dcd3;line-height:1.7;margin-bottom:24px}
+.room-hero .hero-actions .btn{background:#D9A961;color:#12332A;box-shadow:none}
+.room-hero .hero-actions .btn:hover{background:#e8bd7d}
+.room-hero .hero-badges{font-size:12px;gap:12px 18px;margin-top:22px}
+.room-hero .eyebrow{font-size:11px;display:flex;align-items:center;gap:10px}
+.room-hero .eyebrow::before{content:"";width:7px;height:7px;background:#D9A961;border-radius:50%}
+.room-hero :focus-visible,.band-deep :focus-visible,.close-cta :focus-visible,footer :focus-visible{outline-color:#D9A961}
+.room-hero .picker :focus-visible{outline-color:#12332A}
+.picker{background:#F7F4EE;color:#12332A;padding:0;border:1px solid #e2d6c1;border-radius:10px;box-shadow:0 20px 60px #061b1840;overflow:hidden}
+.brief-top{display:flex;align-items:center;justify-content:space-between;padding:15px 22px;border-bottom:1px solid #ded8cc;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:#efe8db}
+.brief-top span:last-child{color:#57635B;font-weight:500;letter-spacing:.08em}
+.picker-inner{padding:24px}
+.picker-title{font-size:23px;text-transform:none;letter-spacing:-.035em;margin-bottom:4px;font-weight:800}
+.picker-intro{font-size:14px;color:#57635B;margin-bottom:18px}
+.picker-opts{gap:8px;margin-bottom:22px}
+.pk{border-radius:5px;font-size:13px;padding:12px 10px;background:transparent;gap:7px}
+.pk[aria-pressed="true"]{box-shadow:inset 3px 0 #D9A961}
+.brief-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#57635B;border-top:1px solid #ded8cc;padding-top:18px;margin-bottom:10px}
+.picker-line{border:0;padding:0;min-height:100px;font-size:14px;line-height:1.6;margin:0 0 15px}
+.picker-line strong{font-size:18px;margin-bottom:6px}
+.brief-focus{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.brief-focus li{border:1px solid #d6dfd8;background:#e7ede7;border-radius:3px;padding:4px 8px;font-size:11px;color:#12332A}
+.picker .btn{font-size:13px;min-height:46px;padding:12px}
+.brief-note{font-size:11px;color:#57635B;margin-top:10px;text-align:center}
+.room-route{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #ffffff29;padding:22px 0 25px;gap:24px}
+.room-route a{display:flex;align-items:center;gap:13px;color:#e1e9e1;text-decoration:none;font-size:14px;font-weight:600}
+.room-route a:hover{color:#D9A961}
+.room-route span{font-size:11px;font-variant-numeric:tabular-nums;color:#D9A961;display:grid;place-items:center;width:28px;height:28px;border:1px solid #D9A96160;border-radius:50%}
+.room-route b{margin-left:auto;font-size:18px;font-weight:400;color:#D9A961}
+.sec-head .eyebrow::before,.about-copy .eyebrow::before{content:"";display:inline-block;width:22px;height:2px;background:#D9A961;vertical-align:middle;margin-right:10px}
+.card-grid{gap:14px}
+.card{position:relative;padding:28px;border-radius:8px;box-shadow:none}
+a.card:hover{border-color:#12332A;box-shadow:0 10px 28px #12332A0f;transform:translateY(-3px)}
+#situations .card{padding-top:25px}
+#situations .brief-reference{position:absolute;top:25px;right:24px;font-family:var(--display);font-size:10px;letter-spacing:.1em;color:#57635B}
+.card .spot{width:56px;height:56px;margin-bottom:26px}
+.card h3{font-size:20px;max-width:22ch}
+.card p{font-size:14px;line-height:1.7}
+.card .arrow{font-size:13px;padding-top:15px;border-top:1px solid #e2dacb;width:100%;justify-content:space-between}
+.about-photo{border-radius:8px;position:relative;box-shadow:none;aspect-ratio:4/4.5}
+.about-photo::after{content:"A closer look. A conversation. A next step.";position:absolute;bottom:20px;left:20px;right:20px;padding:16px;background:#F7F4EE;font-size:16px;font-weight:700;border-left:3px solid #D9A961}
+.rail{gap:14px}
+.step{border-radius:8px;border-top:3px solid #D9A961;padding:28px}
+.step-num{color:#12332A;font-size:14px;top:30px;right:26px}
+.step .spot{width:48px;height:48px;margin-bottom:22px}
+.step p{line-height:1.7;font-size:14px}
+.calc{border-radius:10px;box-shadow:none}
+.calc-out{background-image:linear-gradient(#ffffff04 1px,transparent 1px),linear-gradient(90deg,#ffffff04 1px,transparent 1px);background-size:32px 32px}
+.band-deep .sec-head .eyebrow{color:#D9A961}
+.close-cta{background:#12332A;border-top:1px solid #ffffff20}
+.close-cta::before{background-image:linear-gradient(#ffffff05 1px,transparent 1px),linear-gradient(90deg,#ffffff05 1px,transparent 1px);background-size:48px 48px}
+.close-cta::after{display:none}
+.close-cta .btn-invert{background:#D9A961;color:#12332A}
+.close-cta .cta-fine{color:#bdccc2}
+.hero-plain{padding-top:40px}
+.hero-plain h1{font-size:clamp(2.3rem,4.3vw,3.7rem)}
+.situation-brief{border:1px solid #315448;border-radius:10px;background:#12332A;color:#F7F4EE;overflow:hidden}
+.situation-brief .brief-top{background:#0B231C;border-color:#ffffff20;color:#D9A961}
+.situation-brief .brief-top span:last-child{color:#bdccc2}
+.situation-brief-content{padding:30px}
+.situation-brief h2{font-size:27px;color:#F7F4EE;margin-bottom:14px}
+.situation-brief p{font-size:15px;color:#d0dcd3;line-height:1.7}
+.situation-brief ol{list-style:none;counter-reset:focus;margin:24px 0 0}
+.situation-brief li{counter-increment:focus;border-top:1px solid #ffffff29;padding:14px 0;display:flex;gap:12px;font-size:14px}
+.situation-brief li::before{content:"0" counter(focus);color:#D9A961;font-size:11px;padding-top:2px}
+.situation-brief .brief-footer{padding:15px 30px;border-top:1px solid #ffffff29;font-size:12px;color:#D9A961}
+.doc,.ty-main{border-top:3px solid #D9A961}
+/* The paid landing page uses its own layout and the same visual language. */
+body.room-lp{--bg:#12332A;--surface:#173c31;--border:#ffffff29;--muted:#bdccc2;--body:#d0dcd3;--heading:#F7F4EE;--accent:#D9A961;--accent-dk:#e8bd7d;--font-sans:'Inter Tight',sans-serif;--font-serif:'Archivo',sans-serif;--radius:8px}
+.room-lp header{background:#12332A}
+.room-lp h1,.room-lp h2{font-weight:800;letter-spacing:-.035em}
+.room-lp .lp-hero{background-image:linear-gradient(#ffffff04 1px,transparent 1px),linear-gradient(90deg,#ffffff04 1px,transparent 1px);background-size:48px 48px}
+.room-lp .lp-hero h1 em{font-style:normal}
+.room-lp .fc-header-disclosure{color:#bdccc2}
+.room-lp .fc-consent{background:#0B231C}
+.room-lp .btn-primary:hover{background:#e8bd7d}
+.room-lp .lp-nav{height:auto;min-height:68px;gap:16px;flex-wrap:wrap;padding:12px 24px}
+.room-lp :focus-visible{outline:3px solid #D9A961;outline-offset:4px}
+.room-lp .lp-mission{font-size:18px;color:#D9A961;font-weight:600;margin-bottom:15px}
+@media(min-width:900px){.room-hero .hero-grid{grid-template-columns:1fr 1fr}.hero-plain .hero-grid{grid-template-columns:1.15fr .85fr;gap:48px}}
+@media(min-width:900px) and (max-width:1100px){.nav-links{gap:12px}.nav-links a{font-size:12px}.nav{gap:12px}.room-hero .hero-grid{gap:35px}}
+@media(max-width:899px){.room-hero{padding-top:48px}.room-hero .hero-grid{gap:36px}.room-hero h1{font-size:clamp(3.1rem,9vw,4.6rem)}.room-hero .hero-sub{max-width:52ch}.picker{max-width:620px;width:100%}.hero-plain .hero-grid{gap:32px}.about-photo{aspect-ratio:4/3}.room-route{gap:16px}.room-route a{font-size:12px;gap:7px}.room-route b{display:none}}
+@media(max-width:600px){html{scroll-padding-top:20px}.wrap{padding:0 20px}.room-hero{padding-top:38px}.room-hero .hero-grid{padding-bottom:30px}.room-hero .hero-sub{font-size:16px}.room-hero .hero-kicker{font-size:20px}.picker-inner{padding:20px}.brief-top{padding:13px 20px}.brief-top span{font-size:9px}.picker-line{min-height:0}.room-route{gap:10px;padding:20px 0}.room-route a{flex-direction:column;align-items:flex-start;font-size:11px}.room-route span{width:24px;height:24px;font-size:10px}.room-hero .hero-actions .btn{font-size:13px}.pk{font-size:12.5px;padding:11px 8px;gap:6px}.pk svg{width:16px;height:16px}.card{padding:24px}.situation-brief-content{padding:24px}.hero-plain h1{font-size:2.3rem}.about-photo::after{font-size:14px}.room-lp .logo{font-size:16px}}
+@media(max-width:359px){.nav .btn-sm{font-size:12px;padding:10px}.nav{gap:5px}.wrap{padding:0 16px}.picker-inner{padding:16px}.pk{font-size:12px}.room-hero h1{font-size:2.9rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}

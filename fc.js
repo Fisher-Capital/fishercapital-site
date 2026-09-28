@@ -25,34 +25,40 @@
   var pcta = document.getElementById('picker-cta');
   var SITUATIONS = {
     unsure: {
-      t: "Not sure which fits? That's fine.",
-      s: 'Start the intake; that is what the review is for. It takes about 3 minutes. No SIN or documents are needed for this first step.',
-      cta: 'Tell me your situation →', href: 'https://tally.so/r/KYGDrk'
+      t: 'You don’t need all the answers yet.',
+      s: 'We’ll start with what you want to do, what’s getting in the way, and your timing. There’s room to work through the questions together.',
+      focus: ['Your goal', 'Your questions', 'Your timing'],
+      cta: 'Let’s talk about your situation →', href: 'https://tally.so/r/KYGDrk'
     },
     declined: {
-      t: 'Bank declined',
-      s: 'A lender decline is a reason to understand what happened, what information is missing, and whether another path should be reviewed.',
-      cta: 'Start with a bank decline →', href: '/bank-declined/'
+      t: 'Let’s understand the reason.',
+      s: 'We’ll look at what the lender told you, what information it used, and what may need to change before considering another path.',
+      focus: ['The reason given', 'Your file', 'Possible next steps'],
+      cta: 'Explore the bank-declined briefing →', href: '/bank-declined/'
     },
     self: {
-      t: 'Self-employed or irregular income',
-      s: "Self-employed qualifying works differently than the bank's standard process. There are lending channels built around that reality.",
-      cta: 'Start as self-employed →', href: '/self-employed/'
+      t: 'Your income has a story.',
+      s: 'We’ll look at how you earn, how your income is documented, and what needs more context. Lender requirements vary.',
+      focus: ['Income structure', 'Business history', 'Supporting records'],
+      cta: 'Explore the self-employed briefing →', href: '/self-employed/'
     },
     renewal: {
-      t: 'Renewal or refinance',
-      s: "A renewal is an opportunity to compare the existing offer, other available options and any costs of switching. Starting early gives time to review the details.",
-      cta: 'Start with a renewal →', href: '/renewal/'
+      t: 'Put your renewal offer on the table.',
+      s: 'We’ll look at your timing, your current offer, and the costs and trade-offs of any alternatives before you decide.',
+      focus: ['Renewal date', 'Current offer', 'Switching costs'],
+      cta: 'Explore the renewal briefing →', href: '/renewal/'
     },
     debt: {
-      t: 'Debt consolidation',
-      s: 'Where there is home equity and higher-interest debt, restructuring may change the monthly payment; whether it is lower, and what it costs overall, depends on the lender, the terms and the full application.',
-      cta: 'Start with debt consolidation →', href: '/debt-consolidation/'
+      t: 'Look at the whole cost picture.',
+      s: 'We’ll review the balances, home equity and borrowing costs. A lower monthly payment can still mean paying more overall.',
+      focus: ['Debt balances', 'Home equity', 'Total cost'],
+      cta: 'Explore the debt-consolidation briefing →', href: '/debt-consolidation/'
     },
     buying: {
-      t: 'Buying a home',
-      s: 'A purchase where the income or credit picture is not standard is still a file that needs the right lender fit. A review looks at what you have, what would need to be gathered, and which lenders may consider it.',
-      cta: 'Start with a purchase →', href: '/buying-a-home/'
+      t: 'Let’s plan your next move.',
+      s: 'We’ll talk through your budget, down payment, income and timing, so you know what information a mortgage review needs.',
+      focus: ['Purchase plans', 'Down payment', 'Your timing'],
+      cta: 'Explore the home-buying briefing →', href: '/buying-a-home/'
     }
   };
   if (line && pcta) {
@@ -67,6 +73,15 @@
         st.textContent = d.t;
         line.appendChild(st);
         line.appendChild(document.createTextNode(d.s));
+        var focus = document.getElementById('brief-focus');
+        if (focus) {
+          focus.textContent = '';
+          d.focus.forEach(function (topic) {
+            var item = document.createElement('li');
+            item.textContent = topic;
+            focus.appendChild(item);
+          });
+        }
         pcta.textContent = d.cta;
         pcta.setAttribute('href', d.href);
       });
