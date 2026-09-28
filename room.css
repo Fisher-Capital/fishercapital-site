@@ -70,8 +70,8 @@ a.card:hover{border-color:var(--brand);box-shadow:var(--lift);transform:translat
 .card h3{font-size:20px;max-width:22ch}
 .card p{font-size:16px;line-height:1.7}
 .card .arrow{font-size:14px;padding-top:15px;border-top:1px solid var(--border);width:100%;justify-content:space-between}
-.about-photo{border-radius:12px;position:relative;box-shadow:none;aspect-ratio:4/3;background-image:var(--room-photo);background-position:right center}
-.about-photo::after{content:"A closer look. A conversation. A next step.";position:absolute;bottom:20px;left:20px;right:20px;padding:16px;background:#fff;font-size:16px;font-weight:700;border-radius:6px}
+.about-photo{border-radius:12px;position:relative;box-shadow:none;aspect-ratio:4/3;background-image:url('/images/how-i-work-preparation.png');background-position:center}
+.about-photo::after{content:"Prepared before we speak.";position:absolute;bottom:20px;left:20px;right:20px;padding:16px;background:#fff;font-size:16px;font-weight:700;border-radius:6px}
 .rail{gap:16px}
 .step{border-radius:10px;border-top:3px solid var(--warm);padding:28px}
 .step-num{color:var(--brand);font-size:14px;top:30px;right:26px}
