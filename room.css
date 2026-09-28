@@ -7,7 +7,7 @@
   --border:#CFDFE9;--border-deep:#C5D9E5;--r:6px;--r-lg:10px;--r-xl:12px;
   --id-size:18px;--logo-size:18px;
   --shadow:0 4px 16px #1738510A;--lift:0 12px 28px #17385114;
-  --room-photo:url('/images/situation-room-consultation.png');
+  --room-photo:url('/images/situation-room-branded.png');
 }
 html{scroll-padding-top:100px}
 header{background:#ffffffF5;backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}

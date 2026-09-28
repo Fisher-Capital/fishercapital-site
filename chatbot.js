@@ -49,7 +49,7 @@
       const link = document.createElement('link');
       link.id = 'fc-chatbot-css';
       link.rel = 'stylesheet';
-      link.href = '/chatbot.css?v=room-table-3'; // adjust path if serving from CDN
+      link.href = '/chatbot.css?v=open-room-5'; // adjust path if serving from CDN
       document.head.appendChild(link);
     }
 
@@ -70,7 +70,7 @@
       <!-- Header -->
       <div id="fc-chat-header">
         <div class="fc-header-identity">
-          <div class="fc-avatar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="fc-avatar-mark" aria-hidden="true" focusable="false"><path d="M23 54H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4v36a4 4 0 0 1-4 4h-9" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><rect x="25" y="21" width="14" height="22" rx="7" fill="#E9775C"/><path d="M18 28v8m28-8v8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></div>
+          <div class="fc-avatar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" class="fc-avatar-mark" aria-hidden="true" focusable="false"><path d="M35 84H19a7 7 0 0 1-7-7V19a7 7 0 0 1 7-7h58a7 7 0 0 1 7 7v58a7 7 0 0 1-7 7H61" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><rect x="28" y="38" width="40" height="20" rx="10" fill="#E9775C"/><path d="M39 26h18M39 70h18" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></div>
           <div class="fc-header-text">
             <span class="fc-header-name">The Mortgage Room</span>
             <span class="fc-header-agent">Raymond. F, Mortgage agent</span>
