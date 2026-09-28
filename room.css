@@ -99,4 +99,10 @@ body.room-lp{--bg:#12332A;--surface:#173c31;--border:#ffffff29;--muted:#bdccc2;-
 @media(max-width:899px){.room-hero{padding-top:48px}.room-hero .hero-grid{gap:36px}.room-hero h1{font-size:clamp(3.1rem,9vw,4.6rem)}.room-hero .hero-sub{max-width:52ch}.picker{max-width:620px;width:100%}.hero-plain .hero-grid{gap:32px}.about-photo{aspect-ratio:4/3}.room-route{gap:16px}.room-route a{font-size:12px;gap:7px}.room-route b{display:none}}
 @media(max-width:600px){html{scroll-padding-top:20px}.wrap{padding:0 20px}.room-hero{padding-top:38px}.room-hero .hero-grid{padding-bottom:30px}.room-hero .hero-sub{font-size:16px}.room-hero .hero-kicker{font-size:20px}.picker-inner{padding:20px}.brief-top{padding:13px 20px}.brief-top span{font-size:12px}.brief-top{gap:12px;flex-wrap:wrap}.picker-line{min-height:0}.room-route{gap:10px;padding:20px 0}.room-route a{flex-direction:column;align-items:flex-start;font-size:11px}.room-route span{width:24px;height:24px;font-size:10px}.room-hero .hero-actions .btn{font-size:13px}.pk{font-size:12.5px;padding:11px 8px;gap:6px}.pk svg{width:16px;height:16px}.card{padding:24px}.situation-brief-content{padding:24px}.hero-plain h1{font-size:2.3rem}.about-photo::after{font-size:14px}.room-lp .logo{font-size:16px}}
 @media(max-width:359px){.nav .btn-sm{font-size:12px;padding:10px}.nav{gap:5px}.wrap{padding:0 16px}.picker-inner{padding:16px}.pk{font-size:12px}.room-hero h1{font-size:2.9rem}}
+/* Keep the chat action in the mobile action bar, clear of page content. */
+@media(max-width:899px){
+  body:has(.sticky-cta) .sticky-cta{padding-right:82px}
+  body:has(.sticky-cta) .sticky-cta .btn{padding:12px 10px;font-size:13px}
+  body:has(.sticky-cta) #fc-chat-launcher{width:48px;height:48px;right:16px;bottom:calc(11px + env(safe-area-inset-bottom));box-shadow:none}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
