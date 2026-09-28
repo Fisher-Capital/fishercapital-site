@@ -9,16 +9,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/fc.css" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
-  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="/favicon.svg?v=room-table-3" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png?v=room-table-3" sizes="32x32" type="image/png" />
+  <link rel="icon" href="/favicon-16.png?v=room-table-3" sizes="16x16" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=room-table-3" />
   <!-- Meta domain verification. Tag taken from Business Manager > Brand safety
        and suitability > Domains > fishercapital.ca on 2026-09-14. It belongs on the
        home page only, inside <head>, and must not be injected by JavaScript. -->
   <meta name="facebook-domain-verification" content="iqghlbbxytlxgapr9m26iym538x3m5" />
   <!-- META DOMAIN VERIFICATION: themortgageroom.ca tag pending -->
-  <link rel="stylesheet" href="/room.css?v=20260928" />
+  <link rel="stylesheet" href="/room.css?v=bright-room-3" />
+  <link rel="preload" href="/images/situation-room-daylight.png" as="image" />
 </head>
 <body>
 
@@ -107,7 +108,7 @@
   <div class="wrap">
     <div class="nav">
       <a href="/" class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="logo-mark" aria-hidden="true" focusable="false"><path d="M10 28.5 L32 9 L54 28.5 V55.5 H10 Z" fill="none" stroke="#12332A" stroke-width="4.4" stroke-linejoin="miter" stroke-miterlimit="10"/><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#12332A" stroke-width="4.0"/><rect x="28.8" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#D9A961" stroke-width="4.0"/><defs><clipPath id="g1-ct-h"><rect x="26.8" y="31.0" width="10.4" height="8.4"/></clipPath></defs><g clip-path="url(#g1-ct-h)"><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#12332A" stroke-width="4.0"/></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="logo-mark" aria-hidden="true" focusable="false"><path d="M23 54H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4v36a4 4 0 0 1-4 4h-9" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><rect x="25" y="21" width="14" height="22" rx="7" fill="#E9775C"/><path d="M18 28v8m28-8v8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
         The Mortgage Room
       </a>
       <nav class="nav-links" aria-label="Main">
@@ -124,8 +125,6 @@
         </button>
       </div>
     </div>
-    <p class="brokerage-id">Centum Financial Services Limited Partnership, <span class="brokerage-lic">FSRA Brokerage Lic. 13054</span></p>
-    <p class="disclosure"><span class="agent-id">Raymond. F, Mortgage agent</span> (Level 1), FSRA Lic. M26000144. Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054. Ontario only. Rates and terms are not guaranteed. Subject to lender approval.</p>
   </div>
 </header>
 
@@ -145,11 +144,11 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">A clear place to start · Ontario</span>
+        <span class="eyebrow">Make room for your next move · Ontario</span>
         <h1>Your mortgage.<span>Our mission.</span></h1>
         <p class="hero-kicker">Complicated situation?<br>Pull up a chair.</p>
         <p class="hero-sub">Tell me what's happening. We’ll look at the details, talk through your options, and map out the next steps together.</p>
-        <div class="hero-actions"><a href="https://tally.so/r/KYGDrk" class="btn btn-primary">Let’s talk about your situation <span aria-hidden="true">↗</span></a></div>
+        <div class="hero-actions"><a href="https://tally.so/r/KYGDrk" class="btn btn-primary">Let’s talk about your situation <span aria-hidden="true">↗</span></a><a href="#briefing" class="hero-explore">Find your starting point <span aria-hidden="true">↓</span></a></div>
         <div class="hero-badges">
           <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>No credit pull to start</span>
           <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-8"/></svg>About 3 minutes</span>
@@ -157,9 +156,18 @@
         </div>
       </div>
 
-      <div class="picker" aria-label="Your situation briefing">
+    </div>
+    <nav class="room-route" aria-label="Your path through the room">
+      <a href="#briefing"><span>01</span>Your situation<b aria-hidden="true">→</b></a>
+      <a href="#how"><span>02</span>Your options<b aria-hidden="true">→</b></a>
+      <a href="#next-move"><span>03</span>Your next move<b aria-hidden="true">↗</b></a>
+    </nav>
+  </div>
+</section>
+
+<section class="briefing-section" id="briefing"><div class="wrap"><div class="picker" aria-label="Your situation briefing">
         <div class="brief-top"><span>Your situation briefing</span><span>01 / Start here</span></div>
-        <div class="picker-inner">
+        <div class="picker-inner"><div class="picker-choose">
         <h2 class="picker-title">What brings you to the room?</h2>
         <p class="picker-intro">Pick a situation. See where we’d start.</p>
         <div class="picker-opts" role="group" aria-label="Choose your situation">
@@ -170,7 +178,7 @@
           <button class="pk" data-k="buying" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1v-9z"/></svg>Buying a home</button>
           <button class="pk" data-k="unsure" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/></svg>Not sure</button>
         </div>
-        <div class="brief-label">Here’s where we start</div>
+        </div><div class="picker-response"><div class="brief-label">Here’s where we start</div>
         <div class="picker-line" id="picker-line" aria-live="polite" aria-atomic="true">
           <strong>You don’t need all the answers yet.</strong>
           We’ll start with what you want to do, what’s getting in the way, and your timing. There’s room to work through the questions together.
@@ -180,14 +188,7 @@
         <p class="brief-note">A starting point, not an application or an approval.</p>
         </div>
       </div>
-    </div>
-    <nav class="room-route" aria-label="Your path through the room">
-      <a href="#situations"><span>01</span>Your situation<b aria-hidden="true">→</b></a>
-      <a href="#how"><span>02</span>Your options<b aria-hidden="true">→</b></a>
-      <a href="#next-move"><span>03</span>Your next move<b aria-hidden="true">↗</b></a>
-    </nav>
-  </div>
-</section>
+</div></div></section>
 
 <!-- ─────────── CHOOSE YOUR SITUATION ─────────── -->
 <section id="situations" class="band-tint">
@@ -248,7 +249,7 @@
 <section id="raymond">
   <div class="wrap">
     <div class="about">
-      <div class="about-photo" role="img" aria-label="A desk by a window with a notebook, a pen and a small stack of papers in late afternoon light"></div>
+      <div class="about-photo" role="img" aria-label="An airy planning room with an oak table, blue chairs and a glass board for working through the next steps"></div>
       <div class="about-copy">
         <span class="eyebrow">How I Work</span>
         <h2>Someone in your corner. Someone on the details.</h2>
@@ -435,7 +436,7 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="logo-mark" aria-hidden="true" focusable="false"><path d="M10 28.5 L32 9 L54 28.5 V55.5 H10 Z" fill="none" stroke="#F7F4EE" stroke-width="4.4" stroke-linejoin="miter" stroke-miterlimit="10"/><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#F7F4EE" stroke-width="4.0"/><rect x="28.8" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#D9A961" stroke-width="4.0"/><defs><clipPath id="g1-ct-f"><rect x="26.8" y="31.0" width="10.4" height="8.4"/></clipPath></defs><g clip-path="url(#g1-ct-f)"><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#F7F4EE" stroke-width="4.0"/></g></svg>The Mortgage Room</span>
+      <span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="logo-mark" aria-hidden="true" focusable="false"><path d="M23 54H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4v36a4 4 0 0 1-4 4h-9" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><rect x="25" y="21" width="14" height="22" rx="7" fill="#E9775C"/><path d="M18 28v8m28-8v8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>The Mortgage Room</span>
       <a href="mailto:raymond@themortgageroom.ca" class="foot-email">raymond@themortgageroom.ca</a>
     </div>
     <p class="brokerage-id brokerage-id--foot">Centum Financial Services Limited Partnership, <span class="brokerage-lic">FSRA Brokerage Lic. 13054</span></p>
@@ -453,6 +454,6 @@
 
 <script src="/fc.js?v=room-20260928" defer></script>
 <link rel="stylesheet" href="/chatbot.css" />
-<script src="/chatbot.js" defer></script>
+<script src="/chatbot.js?v=room-table-3" defer></script>
 </body>
 </html>

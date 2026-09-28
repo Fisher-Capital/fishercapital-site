@@ -9,18 +9,17 @@
      brand. Outfit is no longer loaded on any converted page, so the widget was
      silently falling back to system-ui. Values below are fc.css --deep,
      --on-deep and --accent-deep. */
-  /* Follows fc.css again, now on Direction A. The panel stays dark on purpose,
-     as contrast against a light site, but the dark is the site's own --deep-2
-     and the accent is the brass. Brass on this ground reads 7.8:1. */
-  --fc-bg:        #0B231C;
-  --fc-surface:   #12332A;
-  --fc-surface-2: #1A4034;
+  /* Daylight palette: a navy frame, blue conversation panel, pale bubbles
+     and coral actions. Bubble and input text use explicit dark colours. */
+  --fc-bg:        #173851;
+  --fc-surface:   #245F85;
+  --fc-surface-2: #EDF5FA;
   --fc-border:    rgba(255,255,255,0.10);
-  --fc-muted:     rgba(237,241,236,0.48);
-  --fc-body:      rgba(237,241,236,0.85);
+  --fc-muted:     #C5D8E5;
+  --fc-body:      #E9F3FA;
   --fc-heading:   #FFFFFF;
-  --fc-accent:    #D9A961;
-  --fc-accent-dk: #BC8C42;
+  --fc-accent:    #F8A38E;
+  --fc-accent-dk: #EF876F;
   --fc-radius:    10px;
   --fc-font:      'Inter Tight', 'Archivo', system-ui, sans-serif;
   --fc-shadow:    0 24px 64px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4);
@@ -71,7 +70,7 @@
 }
 
 #fc-chat-launcher svg {
-  color: #0B231C;
+  color: #173851;
   transition: opacity 0.15s;
 }
 
@@ -165,8 +164,8 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  /* Ground, not brass: the mark's second link is brass and would vanish on it. */
-  background: #F7F4EE;
+  /* Light ground keeps the room outline and coral table distinct. */
+  background: #F2F8FC;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -280,7 +279,7 @@
 
 .fc-msg.visitor .fc-bubble {
   background: var(--fc-accent);
-  color: #0B231C;
+  color: #173851;
   border-bottom-right-radius: 4px;
   font-weight: 500;
 }
@@ -288,11 +287,13 @@
 .fc-bubble a {
   color: var(--fc-accent);
   text-decoration: underline;
-  text-decoration-color: rgba(217,169,97,0.4);
+  text-decoration-color: currentColor;
 }
 
+.fc-msg.bot .fc-bubble a { color: #245F85; }
+
 .fc-msg.visitor .fc-bubble a {
-  color: #0B231C;
+  color: #173851;
   text-decoration-color: rgba(12,14,18,0.4);
 }
 
@@ -323,7 +324,7 @@
 .fc-typing-dot {
   width: 6px;
   height: 6px;
-  background: var(--fc-muted);
+  background: #536979;
   border-radius: 50%;
   animation: fc-bounce 1.2s infinite;
 }
@@ -393,7 +394,7 @@
   background: var(--fc-surface-2);
   border: 1px solid var(--fc-border);
   border-radius: 8px;
-  color: var(--fc-heading);
+  color: #173851;
   font-family: var(--fc-font);
   font-size: 13.5px;
   line-height: 1.5;
@@ -405,8 +406,8 @@
   transition: border-color 0.15s;
 }
 
-#fc-input::placeholder { color: var(--fc-muted); }
-#fc-input:focus { border-color: rgba(217,169,97,0.4); }
+#fc-input::placeholder { color: #536979; }
+#fc-input:focus { border-color: #245F85; }
 
 #fc-send-btn {
   width: 38px;
@@ -419,7 +420,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #0B231C;
+  color: #173851;
   transition: background 0.15s, transform 0.12s;
   outline: none;
 }
@@ -477,7 +478,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 4px;
-  color: #0B231C;
+  color: #173851;
 }
 
 .fc-welcome-title {
@@ -563,3 +564,7 @@
     animation: none;
   }
 }
+
+/* Daylight brand: readable assistant bubbles and the room/table identity. */
+.fc-msg.bot .fc-bubble{color:#173851;border-color:#CFDFE9}
+.fc-avatar{color:#173851;border-radius:6px}

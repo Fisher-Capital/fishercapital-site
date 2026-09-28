@@ -45,11 +45,11 @@
   // ─────────────────────────────────────────────
   function buildWidget() {
     // Inject CSS if not already loaded, and never if the page already links it
-    if (!document.getElementById('fc-chatbot-css') && !document.querySelector('link[href$="/chatbot.css"]')) {
+    if (!document.getElementById('fc-chatbot-css') && !document.querySelector('link[href^="/chatbot.css"]')) {
       const link = document.createElement('link');
       link.id = 'fc-chatbot-css';
       link.rel = 'stylesheet';
-      link.href = '/chatbot.css'; // adjust path if serving from CDN
+      link.href = '/chatbot.css?v=room-table-3'; // adjust path if serving from CDN
       document.head.appendChild(link);
     }
 
@@ -70,7 +70,7 @@
       <!-- Header -->
       <div id="fc-chat-header">
         <div class="fc-header-identity">
-          <div class="fc-avatar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="fc-avatar-mark" aria-hidden="true" focusable="false"><path d="M10 28.5 L32 9 L54 28.5 V55.5 H10 Z" fill="none" stroke="#12332A" stroke-width="4.4" stroke-linejoin="miter" stroke-miterlimit="10"/><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#12332A" stroke-width="4.0"/><rect x="28.8" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#D9A961" stroke-width="4.0"/><defs><clipPath id="g1-ct-chat"><rect x="26.8" y="31.0" width="10.4" height="8.4"/></clipPath></defs><g clip-path="url(#g1-ct-chat)"><rect x="14.6" y="35.0" width="20.6" height="11.8" rx="5.9" fill="none" stroke="#12332A" stroke-width="4.0"/></g></svg></div>
+          <div class="fc-avatar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="fc-avatar-mark" aria-hidden="true" focusable="false"><path d="M23 54H14a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4v36a4 4 0 0 1-4 4h-9" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><rect x="25" y="21" width="14" height="22" rx="7" fill="#E9775C"/><path d="M18 28v8m28-8v8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></div>
           <div class="fc-header-text">
             <span class="fc-header-name">The Mortgage Room</span>
             <span class="fc-header-agent">Raymond. F, Mortgage agent</span>
