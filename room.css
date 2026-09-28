@@ -40,7 +40,7 @@ header{background:#F7F4EE;backdrop-filter:none}
 .picker .btn{font-size:13px;min-height:46px;padding:12px}
 .brief-note{font-size:12px;color:#57635B;margin-top:10px;text-align:center}
 .room-route{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #ffffff29;padding:22px 0 25px;gap:24px}
-.room-route a{display:flex;align-items:center;gap:13px;color:#e1e9e1;text-decoration:none;font-size:14px;font-weight:600}
+.room-route a{min-height:44px;display:flex;align-items:center;gap:13px;color:#e1e9e1;text-decoration:none;font-size:14px;font-weight:600}
 .room-route a:hover{color:#D9A961}
 .room-route span{font-size:11px;font-variant-numeric:tabular-nums;color:#D9A961;display:grid;place-items:center;width:28px;height:28px;border:1px solid #D9A96160;border-radius:50%}
 .room-route b{margin-left:auto;font-size:18px;font-weight:400;color:#D9A961}
