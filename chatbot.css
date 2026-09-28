@@ -20,6 +20,7 @@
   --fc-heading:   #FFFFFF;
   --fc-accent:    #F8A38E;
   --fc-accent-dk: #EF876F;
+  --fc-accent-text: #FFE0D6;
   --fc-radius:    10px;
   --fc-font:      'Inter Tight', 'Archivo', system-ui, sans-serif;
   --fc-shadow:    0 24px 64px rgba(0,0,0,0.6), 0 4px 16px rgba(0,0,0,0.4);
@@ -41,7 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 24px rgba(217,169,97,0.35), 0 2px 8px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 24px rgba(233,119,92,0.35), 0 2px 8px rgba(0,0,0,0.4);
   transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
   font-family: var(--fc-font);
   outline: none;
@@ -61,7 +62,7 @@
 #fc-chat-launcher:hover {
   background: var(--fc-accent-dk);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(217,169,97,0.4), 0 2px 8px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 32px rgba(233,119,92,0.4), 0 2px 8px rgba(0,0,0,0.4);
 }
 
 #fc-chat-launcher:focus-visible {
@@ -75,9 +76,9 @@
 }
 
 @keyframes fc-pulse-ring {
-  0%   { box-shadow: 0 4px 24px rgba(217,169,97,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(217,169,97,0.5); }
-  60%  { box-shadow: 0 4px 24px rgba(217,169,97,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 14px rgba(217,169,97,0); }
-  100% { box-shadow: 0 4px 24px rgba(217,169,97,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(217,169,97,0); }
+  0%   { box-shadow: 0 4px 24px rgba(233,119,92,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(233,119,92,0.5); }
+  60%  { box-shadow: 0 4px 24px rgba(233,119,92,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 14px rgba(233,119,92,0); }
+  100% { box-shadow: 0 4px 24px rgba(233,119,92,0.35), 0 2px 8px rgba(0,0,0,0.4), 0 0 0 0 rgba(233,119,92,0); }
 }
 
 #fc-chat-launcher.fc-pulse {
@@ -271,8 +272,8 @@
 }
 
 .fc-msg.raymond .fc-bubble {
-  background: rgba(217,169,97,0.08);
-  border: 1px solid rgba(217,169,97,0.2);
+  background: rgba(233,119,92,0.08);
+  border: 1px solid rgba(233,119,92,0.2);
   color: var(--fc-body);
   border-bottom-left-radius: 4px;
 }
@@ -285,7 +286,7 @@
 }
 
 .fc-bubble a {
-  color: var(--fc-accent);
+  color: var(--fc-accent-text);
   text-decoration: underline;
   text-decoration-color: currentColor;
 }
@@ -304,7 +305,7 @@
 }
 
 .fc-msg.raymond .fc-sender-label {
-  color: var(--fc-accent);
+  color: var(--fc-accent-text);
   font-weight: 500;
 }
 
@@ -351,9 +352,9 @@
   font-family: var(--fc-font);
   font-size: 12px;
   font-weight: 500;
-  color: var(--fc-accent);
+  color: var(--fc-accent-text);
   background: transparent;
-  border: 1px solid rgba(217,169,97,0.3);
+  border: 1px solid rgba(233,119,92,0.3);
   border-radius: 20px;
   padding: 5px 12px;
   cursor: pointer;
@@ -363,8 +364,8 @@
 }
 
 .fc-quick-btn:hover {
-  background: rgba(217,169,97,0.08);
-  border-color: rgba(217,169,97,0.5);
+  background: rgba(233,119,92,0.08);
+  border-color: rgba(233,119,92,0.5);
 }
 
 .fc-quick-btn:focus-visible {
@@ -373,8 +374,8 @@
 }
 
 .fc-quick-btn--contextual {
-  background: rgba(217,169,97,0.06);
-  border-color: rgba(217,169,97,0.45);
+  background: rgba(233,119,92,0.06);
+  border-color: rgba(233,119,92,0.45);
 }
 
 /* ─── Input area ────────────────────────────── */
