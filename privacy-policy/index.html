@@ -29,7 +29,7 @@
       <a href="/" class="nav-back">← Back to home</a>
     </div>
   </div>
-</header>
+</header><div class="direct-contact-strip" style="display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;padding:4px 16px;border-bottom:1px solid #CFDFE9;background:#fff"><a href="tel:+14168980181" style="display:inline-flex;align-items:center;min-height:44px">Call (416) 898-0181</a><a href="https://calendly.com/raymond-finance-co/mortgage-consultation" style="display:inline-flex;align-items:center;min-height:44px">Book a call</a></div>
 
 <main class="doc" id="main">
   <div class="wrap">
@@ -42,17 +42,17 @@
       This Privacy Policy explains what information www.themortgageroom.ca collects when you use this website, why it is collected, how it is used, and the choices you have. The Mortgage Room is a personal lead-capture brand operated by Raymond. F, Mortgage agent (Level 1), FSRA Lic. M26000144, with Centum Financial Services Limited Partnership, FSRA Brokerage Lic. 13054. This website serves Ontario residents and is intended for general information and initial inquiry only.
     </p>
 
-    <h2><span class="num">1.</span>What information is collected</h2>
+    <h2>The guided enquiry form</h2><p>The form asks for first and last name, a phone number or email, the property province and what you are looking to do. Answers stay in this tab until you press Send my request. After submission, our server validates them and delivers the enquiry to Zoho CRM through Make.com. We retain a request identifier and CRM receipt in Make to prevent duplicate submissions. Opening a phone or booking link is a separate action.</p><h2><span class="num">1.</span>What information is collected</h2>
     <p>
       When you fill out the intake form on this website, you may provide the following:
     </p>
     <ul>
-      <li>Your name</li>
+      <li>Your first and last name</li>
       <li>Your email address</li>
       <li>Your phone number</li>
-      <li>A general description of your mortgage situation (for example, renewal, refinance, self-employed income, a prior decline, or debt you want to consolidate)</li>
-      <li>Your general location or province</li>
-      <li>Any other details you choose to type into the optional notes field</li>
+      <li>Your selected mortgage goal, such as buying, renewing or using home equity</li>
+      <li>The property province</li>
+      <li>The offer page or ad creative that brought you to the form, when available, and your permission to be contacted about this enquiry</li>
     </ul>
     <p>
       If you book a call, the booking tool may also collect the information needed to schedule and confirm your appointment, such as your name, email, phone number, and chosen time.
@@ -63,7 +63,7 @@
 
     <div class="callout">
       <p>
-        <strong>Please do not submit sensitive information through this website.</strong> The public intake form is not designed to collect your Social Insurance Number (SIN), banking login credentials, document uploads, full financial records, or mortgage application paperwork. Please do not enter any of these into the form or the notes field. If sensitive documents are needed at a later stage, they are collected only through the approved brokerage application process, not through this website.
+        <strong>Please do not submit sensitive information through this website.</strong> The public intake form is not designed to collect your Social Insurance Number (SIN), banking login credentials, document uploads, full financial records, or mortgage application paperwork. Please do not enter any of these into the form. If sensitive documents are needed at a later stage, they are collected only through the approved brokerage application process, not through this website.
       </p>
     </div>
 
@@ -89,12 +89,14 @@
       To run this website and manage inquiries, a small number of third-party service providers may process the information you submit. Providers also have their own privacy and security practices. The Mortgage Room remains responsible for its handling of personal information and appropriate oversight of its service providers. The current tools are:
     </p>
     <ul>
-      <li><strong>Tally.</strong> Receives and stores the answers you type into the intake form, including your name, email, phone number and the details you give about your situation.</li>
+      <li><strong>Vercel.</strong> Receives the guided intake request after you press Send my request, validates it and passes it to Make.com for delivery to Zoho CRM. It also receives technical request information, such as your IP address and browser information, to serve and protect the service.</li>
+      <li><strong>Tally.</strong> Continues to process submissions made through older Tally intake links and holds previously submitted records. The new guided website form does not send its answers to Tally.</li>
+      <li><strong>Resend.</strong> Sends an internal notification to Raymond when a guided enquiry is accepted. This includes your name, phone number and/or email, province, selected goal and page or ad source, so he can follow up.</li>
       <li><strong>Calendly.</strong> Receives the name, email, phone number and time slot you provide when you book a call. On the thank-you page the calendar is not loaded until you press "Book a call"; pressing it makes your browser request the calendar from Calendly, which receives your IP address and browser information at that point.</li>
       <li><strong>Make.com.</strong> Receives submissions from the website intake form in transit and passes them into the lead-tracking system.</li>
       <li><strong>Zoho CRM.</strong> Receives and stores your enquiry record, including your contact details, the details you shared and any notes added during follow-up.</li>
       <li><strong>Google Workspace.</strong> Receives the content of any email you exchange with Raymond. F, and hosts the mailbox for The Mortgage Room.</li>
-      <li><strong>Google Fonts.</strong> Receives your IP address and browser information when your browser requests the fonts used on these pages.</li>
+      <li><strong>Google Fonts.</strong> Some website pages request fonts from Google, which receives your IP address and browser information. The guided intake form serves its fonts directly from this website.</li>
       <li><strong>GitHub Pages.</strong> Hosts this website and receives the standard technical request information that any web host receives, such as your IP address and browser type.</li>
       <li><strong>Vercel, Supabase and Anthropic.</strong> Together they run the website chat: Vercel receives and serves the chat requests, Anthropic receives the message text in order to generate a reply, and Supabase stores the conversation. See the section on website chat.</li>
       <li><strong>Meta Platforms, Inc. and its affiliates.</strong> Receives the information you type into a Facebook or Instagram lead form, and keeps a copy under its own terms. The Meta Pixel is not currently in use on this website, so this website sends no Pixel events from your visits. See the section on cookies and advertising measurement.</li>
@@ -105,7 +107,10 @@
 
     <h2><span class="num">5.</span>Cookies, advertising measurement and social media lead forms</h2>
     <p>
-      <strong>Campaign attribution.</strong> When you arrive on the self-employed landing page or the thank-you page from a link that carries campaign parameters, this website reads those parameters from the address bar, which may include <span class="mono">utm_source</span>, <span class="mono">utm_medium</span>, <span class="mono">utm_campaign</span>, <span class="mono">utm_content</span>, <span class="mono">utm_term</span> and Facebook's <span class="mono">fbclid</span>, and stores them in your browser's session storage along with a randomly generated session token. Those values, the token included, are then appended to the intake form and booking links. The token does not contain personal information on its own; once it is submitted with a form or booking it acts as a pseudonymous identifier that lets the enquiry be attributed to the campaign it came from. This is campaign attribution, separate from the Meta Pixel: nothing is sent to Meta by it, and everything it stores is cleared when you close the browser tab. If you would rather it did not happen, remove the parameters from the address before loading the page, or use a browser that blocks site storage.
+      <strong>Guided form.</strong> Unsubmitted answers stay in memory in the open tab. They are not put in page addresses, browser storage or advertising events. Closing or refreshing the tab clears them. After you press Send my request, the details and your enquiry-contact permission are sent through Vercel and Make.com to Zoho CRM. A recognized creative identifier from the link may accompany the enquiry. The booking button opens Calendly in a new tab; it does not book an appointment automatically.
+    </p>
+    <p>
+      <strong>Campaign attribution on other pages.</strong> When you arrive on the self-employed landing page or the thank-you page from a link that carries campaign parameters, this website reads those parameters from the address bar, which may include <span class="mono">utm_source</span>, <span class="mono">utm_medium</span>, <span class="mono">utm_campaign</span>, <span class="mono">utm_content</span>, <span class="mono">utm_term</span> and Facebook's <span class="mono">fbclid</span>, and stores them in your browser's session storage along with a randomly generated session token. Those values, the token included, are then appended to the intake form and booking links. The token does not contain personal information on its own; once it is submitted with a form or booking it acts as a pseudonymous identifier that lets the enquiry be attributed to the campaign it came from. This is campaign attribution, separate from the Meta Pixel: nothing is sent to Meta by it, and everything it stores is cleared when you close the browser tab. If you would rather it did not happen, remove the parameters from the address before loading the page, or use a browser that blocks site storage.
     </p>
     <p>
       <strong>The Meta Pixel is not currently in use.</strong> The Meta Pixel is a small piece of code from Meta Platforms, Inc. that uses cookies and similar identifiers to measure how ads perform. This website contains the code needed to run it, but it is switched off: it is not loaded on any page, no information is sent to Meta by it, no Meta cookie is set by it, and no advertising notice is shown. If it is switched on in future, this policy will be updated before that happens to describe exactly which pages it runs on, what it sends and how to decline, and it will load only after you accept a notice on those pages.

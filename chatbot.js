@@ -10,7 +10,7 @@
   // ─────────────────────────────────────────────
   const CONFIG = {
     apiBase:      'https://fishercapital-chatbot.vercel.app',
-    intakeUrl:    'https://tally.so/r/KYGDrk',
+    intakeUrl:    '/intake/',
     calendlyUrl:  'https://calendly.com/raymond-finance-co/mortgage-consultation',
     pollInterval: 8000,   // ms between takeover status polls
     mobilePulseDelay: 20000,  // ms before pulsing chat button on mobile

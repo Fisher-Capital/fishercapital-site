@@ -28,7 +28,7 @@
       t: 'You don’t need all the answers yet.',
       s: 'We’ll start with what you want to do, what’s getting in the way, and your timing. There’s room to work through the questions together.',
       focus: ['Your goal', 'Your questions', 'Your timing'],
-      cta: 'Let’s talk about your situation →', href: 'https://tally.so/r/KYGDrk'
+      cta: 'Let’s talk about your situation →', href: '/intake/'
     },
     declined: {
       t: 'Let’s understand the reason.',
