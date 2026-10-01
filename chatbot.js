@@ -66,6 +66,7 @@
     // Chat window
     const win = el('div', { id: 'fc-chat-window', role: 'dialog', 'aria-label': 'The Mortgage Room chat', 'aria-modal': 'false' });
 
+    win.style.visibility = 'hidden';
     win.inert = true;
     win.setAttribute('aria-hidden', 'true');
     win.innerHTML = `
@@ -199,6 +200,7 @@
   function openChat() {
     isOpen = true;
     const win = document.getElementById('fc-chat-window');
+    win.style.visibility = 'visible';
     win.inert = false;
     win.setAttribute('aria-hidden', 'false');
     win.classList.add('open');
@@ -237,6 +239,7 @@
     isOpen = false;
     const win = document.getElementById('fc-chat-window');
     win.classList.remove('open');
+    win.style.visibility = 'hidden';
     win.inert = true;
     win.setAttribute('aria-hidden', 'true');
     win.setAttribute('aria-modal', 'false');
