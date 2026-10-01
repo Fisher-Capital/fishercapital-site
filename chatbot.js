@@ -49,7 +49,7 @@
       const link = document.createElement('link');
       link.id = 'fc-chatbot-css';
       link.rel = 'stylesheet';
-      link.href = '/chatbot.css?v=open-room-5'; // adjust path if serving from CDN
+      link.href = '/chatbot.css?v=paid-chat-1'; // adjust path if serving from CDN
       document.head.appendChild(link);
     }
 
@@ -66,6 +66,8 @@
     // Chat window
     const win = el('div', { id: 'fc-chat-window', role: 'dialog', 'aria-label': 'The Mortgage Room chat', 'aria-modal': 'false' });
 
+    win.inert = true;
+    win.setAttribute('aria-hidden', 'true');
     win.innerHTML = `
       <!-- Header -->
       <div id="fc-chat-header">
@@ -116,7 +118,16 @@
       <div id="fc-compliance-footer">${COMPLIANCE_FOOTER}</div>
     `;
 
-    document.body.appendChild(launcher);
+    const inlineEntry = document.querySelector('[data-chat-entry]');
+    if (inlineEntry) {
+      launcher.classList.add('fc-inline-launcher');
+      launcher.setAttribute('aria-label', 'Ask a question');
+      const label = el('span'); label.textContent = 'Ask a question';
+      launcher.appendChild(label);
+      inlineEntry.appendChild(launcher);
+    } else {
+      document.body.appendChild(launcher);
+    }
     document.body.appendChild(win);
 
     // Wire events
@@ -174,6 +185,13 @@
   // ─────────────────────────────────────────────
   // Chat open/close
   // ─────────────────────────────────────────────
+  function refreshLauncherLabel(launcher, opened) {
+    const inline = launcher.classList.contains('fc-inline-launcher');
+    const label = opened ? 'Close chat' : inline ? 'Ask a question' : 'Open chat';
+    launcher.setAttribute('aria-label', label);
+    if (inline) { const text = el('span'); text.textContent = label; launcher.appendChild(text); }
+  }
+
   function toggleChat() {
     isOpen ? closeChat() : openChat();
   }
@@ -181,6 +199,8 @@
   function openChat() {
     isOpen = true;
     const win = document.getElementById('fc-chat-window');
+    win.inert = false;
+    win.setAttribute('aria-hidden', 'false');
     win.classList.add('open');
     win.setAttribute('aria-modal', 'true');
 
@@ -197,6 +217,8 @@
       </svg>
       <div id="fc-unread-badge"></div>
     `;
+
+    refreshLauncherLabel(launcher, true);
 
     // Focus input
     setTimeout(() => document.getElementById('fc-input')?.focus(), 200);
@@ -215,6 +237,8 @@
     isOpen = false;
     const win = document.getElementById('fc-chat-window');
     win.classList.remove('open');
+    win.inert = true;
+    win.setAttribute('aria-hidden', 'true');
     win.setAttribute('aria-modal', 'false');
 
     // Restore chat icon
@@ -226,6 +250,8 @@
       <div id="fc-unread-badge"></div>
     `;
 
+    refreshLauncherLabel(launcher, false);
+    launcher.focus({ preventScroll: true });
     stopTakeoverPoll();
   }
 
@@ -528,17 +554,8 @@
   }
 
   // ─────────────────────────────────────────────
-  // Init guard: no chat on paid sessions, and none where the page opts out.
-  //
-  // This is the same last-touch rule as fc-tracking.js (S2), implemented
-  // independently so the guard cannot be defeated by blocking that file:
-  // the current URL wins, any utm_* or fbclid in the URL replaces the stored
-  // bundle entirely, and with no such parameters the stored bundle is used
-  // unchanged. Presence counts, not value, so a bare "?fbclid=" is paid.
-  // fc-tracking.js does not run on these pages, so the replacement write has
-  // to happen here or a later parameterless visit would still read the old
-  // bundle. Nothing else in the stored bundle is ever modified here.
-  // ─────────────────────────────────────────────
+  // Chat remains available for paid visitors. Attribution still uses the
+  // existing last-touch bundle; paid sessions get a manual launcher only.
   const FC_UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
   const FC_BUNDLE_KEYS = FC_UTM_KEYS.concat(['fbclid']);
 
@@ -598,18 +615,22 @@
     }
   }
 
-  if (isPaidSession() || chatbotDisabled()) {
+  const paidSession = isPaidSession();
+  if (chatbotDisabled()) {
     return; // no DOM, no CSS, no listeners
   }
 
   // ─────────────────────────────────────────────
   // Init
   // ─────────────────────────────────────────────
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { buildWidget(); scheduleAutoOpen(); });
-  } else {
+  function initializeChat() {
     buildWidget();
-    scheduleAutoOpen();
+    if (!paidSession && document.body.dataset.fcChatAutoOpen !== 'off') scheduleAutoOpen();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeChat);
+  } else {
+    initializeChat();
   }
 
 })();

@@ -569,3 +569,9 @@
 /* Daylight brand: readable assistant bubbles and the room/table identity. */
 .fc-msg.bot .fc-bubble{color:#173851;border-color:#CFDFE9}
 .fc-avatar{color:#173851;border-radius:6px}
+
+/* A quiet, inline chat entry on form-first pages keeps controls unobstructed. */
+[data-chat-entry]{margin-top:20px;border-top:1px solid #CFDFE9;padding-top:12px}
+#fc-chat-launcher.fc-inline-launcher{position:relative;inset:auto;z-index:1;width:auto;height:auto;min-height:44px;border-radius:6px;background:transparent;color:#245F85;box-shadow:none;gap:10px;padding:6px 0;transform:none;font-size:16px;font-weight:600}
+#fc-chat-launcher.fc-inline-launcher svg{color:#245F85}
+#fc-chat-launcher.fc-inline-launcher:focus-visible{outline:3px solid #245F85;outline-offset:3px}
