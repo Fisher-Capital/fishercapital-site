@@ -29,6 +29,6 @@ export function deliveryMessage(code){
 
 export function safeApplication(value){
  if(value?.available!==true||typeof value.url!=='string')return null;
- try{const u=new URL(value.url);if(u.origin!=='https://apply.themortgageroom.ca'||u.pathname!=='/application/'||u.username||u.password||u.search||!/^#access=[A-Za-z0-9_-]{43}$/.test(u.hash))return null;
+ try{const u=new URL(value.url);if(u.origin!=='https://apply.themortgageroom.ca'||u.pathname!=='/application/'||u.username||u.password||u.search||!/^#(?:access|handoff)=[A-Za-z0-9_-]{43}$/.test(u.hash))return null;
  return {url:u.href,emailed:value.emailed===true};}catch{return null;}
 }

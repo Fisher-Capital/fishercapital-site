@@ -1,4 +1,4 @@
-import {createDelivery,deliveryMessage} from './delivery.mjs?v=application-1';
+import {createDelivery,deliveryMessage} from './delivery.mjs?v=application-no-code-2';
 import {blankContact,validateContact,buildContact,PURPOSES} from './quick-model.mjs';
 import {contextFrom} from './model.mjs';
 const root=document.querySelector('#campaign-form,#guided-intake');
