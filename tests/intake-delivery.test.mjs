@@ -34,3 +34,17 @@ test('expired challenge is refreshed while preserving request ID',async()=>{
  let gets=0,posts=0;const d=createDelivery('https://example.invalid/api',{uuid:()=>id,wait:async()=>{},fetcher:async(u,o)=>o.method==='GET'?(gets++,result({challenge:'sample'})):(posts++===0?result({error:'refresh_required'},false):result({ok:true,reference:id}))});
  await assert.rejects(d.submit({}));assert.equal(await d.submit({}),id);assert.equal(gets,2);
 });
+
+// An optional next step never replaces or invalidates the confirmed enquiry.
+test('application handoff only accepts the configured secure portal and clears on retry',async()=>{
+ const valid='https://apply.themortgageroom.ca/application/#access='+'a'.repeat(43);
+ for(const url of [valid,'javascript:alert(1)',valid.replace('apply.themortgageroom.ca','example.com'),valid.replace('/application/','/admin/'),valid.replace('#access=','?secret=x#access=')]){
+  let n=0;const d=createDelivery('https://example.invalid/api',{uuid:()=>id,wait:async()=>{},fetcher:async(u,o)=>o.method==='GET'?result({challenge:'sample'}):result({ok:true,reference:id,...(n++===0?{application:{available:true,url,emailed:true}}:{})})});
+  assert.equal(await d.submit({}),id);assert.equal(d.application()?.url||null,url===valid?valid:null);
+  assert.equal(await d.submit({}),id);assert.equal(d.application(),null);
+ }
+});
+test('phone-only enquiries succeed with no application handoff',async()=>{
+ const d=createDelivery('https://example.invalid/api',{uuid:()=>id,wait:async()=>{},fetcher:async(u,o)=>o.method==='GET'?result({challenge:'sample'}):result({ok:true,reference:id})});
+ assert.equal(await d.submit({contact:{phone:'+14165550100'}}),id);assert.equal(d.application(),null);
+});
